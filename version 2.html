@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beatriz Palazuelo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* @font-face ApplePeach aquí */
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --dark:#1C1A14; --cream:#FFFCF5; --p1:#da1c5c; --p2:#f25a2b; --p3:#fbc131; --p4:#fd5ed2; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'DM Sans',sans-serif; background:#562915; color:var(--dark); cursor:url("data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" shape-rendering="crispEdges"><path d="M0 0h2v14h2v-4h2v-2h2v-2h2v-2h-2v-2h-2v-2h-2V0z" fill="%23562915"/><path d="M2 2v10h2v-4h2v-2h2v-2h-2V2z" fill="%23F4A4B8"/><path d="M4 12h2v2H4zm4-4h2v2H8z" fill="%23E06080"/></svg>") 0 0, auto; overflow-x:hidden; }
+    a, button, .prop-card, .site-card { cursor:url("data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" shape-rendering="crispEdges"><path d="M0 0h2v14h2v-4h2v-2h2v-2h2v-2h-2v-2h-2v-2h-2V0z" fill="%23562915"/><path d="M2 2v10h2v-4h2v-2h2v-2h-2V2z" fill="%23F4A4B8"/><path d="M4 12h2v2H4zm4-4h2v2H8z" fill="%23E06080"/></svg>") 0 0, pointer; }
+
+    #cursor { display:none; }
+
+
+
+    nav { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-items:center; justify-content:flex-start; padding:0 2.5rem; height:60px; }
+    .nav-logo { font-family:'ApplePeach','Fraunces',serif; font-size:1.5rem; color:#FFEAD6; text-decoration:none;  font-weight:700; }
+    .nav-contact { font-family:'Fraunces',serif; font-size:.72rem; font-weight:900; font-style:italic; text-transform:uppercase; padding:.6rem 1.5rem; border-radius:100px; border:3px solid #562915; background:#E8B400; color:#562915; text-decoration:none; box-shadow:4px 4px 0 0 #562915,7px 7px 0 0 #C44C18; transition:box-shadow .15s,transform .15s,background .2s; }
+    .nav-contact:hover { background:#c49ee8; transform:translate(-3px,-3px); box-shadow:4px 4px 0 0 #562915,7px 7px 0 0 #562915; }
+
+    /* HERO */
+    #hero {
+      position:relative; z-index:1; height:100vh;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      overflow:hidden; padding:0;
+      background: linear-gradient(to bottom, #FFEAD6 54%, #562915 54%);
+    }
+    .retro-computer { position:relative; display:flex; flex-direction:column; align-items:center; margin-top:-4vh; }
+    .monitor-outer {
+      background:#F4A4B8; border:3px solid #562915; border-radius:28px 28px 18px 18px;
+      padding:18px 22px 10px;
+      box-shadow:5px 5px 0 #562915, 9px 9px 0 #C44C18;
+      width:min(68vw,580px);
+    }
+    .monitor-inner-bezel {
+      background:#2b3a6b; border-radius:14px 14px 10px 10px; padding:8px;
+      box-shadow:inset 0 0 20px rgba(0,0,0,.55), inset 0 0 5px rgba(0,0,0,.8);
+    }
+    .monitor-screen {
+      background:#b8e4f5; border-radius:6px; overflow:hidden;
+      aspect-ratio:4/3;
+      padding:clamp(.7rem,2vw,1.4rem) clamp(.8rem,2.2vw,1.6rem);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:clamp(1rem,2.5vh,2rem);
+      position:relative;
+      box-shadow:inset 4px 4px 22px rgba(43,58,107,.25), inset -4px -4px 22px rgba(43,58,107,.2);
+    }
+    .screen-deco { display:none; }
+    @keyframes twinkle { 0%,100%{opacity:.4} 50%{opacity:1} }
+    .monitor-screen::after {
+      content:''; position:absolute; inset:0; pointer-events:none; z-index:10;
+      background:repeating-linear-gradient(transparent,transparent 2px,rgba(0,0,0,.035) 2px,rgba(0,0,0,.035) 3px);
+    }
+    .monitor-bezel { display:flex; align-items:center; justify-content:space-between; padding:9px 14px 5px; }
+    .bezel-dots { display:flex; gap:8px; }
+    .bezel-dot { width:10px; height:10px; border-radius:50%; border:2px solid #562915; background:transparent; }
+    .bezel-dot.d1 { background:#4CAF50; }
+    .bezel-dot.d2 { background:#F0A224; }
+    .bezel-dot.d3 { background:#FCA6AF; }
+    .bezel-dot.d4 { background:#FCA6AF; opacity:.35; }
+    .bezel-brand { font-family:'Press Start 2P',monospace; font-size:.38rem; color:#562915; opacity:.4; }
+    .bezel-slot { width:30px; height:8px; border:2px solid #562915; border-radius:2px; opacity:.35; }
+    .monitor-neck { width:clamp(50px,8vw,72px); height:clamp(13px,1.8vw,18px); background:#F4A4B8; border-left:3px solid #562915; border-right:3px solid #562915; clip-path:polygon(8% 0%,92% 0%,100% 100%,0% 100%); }
+    .monitor-cpu {
+      width:min(68vw,580px); background:#F4A4B8;
+      border:3px solid #562915; border-radius:6px 6px 12px 12px;
+      box-shadow:5px 5px 0 #562915,9px 9px 0 #C44C18;
+      padding:14px 18px; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .cpu-label { font-family:'Press Start 2P',monospace; font-size:.36rem; color:#562915; opacity:.45; }
+    .cpu-right { display:flex; align-items:center; gap:10px; }
+    .cpu-floppy { width:clamp(38px,6%,56px); height:11px; border:2px solid #562915; border-radius:2px; background:rgba(86,41,21,.07); position:relative; overflow:hidden; }
+    .cpu-floppy::after { content:''; position:absolute; top:3px; left:4px; right:4px; height:2px; background:rgba(86,41,21,.22); border-radius:1px; }
+    .cpu-power { width:13px; height:13px; border-radius:50%; border:2px solid #562915; background:#90EE90; box-shadow:0 0 5px rgba(144,238,144,.8); }
+    /* Name pixel */
+    .hero-name { font-family:'Press Start 2P',monospace; font-size:clamp(.7rem,1.8vw,1.5rem); line-height:1.3; letter-spacing:.04em; color:#f0608a; text-shadow: 2px 2px 0 #562915, 4px 4px 0 #3a1a0a; position:relative; z-index:1; }
+    .hero-name .letter { display:inline-block; transition:color .2s, text-shadow .2s;  }
+    .hero-name .letter.space { display:inline-block; width:.5em; }
+    .screen-subtitle { font-family:'Press Start 2P',monospace; font-size:clamp(.45rem,1vw,.9rem); color:#fff; letter-spacing:.18em; position:relative; z-index:1; text-shadow:1px 1px 0 rgba(43,58,107,.5); margin-bottom:.2rem; }
+    /* CTA circles — purple pastel */
+    .hero-cats { display:flex; gap:clamp(.35rem,.7vw,.6rem); flex-wrap:wrap; margin-top:clamp(.5rem,1.5vh,1rem); justify-content:center; align-items:center; position:relative; z-index:1; }
+    .float-circle {
+      width:clamp(64px,7.5vw,96px); height:clamp(64px,7.5vw,96px);
+      border-radius:50%; display:flex; align-items:center; justify-content:center; text-align:center;
+      font-family:'Press Start 2P',monospace; font-size:clamp(.38rem,.55vw,.6rem);
+      line-height:1.6; text-transform:uppercase;
+      color:#562915; text-decoration:none; 
+      background:#d4b3f5; border:2.5px solid #562915;
+      box-shadow:3px 3px 0 #562915,5px 5px 0 #9b6fd4;
+      transition:box-shadow .15s,transform .15s,background .2s,color .2s;
+      animation:floatBob 4s ease-in-out infinite;
+    }
+    .float-circle.c2 { animation-delay:.9s; }
+    .float-circle.c3 { animation-delay:1.8s; }
+    .float-circle.c4 { animation-delay:2.7s; }
+    .float-circle:hover { transform:translate(-2px,-2px); }
+    .float-circle.c1:hover { background:#FCA6AF; box-shadow:3px 3px 0 #562915,5px 5px 0 #D13955; }
+    .float-circle.c2:hover { background:#FFBF52; box-shadow:3px 3px 0 #562915,5px 5px 0 #F0A224; }
+    .float-circle.c3:hover { background:#D13955; color:#FFEAD6; box-shadow:3px 3px 0 #562915,5px 5px 0 #562915; }
+    .float-circle.c4:hover { background:#F0A224; box-shadow:3px 3px 0 #562915,5px 5px 0 #C44C18; }
+    /* keyboard + mouse */
+    .peripherals { display:flex; align-items:flex-end; gap:clamp(16px,2.5vw,28px); margin-top:10px; }
+    .keyboard { background:#F4A4B8; border:2.5px solid #562915; border-radius:10px 10px 14px 14px; padding:clamp(12px,1.8vw,20px) clamp(16px,2.5vw,30px) clamp(14px,2vw,22px); box-shadow:5px 5px 0 #562915,9px 9px 0 #C44C18; }
+    .kb-rows { display:flex; flex-direction:column; gap:clamp(4px,.6vw,7px); }
+    .kb-row { display:flex; gap:clamp(3px,.5vw,5px); justify-content:center; }
+    .kb-key { background:#FFEAD6; border:1.5px solid #562915; border-radius:2px; width:clamp(16px,2.4vw,28px); height:clamp(14px,1.9vw,22px); box-shadow:0 2.5px 0 #562915; }
+    .kb-key.wide { width:clamp(36px,5.5vw,64px); }
+    .kb-key.wider { width:clamp(80px,12vw,148px); }
+    .mouse { background:#F4A4B8; border:2.5px solid #562915; border-radius:50% 50% 40% 40%; width:clamp(52px,7vw,80px); height:clamp(72px,10vw,114px); box-shadow:5px 5px 0 #562915,9px 9px 0 #C44C18; position:relative; display:flex; flex-direction:column; align-items:center; padding-top:clamp(10px,1.4vw,18px); gap:8px; }
+    .mouse-btn { width:60%; height:30%; border-bottom:2px solid #562915; display:flex; gap:3px; }
+    .mouse-btn span { flex:1; border-right:1px solid rgba(86,41,21,.3); }
+    .mouse-btn span:last-child { border:none; }
+    .mouse-cable { width:3px; height:clamp(28px,4vw,50px); background:#562915; border-radius:2px; position:absolute; top:-clamp(28px,4vw,50px); left:50%; transform:translateX(-50%); opacity:.6; }
+    .scroll-hint { position:absolute; bottom:1.8rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:.5rem; font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,234,214,.5); pointer-events:none; }
+    .scroll-bar { width:1.5px; height:28px; background:linear-gradient(rgba(255,234,214,.6),transparent); animation:growBar 1.8s ease-in-out infinite; }
+       #stack-spacer  →  lives in normal flow AFTER the hero.
+                         Height = (N-1) × 100vh.
+                         This is the ONLY thing creating scroll distance.
+       
+       #stack-stage   →  position: FIXED. Full screen. z-index: 2.
+                         Hidden until hero is scrolled past.
+                         Once visible, it stays on screen.
+                         All cards live here, absolutely positioned.
+       
+       JS logic:
+         scrolled = window.scrollY - heroHeight
+         
+         Card 0:  translateY(0)  always. Scales down as card 1 enters.
+         Card i:  enters as scrolled goes (i-1)×VH → i×VH
+                  translateY = (1 - progress) × 100%
+    ══════════════════════════════════════════════════════ */
+
+    #stack-spacer { display:none; }
+
+    #stack-stage {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-card {
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
+      margin: 0 1.6rem 0;
+      border-radius: 24px;
+      overflow: visible;
+      padding: 4.5rem 4rem 8rem;
+      transform-origin: top center;
+      will-change: transform;
+    }
+    #card-branding  { z-index:10; }
+    #card-website   { z-index:20; }
+    #card-corporate { z-index:30; }
+    #card-wedding   { z-index:40; }
+    #card-contact   { z-index:50; }
+
+    /* colours */
+    #card-branding  { background:#FFEAD6; }
+    #card-website   { background:#fce8ef; }
+    #card-corporate { background:#fff; border:1.5px solid rgba(28,26,20,.1); }
+    #card-wedding   { background:#fff8e6; }
+    #card-contact   { background:#D13955; color:var(--cream); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:5rem 4rem; }
+
+    /* typography */
+    .section-eyebrow { font-size:.7rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; margin-bottom:1.2rem; }
+    #card-branding  .section-eyebrow,#card-branding  .section-title em { color:#C44C18; }
+    .branding-empty { grid-column:1/-1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; padding:4rem 2rem; border:2px dashed rgba(86,41,21,.2); border-radius:20px; text-align:center; }
+    .branding-empty-icon { font-size:2.5rem; color:#C44C18; opacity:.4; animation:floatBob 4s ease-in-out infinite; }
+    .branding-empty-title { font-family:'Fraunces',serif; font-size:1.4rem; font-weight:700; font-style:italic; color:#562915; }
+    .branding-empty-sub { font-size:.85rem; color:rgba(86,41,21,.5); max-width:280px; line-height:1.6; }
+    #card-website   .section-eyebrow,#card-website   .section-title em { color:#D13955; }
+    #card-corporate .section-eyebrow,#card-corporate .section-title em { color:#C44C18; }
+    #card-wedding   .section-eyebrow,#card-wedding   .section-title em { color:#C44C18; }
+    #card-contact   .section-eyebrow { color:rgba(255,252,245,.55); }
+    .section-title { font-family:'Fraunces',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:900; line-height:1.1; margin-bottom:1rem; }
+    .section-title em { font-style:italic; }
+    #card-contact .section-title { font-size:clamp(3rem,6vw,5.5rem); font-style:italic; color:var(--cream); max-width:700px; }
+    .section-desc { font-size:.88rem; font-weight:300; line-height:1.7; max-width:460px; color:rgba(28,26,20,.65); margin-bottom:2rem; }
+    #card-contact .section-desc { color:rgba(255,252,245,.7); max-width:500px; margin-bottom:3rem; }
+    .collab-badge { display:inline-flex; align-items:center; gap:.45rem; font-size:.65rem; font-weight:600; letter-spacing:.03em; color:rgba(28,26,20,.55); background:rgba(28,26,20,.06); border:1px solid rgba(28,26,20,.12); border-radius:100px; padding:.3rem .75rem; margin-bottom:1.4rem; text-decoration:none;  transition:background .2s, color .2s; }
+    .collab-badge:hover { background:rgba(28,26,20,.11); color:rgba(28,26,20,.8); }
+    .collab-badge .collab-dot { width:6px; height:6px; border-radius:50%; background:#C44C18; flex-shrink:0; }
+    .section-number { position:absolute; top:3.5rem; right:4rem; font-family:'Fraunces',serif; font-size:6rem; font-weight:900; opacity:.06; line-height:1; pointer-events:none; }
+    .section-divider { border:none; border-top:1px solid rgba(28,26,20,.12); margin:1.4rem 0 1.6rem; }
+
+    /* portrait cards */
+    .cards-grid   { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .cards-grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+    .prop-card { border:1.5px solid rgba(28,26,20,.1); border-radius:18px; overflow:hidden; aspect-ratio:3/4; position:relative;  transition:transform .35s cubic-bezier(.34,1.56,.64,1); }
+    .prop-card:hover { transform:scale(1.035) rotate(-1deg); }
+    .prop-bg { position:absolute; inset:0; }
+    #card-branding .prop-card:nth-child(1) .prop-bg { background:linear-gradient(145deg,#80B0E8,#D1CAE8); }
+    #card-branding .prop-card:nth-child(2) .prop-bg { background:linear-gradient(145deg,#F9C0C8,#FFCEC8); }
+    #card-branding .prop-card:nth-child(3) .prop-bg { background:linear-gradient(145deg,#a8d88a,#D6D35F); }
+    #card-wedding  .prop-card:nth-child(1) .prop-bg { background:linear-gradient(145deg,#F9C0C8,#FDA0B0); }
+    #card-wedding  .prop-card:nth-child(2) .prop-bg { background:linear-gradient(145deg,#F4D242,#D6D35F); }
+    .wedding-print-section { margin-top:.5rem; }
+    .wedding-print-title { font-family:'Fraunces',serif; font-size:1.3rem; font-weight:700; margin-bottom:.5rem; }
+    .wedding-print-title em { font-style:italic; font-weight:400; }
+    .wedding-print-desc { font-size:.85rem; color:rgba(28,26,20,.6); margin-bottom:1.2rem; }
+    .wedding-gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:.8rem; }
+    .wedding-gallery img { width:100%; border-radius:10px; object-fit:cover; aspect-ratio:3/4; border:1.5px solid rgba(28,26,20,.08); box-shadow:0 3px 12px rgba(0,0,0,.07); transition:transform .2s,box-shadow .2s;  }
+    .wedding-gallery img:hover { transform:translateY(-4px) scale(1.03); box-shadow:0 10px 28px rgba(0,0,0,.13); }
+    .prop-deco { position:absolute; top:0; left:0; right:0; bottom:40%; display:flex; align-items:center; justify-content:center; }
+    .prop-circle { width:70px; height:70px; border-radius:50%; border:2px solid rgba(28,26,20,.15); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:1.6rem; font-weight:700; color:rgba(28,26,20,.4); }
+    .prop-body { position:absolute; bottom:0; left:0; right:0; padding:1rem; background:linear-gradient(transparent,rgba(28,26,20,.06)); }
+    .prop-tag { display:inline-block; font-size:.56rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; border:1.5px solid rgba(28,26,20,.2); border-radius:100px; padding:.25rem .7rem; background:rgba(255,255,255,.6); margin-bottom:.4rem; }
+    .prop-body h3 { font-family:'Fraunces',serif; font-size:.95rem; font-weight:700; color:var(--dark); }
+    .prop-body p  { font-size:.7rem; color:rgba(28,26,20,.55); margin-top:.1rem; }
+
+    /* website */
+    .website-list { display:flex; flex-direction:column; gap:1.5rem; }
+    .site-row { display:grid; grid-template-columns:1.1fr 1fr; gap:2rem; align-items:start; }
+    .site-row + .site-row { padding-top:1.5rem; border-top:1px dashed rgba(28,26,20,.12); }
+    .site-card { border:1.5px solid rgba(28,26,20,.12); border-radius:14px; overflow:hidden; background:#fff;  transition:transform .3s,box-shadow .3s; }
+    .site-card:hover { transform:translateY(-5px) scale(1.01); box-shadow:0 16px 36px rgba(0,0,0,.09); }
+    .site-card a.site-link { display:block; text-decoration:none; color:inherit;  }
+    .browser-bar { background:#f0ece5; padding:.45rem .9rem; display:flex; align-items:center; gap:.6rem; }
+    .browser-dots { display:flex; gap:.3rem; }
+    .browser-dots span { width:9px; height:9px; border-radius:50%; }
+    .browser-dots span:nth-child(1){background:#FF5F57}
+    .browser-dots span:nth-child(2){background:#FFBD2E}
+    .browser-dots span:nth-child(3){background:#28C840}
+    .browser-url { flex:1; background:#fff; border-radius:5px; padding:.22rem .7rem; font-size:.68rem; color:rgba(28,26,20,.4); border:1px solid rgba(28,26,20,.08); display:flex; justify-content:space-between; }
+    .url-arrow { color:var(--p2); font-weight:700; }
+    .browser-screen { width:100%; aspect-ratio:16/8; display:block; object-fit:cover; object-position:top; }
+    .browser-screen-placeholder { width:100%; aspect-ratio:16/8; background:linear-gradient(135deg,#e8eef8,#f5e8f0); display:flex; align-items:center; justify-content:center; }
+    .browser-screen-placeholder span { font-size:.72rem; color:rgba(28,26,20,.3); letter-spacing:.1em; text-transform:uppercase; }
+    .site-info h3 { font-family:'Fraunces',serif; font-size:1.25rem; font-weight:900; line-height:1.2; margin-bottom:.6rem; }
+    .site-info h3 em { font-style:italic; }
+    .site-info p { font-size:.84rem; line-height:1.7; color:rgba(28,26,20,.62); margin-bottom:.9rem; }
+    .site-tags { display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:1rem; }
+    .site-tag { font-size:.58rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; border-radius:100px; padding:.25rem .7rem; background:rgba(28,26,20,.07); }
+    .visit-pill { display:inline-flex; align-items:center; gap:.35rem; font-size:.68rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:.5rem 1.1rem; border-radius:100px; border:1.5px solid var(--dark); color:var(--dark); text-decoration:none;  transition:background .2s,color .2s,transform .2s; }
+    .visit-pill:hover { background:var(--dark); color:#fff; transform:translateY(-2px); }
+    .coming-soon-row { display:flex; align-items:center; justify-content:center; padding:2rem 0 .5rem; }
+    .coming-soon-label { font-family:'Fraunces',serif; font-style:italic; font-size:1rem; color:rgba(28,26,20,.35); letter-spacing:.02em; }
+    .collab-note { margin-top:.8rem; font-size:.72rem; color:rgba(28,26,20,.45); }
+    .collab-note a { color:rgba(28,26,20,.65); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(28,26,20,.25);  transition:color .2s; }
+    .collab-note a:hover { color:var(--p4); }
+
+    /* expand */
+    .expand-panel { max-height:0; overflow:hidden; opacity:0; transition:max-height .6s cubic-bezier(.16,1,.3,1),opacity .4s; margin-top:1.2rem; }
+    .expand-panel.open { max-height:700px; opacity:1; }
+    .expand-inner { position:relative; border:1.5px solid rgba(28,26,20,.12); border-radius:16px; padding:1.5rem; background:rgba(255,255,255,.7); backdrop-filter:blur(6px); display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .expand-close { position:absolute; top:.8rem; right:.8rem; width:30px; height:30px; border-radius:50%; border:1.5px solid rgba(28,26,20,.15); background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center; font-size:.8rem;  transition:background .2s,color .2s; }
+    .expand-close:hover { background:#C44C18; color:#fff; }
+    .expand-media { aspect-ratio:16/10; border-radius:10px; background:rgba(28,26,20,.05); display:flex; align-items:center; justify-content:center; font-size:.72rem; color:rgba(28,26,20,.3); letter-spacing:.1em; text-transform:uppercase; }
+    .expand-info h3 { font-family:'Fraunces',serif; font-size:1.3rem; font-weight:900; margin-bottom:.6rem; }
+    .expand-info p  { font-size:.84rem; line-height:1.7; color:rgba(28,26,20,.6); margin-bottom:.8rem; }
+    .expand-tags { display:flex; flex-wrap:wrap; gap:.35rem; }
+    .expand-tag { font-size:.58rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; border-radius:100px; padding:.25rem .7rem; background:rgba(28,26,20,.08); }
+
+    /* corporate */
+    .cv-download-btn { display:inline-flex; align-items:center; gap:.5rem; margin:1rem 0 0; font-family:'Fraunces',serif; font-weight:900; font-style:italic; font-size:.9rem; color:#562915; text-decoration:none; background:#E8B400; border:2.5px solid #562915; border-radius:100px; padding:.6rem 1.6rem; box-shadow:4px 4px 0 #562915,7px 7px 0 #C44C18; transition:transform .15s,box-shadow .15s; }
+    .cv-download-btn:hover { transform:translate(-3px,-3px); box-shadow:6px 6px 0 #562915,10px 10px 0 #C44C18; }
+    .fever-block { background:#562915; border-radius:14px; padding:1rem 1.4rem; margin-top:1.2rem; }
+    .fever-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.4rem; }
+    .fever-logo-text { font-family:'Fraunces',serif; font-size:1.3rem; font-weight:900; font-style:italic; color:#FFEAD6; }
+    .fever-years { font-family:'Press Start 2P',monospace; font-size:.55rem; color:#F0A224; background:rgba(255,234,214,.1); padding:.4rem .8rem; border-radius:100px; border:1px solid rgba(240,162,36,.3); }
+    .fever-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:.4rem; }
+    .fever-stat { text-align:center; }
+    .fever-num { font-family:'Fraunces',serif; font-size:1.4rem; font-weight:900; color:#FFEAD6; line-height:1; }
+    .fever-label { font-size:.62rem; color:rgba(255,234,214,.6); margin-top:.25rem; line-height:1.3; }
+    .corp-section-label { font-family:'Press Start 2P',monospace; font-size:.5rem; letter-spacing:.12em; color:#C44C18; margin-top:2rem; margin-bottom:1rem; text-transform:uppercase; }
+    .exp-imgs-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.6rem; }
+    .exp-img-cell { aspect-ratio:1/1; border-radius:10px; overflow:hidden; border:2px solid rgba(86,41,21,.1); }
+    .exp-img-cell img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s; }
+    .exp-img-cell:hover img { transform:scale(1.06); }
+    .stats-row { display:grid; grid-template-columns:repeat(4,1fr); border:1.5px solid rgba(28,26,20,.12); border-radius:12px; overflow:hidden; margin-bottom:2rem; }
+    .stat-cell { padding:1rem 1.2rem; border-right:1.5px solid rgba(28,26,20,.12); }
+    .stat-cell:last-child { border-right:none; }
+    .stat-num { font-family:'Fraunces',serif; font-size:2rem; font-weight:900; color:#C44C18; line-height:1; }
+    .stat-label { font-size:.62rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(28,26,20,.45); margin-top:.3rem; }
+    .corp-layout { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; align-items:start; }
+    .exp-group-label { font-size:.62rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#C44C18; margin-bottom:.7rem; }
+    .exp-card { border:1.5px solid rgba(28,26,20,.1); border-radius:12px; padding:1rem 1.2rem; margin-bottom:.7rem; background:#fff; }
+    .exp-card.featured { background:#562915; border-color:#562915; color:#FFEAD6; }
+    .exp-card.featured .exp-category,.exp-card.featured .exp-date,.exp-card.featured .exp-desc { color:rgba(255,255,255,.75); }
+    .exp-card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:.35rem; }
+    .exp-category { font-size:.6rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(28,26,20,.45); }
+    .exp-date { font-size:.68rem; color:rgba(28,26,20,.4); white-space:nowrap; }
+    .exp-title { font-family:'Fraunces',serif; font-size:.95rem; font-weight:900; margin-bottom:.35rem; }
+    .exp-desc { font-size:.75rem; line-height:1.6; color:rgba(28,26,20,.6); }
+    .cv-btn { display:flex; align-items:center; justify-content:center; border:1.5px solid rgba(28,26,20,.2); border-radius:100px; padding:.9rem 1.8rem; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; text-decoration:none; color:var(--dark);  transition:background .2s,transform .2s; margin-top:1rem; }
+    .cv-btn:hover { background:var(--dark); color:#fff; transform:translateY(-2px); }
+
+    /* contact */
+    .contact-btns { display:flex; gap:1rem; justify-content:center; }
+    .contact-btn { font-size:.78rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; text-decoration:none; padding:.9rem 2rem; border-radius:100px;  transition:transform .2s,background .2s,color .2s; }
+    .contact-btn.primary { background:var(--cream); color:var(--dark); }
+    .contact-btn.primary:hover { background:#fff; transform:translateY(-2px); }
+    .contact-btn.secondary { background:transparent; color:var(--cream); border:1.5px solid rgba(255,252,245,.4); }
+    .contact-btn.secondary:hover { background:rgba(255,252,245,.15); transform:translateY(-2px); }
+
+    .footer-note { position:relative; z-index:1; text-align:center; padding:2rem 1rem 1.5rem; font-size:.7rem; color:rgba(255,252,245,.2); letter-spacing:.06em; }
+
+    @keyframes fadeUp  { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes floatBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes growBar { 0%,100%{height:14px} 50%{height:34px} }
+
+    @media(max-width:900px){ .site-row{grid-template-columns:1fr;} }
+    @media(max-width:768px){ .section-card{margin:0 .5rem;padding:3rem 1.5rem 6rem} .cards-grid{grid-template-columns:1fr 1fr} .stats-row{grid-template-columns:1fr 1fr} .corp-layout{grid-template-columns:1fr} .section-number{display:none} .expand-inner{grid-template-columns:1fr} }
+    @media(max-width:480px){ .cards-grid,.cards-grid-2{grid-template-columns:1fr} }
+
+    /* PHOTO MODAL */
+    .photo-modal { display:none; position:fixed; inset:0; z-index:9998; align-items:center; justify-content:center; }
+    .photo-modal-backdrop { position:absolute; inset:0; background:rgba(28,20,14,.75); backdrop-filter:blur(4px); }
+    .photo-modal-panel { position:relative; z-index:1; background:#FFEAD6; border-radius:20px; border:3px solid #562915; box-shadow:8px 8px 0 #562915; max-width:min(90vw,820px); max-height:85vh; overflow-y:auto; padding:2.5rem 2rem 2rem; width:100%; scrollbar-width:none; }
+    .photo-modal-panel::-webkit-scrollbar { display:none; }
+    .photo-modal-close { position:absolute; top:1rem; right:1rem; background:#562915; color:#FFEAD6; border:none; border-radius:50%; width:32px; height:32px; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+    .photo-modal-title { font-family:'Fraunces',serif; font-size:1.2rem; font-weight:700; font-style:italic; color:#562915; margin-bottom:1.4rem; }
+    .photo-modal-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:.8rem; }
+    .photo-modal-grid img { width:100%; border-radius:10px; object-fit:cover; aspect-ratio:3/4; border:1.5px solid rgba(86,41,21,.15); }
+    .gallery-preview { display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; margin-bottom:.6rem; }
+    .gallery-preview img { width:80px; height:80px; object-fit:cover; border-radius:8px; border:1.5px solid rgba(86,41,21,.12); }
+    .gallery-more-btn { font-family:'Fraunces',serif; font-style:italic; font-weight:700; font-size:.85rem; color:#562915; background:#d4b3f5; border:2px solid #562915; border-radius:100px; padding:.4rem 1rem; cursor:pointer; box-shadow:3px 3px 0 #562915; transition:transform .15s,box-shadow .15s; white-space:nowrap; }
+    .gallery-more-btn:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 #562915; }
+
+    @media(max-width:640px){
+      #wc-contact > div { grid-template-columns:1fr !important; gap:2rem !important; }
+      .retro-window { width:97vw !important; max-height:95vh !important; }
+    }
+
+    
+          50%{opacity:1;transform:scale(1.2)}
+    }
+
+
+    
+
+    /* ── Wall poster ── */
+    .wall-poster {
+      position: absolute;
+      right: -4%;
+      top: 5%;
+      height: 80%;
+      width: auto;
+      max-width: 35vw;
+      z-index: 1;
+      object-fit: contain;
+      object-position: top;
+    }
+
+    /* ── Bolis prop ── */
+    .wall-bolis {
+      position: absolute;
+      left: 2%;
+      bottom: 0;
+      height: 28%;
+      width: auto;
+      z-index: 3;
+      object-fit: contain;
+      object-position: bottom;
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+
+<nav>
+  <a href="#hero" class="nav-logo">B·P</a>
+
+</nav>
+
+<!-- HERO: 100vh, normal flow -->
+<section id="hero">
+  <div class="retro-computer">
+    <!-- Monitor -->
+    <div class="monitor-outer">
+      <div class="monitor-inner-bezel">
+        <div class="monitor-screen">
+          <div class="screen-deco" id="screen-deco"></div>
+          <div class="hero-name" id="hero-name"></div>
+          <div class="screen-subtitle">PORTFOLIO</div>
+          <div class="hero-cats">
+            <a href="#" onclick="openWindow('win-branding');return false;" class="float-circle c1">Branding<br>&amp; Design</a>
+            <a href="#" onclick="openWindow('win-website');return false;" class="float-circle c2">Web<br>Design</a>
+            <a href="#" onclick="openWindow('win-corporate');return false;" class="float-circle c3">Corporate<br>Girl</a>
+            <a href="#" onclick="openWindow('win-wedding');return false;" class="float-circle c4">Wedding<br>Enquiries</a>
+          </div>
+        </div>
+      </div>
+      <div class="monitor-bezel">
+        <div class="bezel-dots">
+          <div class="bezel-dot d1"></div>
+          <div class="bezel-dot d2"></div>
+          <div class="bezel-dot d3"></div>
+          <div class="bezel-dot d4"></div>
+        </div>
+        <span class="bezel-brand">B·P</span>
+        <div class="bezel-slot"></div>
+      </div>
+    </div>
+    <!-- Neck -->
+    <div class="monitor-neck"></div>
+    <!-- CPU tower / base unit -->
+    <div class="monitor-cpu">
+      <span class="cpu-label">beatriz palazuelo</span>
+      <div class="cpu-right">
+        <div class="cpu-floppy"></div>
+        <div class="cpu-floppy" style="width:clamp(24px,3.5%,36px)"></div>
+        <div class="cpu-power"></div>
+      </div>
+    </div>
+    <!-- Keyboard + mouse -->
+    <div class="peripherals">
+      <div class="keyboard">
+        <div class="kb-rows">
+          <div class="kb-row">
+            <div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div>
+          </div>
+          <div class="kb-row">
+            <div class="kb-key wide"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key wide"></div>
+          </div>
+          <div class="kb-row">
+            <div class="kb-key wide"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key"></div><div class="kb-key wide"></div>
+          </div>
+          <div class="kb-row">
+            <div class="kb-key wider"></div><div class="kb-key wider" style="flex:1;max-width:clamp(60px,9vw,100px)"></div><div class="kb-key wider"></div>
+          </div>
+        </div>
+      </div>
+      <div class="mouse">
+        <div class="mouse-cable"></div>
+        <div class="mouse-btn"><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-bar"></div></div>
+</section>
+
+<style>
+/* ═══════════════ RETRO WINDOW SYSTEM ═══════════════ */
+/* Remove scroll hint from hero */
+.scroll-hint { display:none !important; }
+
+/* ── Window overlay ── */
+.win-backdrop {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(86,41,21,.18); backdrop-filter: blur(0px);
+  display: none; align-items: center; justify-content: center;
+  padding: 2vh 2vw;
+}
+.win-backdrop.is-open  { display: flex; animation: bdIn .25s ease forwards; }
+.win-backdrop.is-closing { display: flex; animation: bdOut .2s ease forwards; }
+@keyframes bdIn  { from{opacity:0} to{opacity:1} }
+@keyframes bdOut { from{opacity:1} to{opacity:0} }
+
+.retro-window {
+  position: relative;
+  width: min(96vw, 1060px);
+  max-height: 92vh;
+  z-index: 501;
+  display: flex;
+  flex-direction: column;
+  transform-origin: 50% 50%;
+  background: #FFEAD6;
+  border: 3px solid #562915;
+  border-radius: 18px;
+  box-shadow: 8px 8px 0 #562915, 14px 14px 0 rgba(86,41,21,.2);
+  overflow: hidden;
+  animation: winOpen .38s cubic-bezier(.34,1.4,.64,1) forwards;
+}
+.win-backdrop.is-closing .retro-window {
+  animation: winClose .2s ease-in forwards;
+}
+@keyframes winOpen  { from{transform:scale(.07) translateY(30px);opacity:0} to{transform:scale(1) translateY(0);opacity:1} }
+@keyframes winClose { from{transform:scale(1);opacity:1} to{transform:scale(.07) translateY(30px);opacity:0} }
+
+/* ── Title bar ── */
+.win-titlebar {
+  display: flex; align-items: center; gap:.7rem;
+  padding: .42rem 1rem;
+  border-bottom: 3px solid #562915;
+  flex-shrink: 0;
+  user-select: none;
+}
+.win-btn-group { display:flex; gap:.35rem; align-items:center; }
+.win-btn {
+  width:18px; height:18px; border-radius:50%;
+  border:2px solid #562915; font-size:.52rem; font-weight:900;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; line-height:1; font-family:'Press Start 2P',monospace;
+  transition: filter .1s, transform .1s;
+}
+.win-btn:hover { filter: brightness(1.15); transform: scale(1.1); }
+.win-btn.close-btn { background:#D13955; color:#FFEAD6; margin-left:auto; width:22px; height:22px; font-size:.6rem; }
+.win-btn.min-btn   { display:none; }
+.win-btn.max-btn   { display:none; }
+.win-title-text {
+  font-family:'Press Start 2P',monospace; font-size:.52rem;
+  color:#562915; flex:1; text-align:left; letter-spacing:.06em; padding-left:.3rem;
+}
+.win-deco { font-size:.65rem; color:rgba(86,41,21,.35); white-space:nowrap; }
+
+/* ── Menubar ── */
+.win-menubar {
+  display:flex; gap:0; align-items:center;
+  border-bottom:2px solid #562915; flex-shrink:0;
+  font-family:'Press Start 2P',monospace; font-size:.42rem;
+  background:#FFEAD6;
+}
+.win-menubar span {
+  padding:.35rem .75rem; border-right:1.5px solid rgba(86,41,21,.2);
+  color:#562915; cursor:pointer; white-space:nowrap;
+}
+.win-menubar span:hover { background:#d4b3f5; }
+.win-menubar .menu-right {
+  margin-left:auto; border-right:none; border-left:1.5px solid rgba(86,41,21,.2);
+  color:rgba(86,41,21,.45);
+}
+
+/* ── Content area ── */
+.win-content {
+  flex:1; overflow-y:auto; overflow-x:hidden;
+  scrollbar-width:thin; scrollbar-color:#F4A4B8 transparent;
+  padding:2.5rem min(5vw,5rem);
+  max-width:960px; width:100%; margin:0 auto;
+  background:transparent;
+}
+.win-content::-webkit-scrollbar { width:8px; }
+.win-content::-webkit-scrollbar-thumb { background:#F4A4B8; border-radius:4px; }
+
+/* ── Status bar ── */
+.win-statusbar {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:.3rem 1rem; border-top:2px solid #562915; flex-shrink:0;
+  font-family:'Press Start 2P',monospace; font-size:.38rem;
+  color:rgba(86,41,21,.5); background:#FFEAD6;
+}
+.win-statusbar .status-pill {
+  background:#d4b3f5; border:1.5px solid #562915; border-radius:100px;
+  padding:.2rem .6rem; color:#562915; font-size:.38rem;
+}
+
+/* ── Per-window colours ── */
+#win-branding  { background:#EDE0FF; }
+#win-branding  .win-titlebar { background:#d4b3f5; }
+#win-branding  .win-menubar { background:#EDE0FF; }
+#win-branding  .win-statusbar { background:#EDE0FF; }
+
+#win-website   { background:#FFE0E8; }
+#win-website   .win-titlebar { background:#FCA6AF; }
+#win-website   .win-menubar { background:#FFE0E8; }
+#win-website   .win-statusbar { background:#FFE0E8; }
+
+#win-corporate { background:#FFF3DC; }
+#win-corporate .win-titlebar { background:#562915; }
+#win-corporate .win-title-text { color:#FFEAD6; }
+#win-corporate .win-deco { color:rgba(255,234,214,.4); }
+#win-corporate .win-btn.close-btn { background:#f0608a; }
+#win-corporate .win-menubar { background:#FFF3DC; }
+#win-corporate .win-statusbar { background:#FFF3DC; }
+
+#win-wedding   { background:#FFF8CC; }
+#win-wedding   .win-titlebar { background:#E8B400; }
+#win-wedding   .win-menubar { background:#FFF8CC; }
+#win-wedding   .win-statusbar { background:#FFF8CC; }
+
+#win-contact   { background:#FFD6D0; }
+#win-contact   .win-titlebar { background:#D13955; }
+#win-contact   .win-title-text { color:#FFEAD6; }
+#win-contact   .win-deco { color:rgba(255,234,214,.35); }
+#win-contact   .win-menubar { background:#FFD6D0; }
+#win-contact   .win-statusbar { background:#FFD6D0; }
+
+/* hero stays visible behind windows */
+
+/* ── Window inner components reuse card styles ── */
+.win-content .section-eyebrow {
+  font-family:'Press Start 2P',monospace; font-size:.6rem; letter-spacing:.14em;
+  text-transform:uppercase; color:#C44C18; margin-bottom:.6rem;
+}
+.win-content .section-title {
+  font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,3.2rem);
+  font-weight:900; line-height:1.1; margin-bottom:.8rem; color:#1C1A14;
+}
+.win-content .section-title em { color:#D13955; font-style:italic; }
+.win-content .section-desc {
+  font-size:.92rem; color:rgba(28,26,20,.6); line-height:1.7; max-width:600px; margin-bottom:1.2rem;
+}
+.win-content .section-divider {
+  border:none; border-top:1.5px solid rgba(86,41,21,.12); margin:1.5rem 0;
+}
+
+/* ── Pixel corner decoration in windows ── */
+.win-corner-deco {
+  position:absolute; font-family:'Press Start 2P',monospace; font-size:.5rem;
+  color:rgba(86,41,21,.15); pointer-events:none; line-height:1.4;
+}
+</style>
+
+<div class="win-backdrop" id="bd-win-branding" onclick="handleBackdropClick(event,'win-branding')">
+<div class="retro-window" id="win-branding">
+  <div class="win-titlebar">
+    <div class="win-title-text">Branding_and_Design.exe</div>
+    <div class="win-deco">✦ B·P</div>
+    <button class="win-btn close-btn" onclick="closeWindow()">✕</button>
+  </div>
+  <div class="win-menubar">
+    <span>Branding &amp; Design</span><span onclick="switchWindow('win-website')" title="Web Design">Web Design</span><span onclick="switchWindow('win-corporate')" title="Corporate Girl">Corporate</span><span onclick="switchWindow('win-wedding')" title="Wedding Enquiries">Wedding Enquiries</span><span onclick="switchWindow('win-contact')" title="Contacto">Contacto</span>
+    <span class="menu-right">B·P</span>
+  </div>
+  <div class="win-content" id="wc-branding">
+    <p class="section-eyebrow">01 — Branding &amp; Design</p>
+    <h2 class="section-title">Brands built<br>from <em>scratch.</em></h2>
+    <p class="section-desc">Serie de proposals completos: logo, identidad visual, mockups y sistema de diseño para marcas ficticias y reales.</p>
+    <a href="https://blancapalazuelo.com" target="_blank" class="collab-badge" style="display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1.2rem;font-size:.72rem;font-weight:600;color:#562915;text-decoration:none;background:#d4b3f5;padding:.35rem .9rem;border-radius:100px;border:1.5px solid #562915"><span style="width:8px;height:8px;border-radius:50%;background:#562915"></span>En colaboración con Blanca Palazuelo — Motion &amp; Branding ↗</a>
+    <hr class="section-divider"/>
+
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:4rem 2rem;border:2px dashed rgba(86,41,21,.2);border-radius:20px;text-align:center;">
+      <div style="font-size:2rem">✦</div>
+      <p style="font-family:'Press Start 2P',monospace;font-size:.65rem;color:#562915">Proyectos en camino</p>
+      <p style="font-size:.85rem;color:rgba(28,26,20,.5)">Pronto aquí estarán mis proyectos de branding e identidad visual.</p>
+    </div>
+    <!-- ════ AÑADIR BRANDING — sube imagen a images/ y descomenta bloque de abajo ════ -->
+  </div>
+  <div class="win-statusbar">
+    <span>01 — Branding &amp; Design</span>
+    <span class="status-pill">✦ próximamente</span>
+    <span>© Beatriz Palazuelo 2025</span>
+  </div>
+</div>
+
+</div>
+<div class="win-backdrop" id="bd-win-website" onclick="handleBackdropClick(event,'win-website')">
+<div class="retro-window" id="win-website">
+  <div class="win-titlebar">
+    <div class="win-title-text">Web_Design.exe</div>
+    <div class="win-deco">✦ B·P</div>
+    <button class="win-btn close-btn" onclick="closeWindow()">✕</button>
+  </div>
+  <div class="win-menubar">
+    <span onclick="switchWindow('win-branding')" title="Branding &amp; Design">Branding &amp; Design</span><span>Web Design</span><span onclick="switchWindow('win-corporate')" title="Corporate Girl">Corporate</span><span onclick="switchWindow('win-wedding')" title="Wedding Enquiries">Wedding Enquiries</span><span onclick="switchWindow('win-contact')" title="Contacto">Contacto</span>
+    <span class="menu-right">B·P</span>
+  </div>
+  <div class="win-content" id="wc-website">
+    <p class="section-eyebrow">02 — Web Design</p>
+    <h2 class="section-title">Webs with <em>personality.</em></h2>
+    <p class="section-desc">Diseño y desarrollo web — identidad visual coherente, UX intuitiva y estética cuidada. En colaboración con <a href="https://blancapalazuelo.com" target="_blank" style="color:#D13955;font-weight:600;text-decoration:none;border-bottom:1px solid #D13955;">Blanca Palazuelo ↗</a></p>
+    <hr class="section-divider"/>
+    <div class="website-list">
+      <div class="site-row">
+        <div class="site-card">
+          <a class="site-link" href="https://kamararental.com/" target="_blank" rel="noopener">
+            <div class="browser-bar">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-url"><span>kamararental.com</span><span class="url-arrow">↗</span></div>
+            </div>
+            <img class="browser-screen" src="./images/Captura_de_pantalla_2026-03-12_180622.png" alt="Kamara Rental"/>
+          </a>
+        </div>
+        <div class="site-info">
+          <h3>Kamara Rental — <em>renting de vestidos.</em></h3>
+          <p>Web de alquiler de vestidos para eventos, desarrollada junto a Blanca Palazuelo. Diseño elegante e intuitivo pensado para que el cliente encuentre, reserve y disfrute sin fricciones.</p>
+          <div class="site-tags"><span class="site-tag">Diseño web</span><span class="site-tag">UI/UX</span><span class="site-tag">2024</span></div>
+          <a class="visit-pill" href="https://kamararental.com/" target="_blank" rel="noopener">Visitar web ↗</a>
+        </div>
+      </div>
+      <div class="site-row coming-soon-row"><p class="coming-soon-label">✦ More coming soon</p></div>
+    </div>
+  </div>
+  <div class="win-statusbar">
+    <span>02 — Web Design</span>
+    <span class="status-pill">1 proyecto</span>
+    <span>© Beatriz Palazuelo 2025</span>
+  </div>
+</div>
+
+</div>
+<div class="win-backdrop" id="bd-win-corporate" onclick="handleBackdropClick(event,'win-corporate')">
+<div class="retro-window" id="win-corporate">
+  <div class="win-titlebar">
+    <div class="win-title-text">Corporate_Girl.exe</div>
+    <div class="win-deco">✦ B·P</div>
+    <button class="win-btn close-btn" onclick="closeWindow()">✕</button>
+  </div>
+  <div class="win-menubar">
+    <span onclick="switchWindow('win-branding')" title="Branding &amp; Design">Branding &amp; Design</span><span onclick="switchWindow('win-website')" title="Web Design">Web Design</span><span>Corporate</span><span onclick="switchWindow('win-wedding')" title="Wedding Enquiries">Wedding Enquiries</span><span onclick="switchWindow('win-contact')" title="Contacto">Contacto</span>
+    <span class="menu-right">B·P</span>
+  </div>
+  <div class="win-content" id="wc-corporate">
+    <p class="section-eyebrow" style="color:#FFEAD6;opacity:.7">03 — Corporate Girl</p>
+    <div style="background:#562915;border-radius:18px;padding:2rem;margin-bottom:1.5rem;position:relative;overflow:hidden">
+      <h2 class="section-title" style="color:#FFEAD6">Diseño <em style="color:#F4A4B8">&amp; Marketing.</em></h2>
+      <p style="font-size:.9rem;color:rgba(255,234,214,.65);line-height:1.7;max-width:560px;margin-bottom:.25rem">Marketing digital y diseño con experiencia en campañas globales, CRM y estrategia para marcas internacionales.</p>
+      <a href="https://drive.google.com/file/d/1iTfQdHQ5tYWWk6X2-50xCGbsymCfucOT/view?usp=sharing" target="_blank" rel="noopener" class="cv-download-btn" style="display:inline-flex;align-items:center;gap:.5rem;margin-bottom:0">↓ Descargar CV</a>
+      <div class="fever-stats" style="margin-top:1.8rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem">
+        <div class="fever-stat" style="text-align:center"><div style="font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:#FFEAD6">3+</div><div style="font-size:.62rem;color:rgba(255,234,214,.6);margin-top:.25rem;line-height:1.3">Años en<br>Fever</div></div>
+        <div class="fever-stat" style="text-align:center"><div style="font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:#FFEAD6">150+</div><div style="font-size:.62rem;color:rgba(255,234,214,.6);margin-top:.25rem;line-height:1.3">Campañas</div></div>
+        <div class="fever-stat" style="text-align:center"><div style="font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:#FFEAD6">5</div><div style="font-size:.62rem;color:rgba(255,234,214,.6);margin-top:.25rem;line-height:1.3">Herramientas<br>diseño &amp; mkt</div></div>
+        <div class="fever-stat" style="text-align:center"><div style="font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:#FFEAD6"><svg viewBox="0 0 24 24" fill="none" stroke="#FFEAD6" stroke-width="1.8" width="1.6rem" height="1.6rem"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></svg></div><div style="font-size:.62rem;color:rgba(255,234,214,.6);margin-top:.25rem;line-height:1.3">Internacional</div></div>
+      </div>
+    </div>
+    <hr class="section-divider"/>
+    <p class="corp-section-label">Experiencias trabajadas</p>
+    <button class="gallery-more-btn" data-modal-title="Experiencias Fever" data-images='["./images/19389a68-bda9-11ed-9d01-caa09a95a17d__1_.avif","./images/1ab63c14-149c-11f0-945a-f65f346f445e.avif","./images/26af92b8-dcf6-11f0-bcea-5e51a343a1d9.avif","./images/54284b9e-f360-11ee-9b78-867a69e72567.avif","./images/57449226-83e2-11ee-9acb-3acdc8d03b37.avif","./images/6e22302c-1dfc-11ed-81a0-ee55a8afce53.avif","./images/6e259ce8-9d69-11ed-b29f-62126ee6fd7f.avif","./images/771d6e2c-efc6-11f0-97d2-1e3ee3bc4382.avif","./images/80b2e58e-b567-11ee-9252-0e388b743076.avif","./images/8e5c9108-fce6-11f0-b716-ba704879749a.avif","./images/8f4b6b08-d1bb-11f0-897f-72ec648b0a13.avif","./images/c4b45714-ba63-11ec-9cb3-7a4757b76804.avif","./images/efe4e09a-1517-11f0-b544-a6b24187f688.avif","./images/f0083116-7c7e-11f0-914d-2a2c387f1324.avif","./images/f4cc2962-0c4c-11ef-b02d-0ea2b6457dc0.avif","./images/f7316d66-f32e-11ee-9201-ee24170e6030.avif"]'>Ver todas las experiencias en las que he colaborado →</button>
+    <hr class="section-divider" style="margin:1.4rem 0"/>
+    <p class="corp-section-label">Ejemplos de CRM</p>
+    <p style="font-size:.8rem;color:rgba(28,26,20,.55);margin-bottom:.8rem">Campañas de email marketing diseñadas para experiencias Fever en todo el mundo.</p>
+    <button class="gallery-more-btn" data-modal-title="Ejemplos de CRM — Fever" data-images='["./images/WhatsApp_Image_2025-12-18_at_15_22_24.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_24__1_.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_25.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_25__1_.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_26.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_26__1_.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_27.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_27__1_.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_29.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_30.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_30__1_.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_24_22.jpeg"]'>Ver campañas de email</button>
+  </div>
+  <div class="win-statusbar">
+    <span>03 — Corporate Girl</span>
+    <span class="status-pill" style="background:#F4A4B8">✦ Fever</span>
+    <span>© Beatriz Palazuelo 2025</span>
+  </div>
+</div>
+
+</div>
+<div class="win-backdrop" id="bd-win-wedding" onclick="handleBackdropClick(event,'win-wedding')">
+<div class="retro-window" id="win-wedding">
+  <div class="win-titlebar">
+    <div class="win-title-text">Wedding_Enquiries.exe</div>
+    <div class="win-deco">✦ B·P</div>
+    <button class="win-btn close-btn" onclick="closeWindow()">✕</button>
+  </div>
+  <div class="win-menubar">
+    <span onclick="switchWindow('win-branding')" title="Branding &amp; Design">Branding &amp; Design</span><span onclick="switchWindow('win-website')" title="Web Design">Web Design</span><span onclick="switchWindow('win-corporate')" title="Corporate">Corporate</span><span>Wedding Enquiries</span><span onclick="switchWindow('win-contact')" title="Contacto">Contacto</span>
+    <span class="menu-right">B·P</span>
+  </div>
+  <div class="win-content" id="wc-wedding">
+    <p class="section-eyebrow">04 — Wedding Enquiries</p>
+    <h2 class="section-title">Where design meets<br><em>emotion.</em></h2>
+    <p class="section-desc">Web de boda, papelería y señalética para el gran día. Precio amigo para novias 🌸</p>
+    <hr class="section-divider"/>
+    <div class="site-row">
+      <div class="site-card">
+        <a class="site-link" href="https://alba-ignacio.lovable.app/" target="_blank" rel="noopener">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url"><span>alba-ignacio.lovable.app</span><span class="url-arrow">↗</span></div>
+          </div>
+          <img class="browser-screen" src="https://api.microlink.io/?url=https%3A%2F%2Falba-ignacio.lovable.app&screenshot=true&meta=false&embed=screenshot.url" alt="Web boda Alba e Ignacio" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'<span>alba-ignacio.lovable.app</span>'}))"/>
+        </a>
+      </div>
+      <div class="site-info">
+        <h3>Alba &amp; Ignacio — <em>Web de boda.</em></h3>
+        <p>Web completa para la boda de Alba e Ignacio el 13·06·26 en Llanes, Asturias. Programa, hoteles, confirmación de asistencia y lista de bodas.</p>
+        <div class="site-tags"><span class="site-tag">Diseño web</span><span class="site-tag">Lovable</span><span class="site-tag">2025</span></div>
+        <a class="visit-pill" href="https://alba-ignacio.lovable.app/" target="_blank" rel="noopener">Visitar web ↗</a>
+      </div>
+    </div>
+    <hr class="section-divider" style="margin:2rem 0"/>
+    <div class="wedding-print-section">
+      <h3 class="wedding-print-title">Meseros &amp; Carteles — <em>Boda Alba &amp; Ignacio</em></h3>
+      <p class="wedding-print-desc">Señalética completa para las estaciones de aperitivo y menú de boda. Diseño watercolor con ilustraciones a medida.</p>
+      <button class="gallery-more-btn" data-modal-title="Meseros &amp; Carteles — Boda Alba &amp; Ignacio" data-images='["./images/carteles-11.png","./images/carteles-13.png","./images/carteles-14.png","./images/carteles-16.png","./images/carteles-17.png","./images/carteles-19.png","./images/carteles_Lista_aperitivos.png","./images/Menu_pedida_alba__1_.png"]'>📷 Ver meseros y carteles</button>
+      <div class="site-tags" style="margin-top:1.2rem"><span class="site-tag">Papelería</span><span class="site-tag">Señalética</span><span class="site-tag">Watercolor</span><span class="site-tag">2025</span></div>
+    </div>
+  </div>
+  <div class="win-statusbar">
+    <span>04 — Wedding Enquiries</span>
+    <span class="status-pill" style="background:#E8B400">🌸 bodas</span>
+    <span>© Beatriz Palazuelo 2025</span>
+  </div>
+</div>
+
+</div>
+<div class="win-backdrop" id="bd-win-contact" onclick="handleBackdropClick(event,'win-contact')">
+<div class="retro-window" id="win-contact">
+
+  <div class="win-titlebar">
+    <div class="win-btn-group"></div>
+    <div class="win-title-text">Contacto.exe</div>
+    <div class="win-deco">✦ B·P</div>
+    <button class="win-btn close-btn" onclick="closeWindow()" style="margin-left:.5rem">✕</button>
+  </div>
+
+  <div class="win-menubar">
+    <span onclick="switchWindow('win-branding')">Branding &amp; Design</span>
+    <span onclick="switchWindow('win-website')">Web Design</span>
+    <span onclick="switchWindow('win-corporate')">Corporate</span>
+    <span onclick="switchWindow('win-wedding')">Wedding Enquiries</span>
+    <span style="background:rgba(86,41,21,.1);font-weight:700">Contacto</span>
+    <span class="menu-right">B·P</span>
+  </div>
+
+  <div class="win-content" id="wc-contact">
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:3.5rem;align-items:start;padding:1rem 0">
+
+      <!-- Left: intro -->
+      <div>
+        <p style="font-family:'Press Start 2P',monospace;font-size:.58rem;color:#D13955;letter-spacing:.14em;margin-bottom:1.1rem">05 — Hablemos</p>
+        <h2 style="font-family:Fraunces,serif;font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:900;line-height:1.05;color:#1C1A14;margin-bottom:1rem">Tienes un<br><em style="color:#D13955;font-style:italic">proyecto.</em></h2>
+        <p style="font-size:.9rem;color:rgba(28,26,20,.62);line-height:1.8;margin-bottom:2rem">Siempre abierta a colaboraciones, proyectos freelance y nuevos retos creativos. ¡Escríbeme!</p>
+        <div style="display:flex;flex-direction:column;gap:.8rem">
+          <a href="/cdn-cgi/l/email-protection#ceacabafbabca7b4beafa2afb4bbaba2a18eaba3afa7a2e0ada1a3" style="display:flex;align-items:center;gap:.8rem;font-family:'Press Start 2P',monospace;font-size:.46rem;color:#562915;text-decoration:none;background:#FFEAD6;border:2px solid #562915;border-radius:10px;padding:.75rem 1.1rem;box-shadow:3px 3px 0 #562915;transition:transform .15s,box-shadow .15s" onmouseover="this.style.cssText+=';transform:translate(-2px,-2px);box-shadow:5px 5px 0 #562915'" onmouseout="this.style.transform='';this.style.boxShadow='3px 3px 0 #562915'">
+            <span style="font-size:1.1rem">✉</span> <span class="__cf_email__" data-cfemail="0466616570766d7e746568657e7161686b446169656d682a676b69">[email&#160;protected]</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank"
+            style="display:flex;align-items:center;gap:.8rem;font-family:'Press Start 2P',monospace;font-size:.46rem;color:#FFEAD6;text-decoration:none;background:#562915;border:2px solid #562915;border-radius:10px;padding:.75rem 1.1rem;box-shadow:3px 3px 0 rgba(86,41,21,.45);transition:transform .15s"
+            onmouseover="this.style.transform='translate(-2px,-2px)'"
+            onmouseout="this.style.transform=''">
+            <span style="font-size:1.1rem;font-weight:900">in</span> LinkedIn ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div style="background:#FFEAD6;border:3px solid #562915;border-radius:16px;padding:2rem;box-shadow:5px 5px 0 #562915">
+        <div style="font-family:'Press Start 2P',monospace;font-size:.46rem;color:#562915;margin-bottom:1.4rem;letter-spacing:.1em;opacity:.7">✉ nuevo_mensaje.exe</div>
+        <form onsubmit="handleContactForm(event)" style="display:flex;flex-direction:column;gap:1.1rem">
+          <div style="display:flex;flex-direction:column;gap:.4rem">
+            <label style="font-family:'Press Start 2P',monospace;font-size:.4rem;color:#562915;letter-spacing:.1em;opacity:.8">TU NOMBRE</label>
+            <input type="text" name="nombre" required placeholder="Ej: Ana García"
+              style="border:2px solid #562915;border-radius:8px;padding:.65rem 1rem;font-family:'DM Sans',sans-serif;font-size:.95rem;background:#FFFCF5;color:#1C1A14;outline:none;width:100%"
+              onfocus="this.style.boxShadow='0 0 0 3px #d4b3f5'" onblur="this.style.boxShadow=''"/>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.4rem">
+            <label style="font-family:'Press Start 2P',monospace;font-size:.4rem;color:#562915;letter-spacing:.1em;opacity:.8">TU EMAIL</label>
+            <input type="email" name="email" required placeholder="hola@tucorreo.com"
+              style="border:2px solid #562915;border-radius:8px;padding:.65rem 1rem;font-family:'DM Sans',sans-serif;font-size:.95rem;background:#FFFCF5;color:#1C1A14;outline:none;width:100%"
+              onfocus="this.style.boxShadow='0 0 0 3px #d4b3f5'" onblur="this.style.boxShadow=''"/>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.4rem">
+            <label style="font-family:'Press Start 2P',monospace;font-size:.4rem;color:#562915;letter-spacing:.1em;opacity:.8">CUÉNTAME</label>
+            <textarea name="mensaje" required rows="4" placeholder="Tengo un proyecto de..."
+              style="border:2px solid #562915;border-radius:8px;padding:.65rem 1rem;font-family:'DM Sans',sans-serif;font-size:.95rem;background:#FFFCF5;color:#1C1A14;resize:vertical;outline:none;width:100%"
+              onfocus="this.style.boxShadow='0 0 0 3px #d4b3f5'" onblur="this.style.boxShadow=''"></textarea>
+          </div>
+          <button type="submit"
+            style="font-family:'Press Start 2P',monospace;font-size:.52rem;color:#FFEAD6;background:#D13955;border:2.5px solid #562915;border-radius:100px;padding:.8rem 2rem;cursor:pointer;box-shadow:4px 4px 0 #562915;transition:transform .15s,box-shadow .15s;letter-spacing:.06em;align-self:flex-start"
+            onmouseover="this.style.transform='translate(-2px,-2px)';this.style.boxShadow='6px 6px 0 #562915'"
+            onmouseout="this.style.transform='';this.style.boxShadow='4px 4px 0 #562915'">
+            ENVIAR ✉
+          </button>
+          <div id="form-success" style="display:none;font-family:'Press Start 2P',monospace;font-size:.48rem;color:#2a7a4a;text-align:center;padding:.7rem;background:#d4f5e0;border:2px solid #2a7a4a;border-radius:8px">
+            ✓ ¡Mensaje enviado! Te escribo pronto.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="win-statusbar">
+    <span>05 — Contacto</span>
+    <span class="status-pill">disponible ✦</span>
+    <span>© Beatriz Palazuelo 2025</span>
+  </div>
+
+</div>
+</div>>
+
+<!-- ═══════════════════ PHOTO MODAL ═══════════════════ -->
+<div id="photo-modal" class="photo-modal" role="dialog" aria-modal="true">
+  <div class="photo-modal-backdrop"></div>
+  <div class="photo-modal-panel">
+    <button class="photo-modal-close" aria-label="Cerrar">✕</button>
+    <h3 class="photo-modal-title" id="modal-title"></h3>
+    <div class="photo-modal-grid" id="modal-grid"></div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+
+
+
+
+
+
+/* HERO NAME */
+document.getElementById('hero-name').textContent = 'Beatriz Palazuelo';
+
+/* SCREEN DECORATIONS */
+(function(){
+  var deco = document.getElementById('screen-deco');
+  if(!deco) return;
+  [{x:5,y:75,s:.7,d:0},{x:12,y:50,s:.5,d:.4},{x:88,y:72,s:.7,d:.8},
+   {x:92,y:45,s:.5,d:.3},{x:48,y:88,s:.6,d:1.1}
+  ].forEach(function(p){
+    var el=document.createElement('span');
+    el.className='screen-star';
+    el.textContent=p.s>.6?'✦':'+';
+    el.style.cssText='left:'+p.x+'%;top:'+p.y+'%;animation-delay:'+p.d+'s;font-size:'+(p.s*.6)+'rem';
+    deco.appendChild(el);
+  });
+})();
+
+/* WINDOW SYSTEM */
+var currentWin = null;
+
+function openWindow(id) {
+  if(currentWin) {
+    var prevBd = document.getElementById('bd-' + currentWin);
+    if(prevBd) { prevBd.classList.remove('is-open'); prevBd.style.display='none'; }
+  }
+  currentWin = id;
+  var bd = document.getElementById('bd-' + id);
+  if(!bd) return;
+  document.body.classList.add('win-open');
+  bd.style.display = 'flex';
+  bd.classList.remove('is-closing');
+  void bd.offsetWidth;
+  bd.classList.add('is-open');
+  var wc = bd.querySelector('.win-content');
+  if(wc) wc.scrollTop = 0;
+}
+
+function closeWindow() {
+  if(!currentWin) return;
+  var bd = document.getElementById('bd-' + currentWin);
+  if(!bd) return;
+  bd.classList.remove('is-open');
+  bd.classList.add('is-closing');
+  document.body.classList.remove('win-open');
+  var cw = currentWin;
+  currentWin = null;
+  setTimeout(function(){
+    var b = document.getElementById('bd-' + cw);
+    if(b) { b.style.display='none'; b.classList.remove('is-closing'); }
+  }, 220);
+}
+
+function switchWindow(id) {
+  if(currentWin) {
+    var prevBd = document.getElementById('bd-' + currentWin);
+    if(prevBd) { prevBd.classList.remove('is-open'); prevBd.style.display='none'; }
+  }
+  currentWin = id;
+  var bd = document.getElementById('bd-' + id);
+  if(!bd) return;
+  document.body.classList.add('win-open');
+  bd.style.display = 'flex';
+  bd.classList.remove('is-closing');
+  void bd.offsetWidth;
+  bd.classList.add('is-open');
+  var wc = bd.querySelector('.win-content');
+  if(wc) wc.scrollTop = 0;
+}
+
+
+function handleContactForm(e) {
+  e.preventDefault();
+  var btn = e.target.querySelector('button[type=submit]');
+  var success = document.getElementById('form-success');
+  btn.textContent = 'ENVIANDO...';
+  btn.disabled = true;
+  setTimeout(function(){
+    btn.style.display = 'none';
+    success.style.display = 'block';
+    e.target.reset();
+  }, 900);
+}
+
+function handleBackdropClick(e, id) {
+  if(e.target === document.getElementById('bd-' + id)) closeWindow();
+}
+
+/* ESC closes window */
+document.addEventListener('keydown', function(e){
+  if(e.key==='Escape') closeWindow();
+});
+
+/* PHOTO MODAL */
+(function(){
+  var modal    = document.getElementById('photo-modal');
+  var backdrop = document.querySelector('.photo-modal-backdrop');
+  var closeBtn = document.querySelector('.photo-modal-close');
+  var titleEl  = document.getElementById('modal-title');
+  var gridEl   = document.getElementById('modal-grid');
+
+  function openModal(title, images){
+    titleEl.textContent = title;
+    gridEl.innerHTML = '';
+    images.forEach(function(src){
+      var img=document.createElement('img');
+      img.src=src; img.alt=''; img.loading='lazy';
+      gridEl.appendChild(img);
+    });
+    modal.style.display='flex';
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){
+    modal.style.display='none';
+    document.body.style.overflow='';
+  }
+  document.querySelectorAll('.gallery-more-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openModal(btn.getAttribute('data-modal-title'), JSON.parse(btn.getAttribute('data-images')));
+    });
+  });
+  backdrop.addEventListener('click', closeModal);
+  closeBtn.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+})();
+</script>
+<a href="#" onclick="openWindow('win-contact');return false;" class="nav-contact" style="position:fixed;bottom:2rem;right:2rem;z-index:600;">Contacto ✉</a>
+</body>
+</html>
