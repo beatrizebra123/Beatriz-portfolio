@@ -29,7 +29,7 @@
       overflow:hidden; padding:0;
       background: linear-gradient(to bottom, #FFEAD6 54%, #562915 54%);
     }
-    .retro-computer { position:relative; display:flex; flex-direction:column; align-items:center; margin-top:-4vh; }
+    .retro-computer { position:relative; display:flex; flex-direction:column; align-items:center; margin-top:-4vh; z-index:2; }
     .monitor-outer {
       background:#F4A4B8; border:3px solid #562915; border-radius:28px 28px 18px 18px;
       padding:18px 22px 10px;
@@ -555,10 +555,10 @@
   </div>
   <div class="scroll-hint"><span>Scroll</span><div class="scroll-bar"></div></div>
 
-  <img src="./images/cuadros.png" alt="" style="position:absolute;right:0;top:0;width:65vw;height:auto;z-index:0;">
+  <img src="./images/cuadros.png" alt="" style="position:absolute;right:0;top:0;width:42vw;height:auto;z-index:0;">
 
   <!-- Gameboy lottie -->
-  <div id="gameboy-lottie" style="position:absolute;right:5%;bottom:20%;width:320px;z-index:3;pointer-events:none;transform:rotate(12deg);filter:drop-shadow(4px 4px 0 rgba(86,41,21,.3))"></div>
+  <div id="gameboy-lottie" style="position:absolute;right:5%;bottom:20%;width:180px;z-index:3;pointer-events:none;transform:rotate(12deg);filter:drop-shadow(4px 4px 0 rgba(86,41,21,.3))"></div>
 
   <!-- Pixel girl -->
   <div class="pg-scene-wrap">
