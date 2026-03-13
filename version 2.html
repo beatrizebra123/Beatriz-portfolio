@@ -555,7 +555,7 @@
   </div>
   <div class="scroll-hint"><span>Scroll</span><div class="scroll-bar"></div></div>
 
-  <img src="./images/bolis.png" alt="" style="position:absolute;left:18%;bottom:36%;width:clamp(90px,11vw,160px);height:auto;z-index:3;">
+  <img src="./images/bolis.png" alt="" style="position:absolute;left:18%;bottom:26%;width:clamp(120px,14vw,200px);height:auto;z-index:3;">
   <img src="./images/cuadros.png" alt="" style="position:absolute;right:0;top:0;width:42vw;height:auto;z-index:0;">
 
   <!-- Gameboy lottie -->
@@ -563,25 +563,12 @@
 
   <!-- Pixel girl -->
   <div class="pg-scene-wrap">
-    <div style="position:absolute;bottom:calc(43% + 200px);left:calc(6% + 80px);pointer-events:none;">
-      <svg width="340" height="70" viewBox="0 0 340 70" style="overflow:visible;image-rendering:pixelated;display:block;">
-        <g class="pg-d1"><rect x="0" y="54" width="14" height="14" fill="#fff" stroke="#562915" stroke-width="2"/></g>
-        <g class="pg-d2"><rect x="18" y="44" width="20" height="20" fill="#fff" stroke="#562915" stroke-width="2"/></g>
-        <g class="pg-d3"><rect x="42" y="34" width="26" height="26" fill="#fff" stroke="#562915" stroke-width="2"/></g>
-        <g class="pg-bigbub">
-          <rect x="62" y="0" width="200" height="110" fill="#fff" stroke="#562915" stroke-width="3"/>
-          <rect x="65" y="3" width="194" height="104" fill="none" stroke="#562915" stroke-width="1" opacity=".15"/>
-          <text id="bub-line1" x="162" y="24" text-anchor="middle" font-family="'Press Start 2P',monospace" font-size="7" fill="#562915">¡Bienvenida a mi portfolio!</text>
-          <text id="bub-line2" x="162" y="40" text-anchor="middle" font-family="'Press Start 2P',monospace" font-size="6.5" fill="#562915">Para cualquier consulta,</text>
-          <foreignObject x="66" y="52" width="192" height="52">
-            <div xmlns="http://www.w3.org/1999/xhtml" class="pg-btn-wrap" style="display:flex;justify-content:center;align-items:center;height:100%;">
-              <a class="pg-btn" id="bub-btn" onclick="openWindow('win-contact');return false;">Contacto ✉</a>
-            </div>
-          </foreignObject>
-        </g>
-      </svg>
+    <div id="wall-frame" style="position:absolute;top:6%;left:4%;pointer-events:all;z-index:2;background:#fff;border:3px solid #562915;border-radius:8px;padding:1.2rem 1.4rem;box-shadow:5px 5px 0 #562915,9px 9px 0 #C44C18;max-width:clamp(180px,22vw,300px);">
+      <p id="bub-line1" style="font-family:'Press Start 2P',monospace;font-size:clamp(.35rem,.55vw,.6rem);color:#562915;line-height:1.8;margin-bottom:.5rem;">¡Bienvenida a mi portfolio!</p>
+      <p id="bub-line2" style="font-family:'Press Start 2P',monospace;font-size:clamp(.3rem,.5vw,.55rem);color:#562915;opacity:.7;line-height:1.8;margin-bottom:.8rem;">Para cualquier consulta,</p>
+      <div style="display:flex;justify-content:center;"><a class="pg-btn" id="bub-btn" onclick="openWindow('win-contact');return false;">Contacto ✉</a></div>
     </div>
-    <div class="pg-body">
+    <div class="pg-body" style="display:none">
     <svg width="120" height="275" viewBox="0 0 120 275" style="image-rendering:pixelated;overflow:visible">
       <ellipse cx="58" cy="273" rx="34" ry="4" fill="#3d1f08" opacity=".3"/>
       <rect x="20" y="74" width="76" height="108" fill="#4a2810"/><rect x="14" y="80" width="14" height="116" fill="#5C3317"/><rect x="90" y="80" width="14" height="116" fill="#5C3317"/><rect x="20" y="74" width="76" height="6" fill="#5C3317"/><rect x="24" y="66" width="68" height="10" fill="#5C3317"/><rect x="28" y="62" width="12" height="10" fill="#5C3317"/><rect x="76" y="62" width="12" height="10" fill="#5C3317"/><rect x="36" y="58" width="44" height="10" fill="#5C3317"/><rect x="32" y="66" width="8" height="14" fill="#5C3317"/><rect x="76" y="66" width="8" height="14" fill="#5C3317"/>
