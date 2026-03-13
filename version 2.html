@@ -335,14 +335,13 @@
     /* ── Wall poster ── */
     .wall-poster {
       position: absolute;
-      right: -4%;
-      top: 5%;
-      height: 80%;
-      width: auto;
-      max-width: 35vw;
+      right: 0;
+      top: 0;
+      height: auto;
+      width: clamp(120px, 16vw, 220px);
       z-index: 1;
       object-fit: contain;
-      object-position: top;
+      object-position: top right;
     }
 
     /* ── Bolis prop ── */
