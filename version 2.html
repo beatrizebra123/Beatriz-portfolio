@@ -19,21 +19,21 @@
 
     nav { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-items:center; justify-content:flex-start; padding:0 2.5rem; height:60px; }
     .nav-logo { font-family:'ApplePeach','Fraunces',serif; font-size:1.5rem; color:#FFEAD6; text-decoration:none;  font-weight:700; }
-    .nav-contact { font-family:'Fraunces',serif; font-size:.72rem; font-weight:900; font-style:italic; text-transform:uppercase; padding:.6rem 1.5rem; border-radius:100px; border:3px solid #562915; background:#E8B400; color:#562915; text-decoration:none; box-shadow:4px 4px 0 0 #562915,7px 7px 0 0 #C44C18; transition:box-shadow .15s,transform .15s,background .2s; }
-    .nav-contact:hover { background:#c49ee8; transform:translate(-3px,-3px); box-shadow:4px 4px 0 0 #562915,7px 7px 0 0 #562915; }
+    .nav-contact { font-family:'Fraunces',serif; font-size:.72rem; font-weight:900; font-style:italic; text-transform:uppercase; padding:.6rem 1.5rem; border-radius:100px; border:3px solid #3d1f6e; background:#F4A4B8; color:#3d1f6e; text-decoration:none; box-shadow:4px 4px 0 0 #3d1f6e,7px 7px 0 0 #a8c8e8; transition:box-shadow .15s,transform .15s,background .2s; }
+    .nav-contact:hover { background:#ffe8ee; transform:translate(-3px,-3px); box-shadow:4px 4px 0 0 #3d1f6e,7px 7px 0 0 #a8c8e8; }
 
     /* HERO */
     #hero {
       position:relative; z-index:1; height:100vh;
       display:flex; flex-direction:column; align-items:center; justify-content:center;
       overflow:hidden; padding:0;
-      background: linear-gradient(to bottom, #FFEAD6 54%, #562915 54%);
+      background: linear-gradient(to bottom, #3b2a52 54%, #4a2f6e 54%);
     }
     .retro-computer { position:relative; display:flex; flex-direction:column; align-items:center; margin-top:-4vh; }
     .monitor-outer {
-      background:#F4A4B8; border:3px solid #562915; border-radius:28px 28px 18px 18px;
+      background:#F4A4B8; border:3px solid #3d1f6e; border-radius:28px 28px 18px 18px;
       padding:18px 22px 10px;
-      box-shadow:5px 5px 0 #562915, 9px 9px 0 #C44C18;
+      box-shadow:5px 5px 0 #3d1f6e, 9px 9px 0 #a8c8e8;
       width:min(68vw,580px);
     }
     .monitor-inner-bezel {
@@ -56,23 +56,23 @@
     }
     .monitor-bezel { display:flex; align-items:center; justify-content:space-between; padding:9px 14px 5px; }
     .bezel-dots { display:flex; gap:8px; }
-    .bezel-dot { width:10px; height:10px; border-radius:50%; border:2px solid #562915; background:transparent; }
+    .bezel-dot { width:10px; height:10px; border-radius:50%; border:2px solid #3d1f6e; background:transparent; }
     .bezel-dot.d1 { background:#4CAF50; }
     .bezel-dot.d2 { background:#F0A224; }
     .bezel-dot.d3 { background:#FCA6AF; }
     .bezel-dot.d4 { background:#FCA6AF; opacity:.35; }
     .bezel-brand { font-family:'Press Start 2P',monospace; font-size:.38rem; color:#562915; opacity:.4; }
-    .bezel-slot { width:30px; height:8px; border:2px solid #562915; border-radius:2px; opacity:.35; }
-    .monitor-neck { width:clamp(50px,8vw,72px); height:clamp(13px,1.8vw,18px); background:#F4A4B8; border-left:3px solid #562915; border-right:3px solid #562915; clip-path:polygon(8% 0%,92% 0%,100% 100%,0% 100%); }
+    .bezel-slot { width:30px; height:8px; border:2px solid #3d1f6e; border-radius:2px; opacity:.35; }
+    .monitor-neck { width:clamp(50px,8vw,72px); height:clamp(13px,1.8vw,18px); background:#F4A4B8; border-left:3px solid #3d1f6e; border-right:3px solid #3d1f6e; clip-path:polygon(8% 0%,92% 0%,100% 100%,0% 100%); }
     .monitor-cpu {
       width:min(68vw,580px); background:#F4A4B8;
-      border:3px solid #562915; border-radius:6px 6px 12px 12px;
-      box-shadow:5px 5px 0 #562915,9px 9px 0 #C44C18;
+      border:3px solid #3d1f6e; border-radius:6px 6px 12px 12px;
+      box-shadow:5px 5px 0 #3d1f6e,9px 9px 0 #a8c8e8;
       padding:14px 18px; display:flex; align-items:center; justify-content:space-between; gap:10px;
     }
     .cpu-label { font-family:'Press Start 2P',monospace; font-size:.36rem; color:#562915; opacity:.45; }
     .cpu-right { display:flex; align-items:center; gap:10px; }
-    .cpu-floppy { width:clamp(38px,6%,56px); height:11px; border:2px solid #562915; border-radius:2px; background:rgba(86,41,21,.07); position:relative; overflow:hidden; }
+    .cpu-floppy { width:clamp(38px,6%,56px); height:11px; border:2px solid #3d1f6e; border-radius:2px; background:rgba(168,200,232,.07); position:relative; overflow:hidden; }
     .cpu-floppy::after { content:''; position:absolute; top:3px; left:4px; right:4px; height:2px; background:rgba(86,41,21,.22); border-radius:1px; }
     .cpu-power { width:13px; height:13px; border-radius:50%; border:2px solid #562915; background:#90EE90; box-shadow:0 0 5px rgba(144,238,144,.8); }
     /* Name pixel */
@@ -103,13 +103,13 @@
     .float-circle.c4:hover { background:#F0A224; box-shadow:3px 3px 0 #562915,5px 5px 0 #C44C18; }
     /* keyboard + mouse */
     .peripherals { display:flex; align-items:flex-end; gap:clamp(16px,2.5vw,28px); margin-top:10px; }
-    .keyboard { background:#F4A4B8; border:2.5px solid #562915; border-radius:10px 10px 14px 14px; padding:clamp(12px,1.8vw,20px) clamp(16px,2.5vw,30px) clamp(14px,2vw,22px); box-shadow:5px 5px 0 #562915,9px 9px 0 #C44C18; }
+    .keyboard { background:#F4A4B8; border:2.5px solid #3d1f6e; border-radius:10px 10px 14px 14px; padding:clamp(12px,1.8vw,20px) clamp(16px,2.5vw,30px) clamp(14px,2vw,22px); box-shadow:5px 5px 0 #3d1f6e,9px 9px 0 #a8c8e8; }
     .kb-rows { display:flex; flex-direction:column; gap:clamp(4px,.6vw,7px); }
     .kb-row { display:flex; gap:clamp(3px,.5vw,5px); justify-content:center; }
-    .kb-key { background:#FFEAD6; border:1.5px solid #562915; border-radius:2px; width:clamp(16px,2.4vw,28px); height:clamp(14px,1.9vw,22px); box-shadow:0 2.5px 0 #562915; }
+    .kb-key { background:#ffe8ee; border:1.5px solid #3d1f6e; border-radius:2px; width:clamp(16px,2.4vw,28px); height:clamp(14px,1.9vw,22px); box-shadow:0 2.5px 0 #3d1f6e; }
     .kb-key.wide { width:clamp(36px,5.5vw,64px); }
     .kb-key.wider { width:clamp(80px,12vw,148px); }
-    .mouse { background:#F4A4B8; border:2.5px solid #562915; border-radius:50% 50% 40% 40%; width:clamp(52px,7vw,80px); height:clamp(72px,10vw,114px); box-shadow:5px 5px 0 #562915,9px 9px 0 #C44C18; position:relative; display:flex; flex-direction:column; align-items:center; padding-top:clamp(10px,1.4vw,18px); gap:8px; }
+    .mouse { background:#F4A4B8; border:2.5px solid #3d1f6e; border-radius:50% 50% 40% 40%; width:clamp(52px,7vw,80px); height:clamp(72px,10vw,114px); box-shadow:5px 5px 0 #3d1f6e,9px 9px 0 #a8c8e8; position:relative; display:flex; flex-direction:column; align-items:center; padding-top:clamp(10px,1.4vw,18px); gap:8px; }
     .mouse-btn { width:60%; height:30%; border-bottom:2px solid #562915; display:flex; gap:3px; }
     .mouse-btn span { flex:1; border-right:1px solid rgba(86,41,21,.3); }
     .mouse-btn span:last-child { border:none; }
@@ -158,7 +158,7 @@
     #card-contact   { z-index:50; }
 
     /* colours */
-    #card-branding  { background:#FFEAD6; }
+    #card-branding  { background:#3b2a52; }
     #card-website   { background:#fce8ef; }
     #card-corporate { background:#fff; border:1.5px solid rgba(28,26,20,.1); }
     #card-wedding   { background:#fff8e6; }
@@ -309,7 +309,7 @@
     /* PHOTO MODAL */
     .photo-modal { display:none; position:fixed; inset:0; z-index:9998; align-items:center; justify-content:center; }
     .photo-modal-backdrop { position:absolute; inset:0; background:rgba(28,20,14,.75); backdrop-filter:blur(4px); }
-    .photo-modal-panel { position:relative; z-index:1; background:#FFEAD6; border-radius:20px; border:3px solid #562915; box-shadow:8px 8px 0 #562915; max-width:min(90vw,820px); max-height:85vh; overflow-y:auto; padding:2.5rem 2rem 2rem; width:100%; scrollbar-width:none; }
+    .photo-modal-panel { position:relative; z-index:1; background:#3b2a52; border-radius:20px; border:3px solid #562915; box-shadow:8px 8px 0 #562915; max-width:min(90vw,820px); max-height:85vh; overflow-y:auto; padding:2.5rem 2rem 2rem; width:100%; scrollbar-width:none; }
     .photo-modal-panel::-webkit-scrollbar { display:none; }
     .photo-modal-close { position:absolute; top:1rem; right:1rem; background:#562915; color:#FFEAD6; border:none; border-radius:50%; width:32px; height:32px; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; }
     .photo-modal-title { font-family:'Fraunces',serif; font-size:1.2rem; font-weight:700; font-style:italic; color:#562915; margin-bottom:1.4rem; }
@@ -370,14 +370,14 @@
     @keyframes pgD3{0%,44%{opacity:0;transform:scale(0)}59%{opacity:1;transform:scale(1.1)}69%,100%{opacity:1;transform:scale(1)}}
     @keyframes pgBub{0%,68%{opacity:0;transform:scale(0) translateY(6px)}78%{transform:scale(1.06) translateY(-2px)}84%,100%{opacity:1;transform:scale(1) translateY(0)}}
     @keyframes pgBtn{0%,78%{opacity:0}90%,100%{opacity:1}}
-    .pg-body { animation:pgBob 3s ease-in-out infinite; position:absolute; bottom:0; left:14%; }
+    .pg-body { position:absolute; bottom:43%; left:6%; }
     .pg-d1 { animation:pgD1 3.5s ease forwards 1; transform-origin:center; }
     .pg-d2 { animation:pgD2 3.5s ease forwards 1; transform-origin:center; }
     .pg-d3 { animation:pgD3 3.5s ease forwards 1; transform-origin:center; }
     .pg-bigbub { animation:pgBub 3.5s ease forwards 1; transform-origin:bottom left; }
     .pg-btn-wrap { animation:pgBtn 3.5s ease forwards 1; }
-    .pg-btn { font-family:'Fraunces',serif; font-size:.65rem; font-weight:900; font-style:italic; text-transform:uppercase; padding:.5rem 1.2rem; border-radius:100px; border:3px solid #562915; background:#E8B400; color:#562915; text-decoration:none; box-shadow:4px 4px 0 0 #562915,7px 7px 0 0 #C44C18; transition:box-shadow .15s,transform .15s,background .2s; display:inline-block; cursor:pointer; white-space:nowrap; pointer-events:all; }
-    .pg-btn:hover { background:#c49ee8; transform:translate(-3px,-3px); box-shadow:4px 4px 0 0 #562915,7px 7px 0 0 #562915; }
+    .pg-btn { font-family:'Fraunces',serif; font-size:.65rem; font-weight:900; font-style:italic; text-transform:uppercase; padding:.5rem 1.2rem; border-radius:100px; border:3px solid #3d1f6e; background:#F4A4B8; color:#3d1f6e; text-decoration:none; box-shadow:4px 4px 0 0 #3d1f6e,7px 7px 0 0 #a8c8e8; transition:box-shadow .15s,transform .15s,background .2s; display:inline-block; cursor:pointer; white-space:nowrap; pointer-events:all; }
+    .pg-btn:hover { background:#ffe8ee; transform:translate(-3px,-3px); box-shadow:4px 4px 0 0 #3d1f6e,7px 7px 0 0 #a8c8e8; }
     @media(max-width:768px){ .pg-scene-wrap{ display:none; } }
 
     .lang-toggle { display:flex; align-items:center; gap:.3rem; justify-content:center; margin-top:.4rem; }
@@ -386,6 +386,114 @@
     #btn-es.active, #btn-es:hover { border-color:#f0608a; background:rgba(240,96,138,.12); }
     #btn-en { color:#5b8fc9; border-color:rgba(91,143,201,.4); }
     #btn-en.active, #btn-en:hover { border-color:#5b8fc9; background:rgba(91,143,201,.12); }
+
+    /* ── Image scroll strips ── */
+    .img-strip-wrap { position:relative; margin:.6rem 0 1rem; display:flex; align-items:center; gap:6px; }
+    .strip-arrow {
+      flex-shrink:0; width:32px; height:32px;
+      background:#3b2a52; border:2.5px solid #562915;
+      border-radius:4px; box-shadow:3px 3px 0 #562915;
+      font-family:'Press Start 2P',monospace; font-size:.6rem;
+      color:#562915; cursor:pointer; display:flex; align-items:center; justify-content:center;
+      transition:transform .1s, box-shadow .1s; user-select:none;
+    }
+    .strip-arrow:hover { transform:translate(-1px,-1px); box-shadow:4px 4px 0 #562915; }
+    .strip-arrow:active { transform:translate(2px,2px); box-shadow:1px 1px 0 #562915; }
+    .img-strip {
+      display:flex; gap:10px; overflow-x:auto; overflow-y:hidden;
+      padding:6px 2px 6px; scroll-behavior:smooth;
+      scrollbar-width:none; cursor:grab; flex:1;
+    }
+    .img-strip:active { cursor:grabbing; }
+    .img-strip::-webkit-scrollbar { display:none; }
+    .img-strip img {
+      height:160px; width:auto; flex-shrink:0;
+      border-radius:8px; border:2px solid #562915;
+      object-fit:cover; cursor:pointer;
+      transition:transform .15s, box-shadow .15s;
+    }
+    .img-strip img:hover { transform:translateY(-3px); box-shadow:4px 4px 0 #562915; }
+    .img-strip.crm img { height:200px; }
+
+    /* ── Mobile contact btn ── */
+    .mobile-contact-btn { display:none; }
+    @media(max-width:768px){
+      .mobile-contact-btn {
+        display:flex; position:fixed; bottom:1.5rem; right:1.5rem; z-index:600;
+        font-family:'Fraunces',serif; font-size:.72rem; font-weight:900; font-style:italic;
+        text-transform:uppercase; padding:.6rem 1.5rem; border-radius:100px;
+        border:3px solid #3d1f6e; background:#F4A4B8; color:#3d1f6e; text-decoration:none;
+        box-shadow:4px 4px 0 0 #3d1f6e,7px 7px 0 0 #a8c8e8;
+      }
+      /* Monitor mobile — thinner pink border, bigger screen */
+      .monitor-outer {
+        padding:8px 10px 6px !important;
+        border-radius:16px 16px 10px 10px !important;
+        width:min(92vw,400px) !important;
+      }
+      .monitor-inner-bezel { padding:4px !important; }
+      /* circles — carousel on mobile */
+      .hero-cats-arrow { display:flex; }
+      .hero-cats {
+          flex-wrap:nowrap !important;
+          overflow:hidden !important;
+          width:88px !important;
+          justify-content:center !important;
+          padding:0 !important;
+          gap:0 !important;
+        }
+      .float-circle {
+          flex-shrink:0 !important;
+          width:80px !important; height:80px !important;
+          font-size:.28rem !important;
+          display:none !important;
+        }
+      .hero-cats { padding-top:6px !important; overflow:visible !important; }
+      .float-circle.mobile-active { display:flex !important; }
+    }
+
+    /* Desktop: hide arrows, show all circles normally */
+    .hero-cats-wrap { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; }
+    .hero-cats-arrow { display:none; }
+    @media(min-width:769px){
+      .hero-cats { flex-wrap:wrap !important; overflow:visible !important; width:auto !important; justify-content:center !important; gap:clamp(.35rem,.7vw,.6rem) !important; }
+      .float-circle { display:flex !important; width:clamp(64px,7.5vw,96px) !important; height:clamp(64px,7.5vw,96px) !important; font-size:clamp(.3rem,.42vw,.48rem) !important; }
+    }
+
+    .mobile-scroll-hint { display:none; }
+    @media(max-width:768px){
+      .mobile-scroll-hint {
+        display:block; text-align:center;
+        font-family:'Press Start 2P',monospace; font-size:.45rem;
+        color:#d4b3f5; margin-top:.4rem;
+        animation:mobileArrowBob .8s ease-in-out infinite alternate;
+      }
+      @keyframes mobileArrowBob { from{transform:translateY(0)} to{transform:translateY(4px)} }
+    }
+
+    .hero-section::after {
+      content:'';
+      position:absolute;
+      left:0; bottom:0; right:0;
+      height:46%;
+      pointer-events:none;
+      z-index:0;
+      background-image:
+        repeating-linear-gradient(
+          88deg,
+          transparent,
+          transparent 14px,
+          rgba(255,255,255,.07) 14px,
+          rgba(255,255,255,.07) 15px
+        ),
+        repeating-linear-gradient(
+          91deg,
+          transparent,
+          transparent 35px,
+          rgba(255,255,255,.04) 35px,
+          rgba(255,255,255,.04) 36px
+        );
+    }
   </style>
 </head>
 <body>
@@ -407,12 +515,13 @@
           <div class="screen-deco" id="screen-deco"></div>
           <div class="hero-name" id="hero-name"></div>
           <div class="screen-subtitle">PORTFOLIO</div>
-          <div class="hero-cats">
+          <div class="hero-cats-wrap"><button class="hero-cats-arrow" onclick="mobilePrev()">◀</button><div class="hero-cats" id="hero-cats-mobile">
             <a href="#" onclick="openWindow('win-branding');return false;" class="float-circle c1" id="circle-branding">Diseño gráfico<br>y Branding</a>
             <a href="#" onclick="openWindow('win-website');return false;" class="float-circle c2" id="circle-website">Diseño<br>Web</a>
             <a href="#" onclick="openWindow('win-corporate');return false;" class="float-circle c3" id="circle-corporate">Experiencia<br>Corporativa</a>
-            <a href="#" onclick="openWindow('win-wedding');return false;" class="float-circle c4" id="circle-wedding">Bodas</a>
-          </div>
+            <a href="#" onclick="openWindow('win-wedding');return false;" class="float-circle c4" id="circle-wedding" style="font-size:clamp(.35rem,.5vw,.55rem);letter-spacing:.05em">Bodas</a>
+          </div><button class="hero-cats-arrow" onclick="mobileNext()">▶</button></div>
+          <div class="mobile-scroll-hint">▼ scroll</div>
           <div class="lang-toggle">
             <button onclick="setLang('es')" id="btn-es" class="lang-btn active">ES</button>
             <span style="color:rgba(255,234,214,.4);font-size:.5rem">|</span>
@@ -470,19 +579,19 @@
 
   <!-- Pixel girl -->
   <div class="pg-scene-wrap">
-    <div style="position:absolute;bottom:calc(46% + 120px);left:calc(14% + 88px);pointer-events:none;">
+    <div style="position:absolute;bottom:calc(43% + 200px);left:calc(6% + 80px);pointer-events:none;">
       <svg width="340" height="70" viewBox="0 0 340 70" style="overflow:visible;image-rendering:pixelated;display:block;">
         <g class="pg-d1"><rect x="0" y="54" width="14" height="14" fill="#fff" stroke="#562915" stroke-width="2"/></g>
         <g class="pg-d2"><rect x="18" y="44" width="20" height="20" fill="#fff" stroke="#562915" stroke-width="2"/></g>
         <g class="pg-d3"><rect x="42" y="34" width="26" height="26" fill="#fff" stroke="#562915" stroke-width="2"/></g>
         <g class="pg-bigbub">
-          <rect x="62" y="0" width="258" height="110" fill="#fff" stroke="#562915" stroke-width="3"/>
-          <rect x="65" y="3" width="252" height="104" fill="none" stroke="#562915" stroke-width="1" opacity=".15"/>
-          <text x="191" y="24" text-anchor="middle" font-family="'Press Start 2P',monospace" font-size="7" fill="#562915">Welcome to my portfolio!</text>
-          <text x="191" y="40" text-anchor="middle" font-family="'Press Start 2P',monospace" font-size="6.5" fill="#562915">For any enquiries,</text>
-          <foreignObject x="82" y="52" width="230" height="52">
+          <rect x="62" y="0" width="200" height="110" fill="#fff" stroke="#562915" stroke-width="3"/>
+          <rect x="65" y="3" width="194" height="104" fill="none" stroke="#562915" stroke-width="1" opacity=".15"/>
+          <text id="bub-line1" x="162" y="24" text-anchor="middle" font-family="'Press Start 2P',monospace" font-size="7" fill="#562915">¡Bienvenida a mi portfolio!</text>
+          <text id="bub-line2" x="162" y="40" text-anchor="middle" font-family="'Press Start 2P',monospace" font-size="6.5" fill="#562915">Para cualquier consulta,</text>
+          <foreignObject x="66" y="52" width="192" height="52">
             <div xmlns="http://www.w3.org/1999/xhtml" class="pg-btn-wrap" style="display:flex;justify-content:center;align-items:center;height:100%;">
-              <a class="pg-btn" onclick="openWindow('win-contact');return false;">Contacto ✉</a>
+              <a class="pg-btn" id="bub-btn" onclick="openWindow('win-contact');return false;">Contacto ✉</a>
             </div>
           </foreignObject>
         </g>
@@ -585,7 +694,7 @@
   display:flex; gap:0; align-items:center;
   border-bottom:2px solid #562915; flex-shrink:0;
   font-family:'Press Start 2P',monospace; font-size:.42rem;
-  background:#FFEAD6;
+  background:#3b2a52;
 }
 .win-menubar span {
   padding:.35rem .75rem; border-right:1.5px solid rgba(86,41,21,.2);
@@ -613,7 +722,7 @@
   display:flex; justify-content:space-between; align-items:center;
   padding:.3rem 1rem; border-top:2px solid #562915; flex-shrink:0;
   font-family:'Press Start 2P',monospace; font-size:.38rem;
-  color:rgba(86,41,21,.5); background:#FFEAD6;
+  color:rgba(86,41,21,.5); background:#3b2a52;
 }
 .win-statusbar .status-pill {
   background:#d4b3f5; border:1.5px solid #562915; border-radius:100px;
@@ -734,7 +843,7 @@
               <div class="browser-dots"><span></span><span></span><span></span></div>
               <div class="browser-url"><span>kamararental.com</span><span class="url-arrow">↗</span></div>
             </div>
-            <img class="browser-screen" src="./images/Captura_de_pantalla_2026-03-12_180622.png" alt="Kamara Rental"/>
+            <img class="browser-screen" src="https://api.microlink.io/?url=https%3A%2F%2Fkamararental.com&screenshot=true&meta=false&embed=screenshot.url" alt="Kamara Rental" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'<span>kamararental.com</span>'}))"/>
           </a>
         </div>
         <div class="site-info">
@@ -780,11 +889,49 @@
     </div>
     <hr class="section-divider"/>
     <p class="corp-section-label">Experiencias trabajadas</p>
-    <button class="gallery-more-btn" data-modal-title="Experiencias Fever" data-images='["./images/19389a68-bda9-11ed-9d01-caa09a95a17d__1_.avif","./images/1ab63c14-149c-11f0-945a-f65f346f445e.avif","./images/26af92b8-dcf6-11f0-bcea-5e51a343a1d9.avif","./images/54284b9e-f360-11ee-9b78-867a69e72567.avif","./images/57449226-83e2-11ee-9acb-3acdc8d03b37.avif","./images/6e22302c-1dfc-11ed-81a0-ee55a8afce53.avif","./images/6e259ce8-9d69-11ed-b29f-62126ee6fd7f.avif","./images/771d6e2c-efc6-11f0-97d2-1e3ee3bc4382.avif","./images/80b2e58e-b567-11ee-9252-0e388b743076.avif","./images/8e5c9108-fce6-11f0-b716-ba704879749a.avif","./images/8f4b6b08-d1bb-11f0-897f-72ec648b0a13.avif","./images/c4b45714-ba63-11ec-9cb3-7a4757b76804.avif","./images/efe4e09a-1517-11f0-b544-a6b24187f688.avif","./images/f0083116-7c7e-11f0-914d-2a2c387f1324.avif","./images/f4cc2962-0c4c-11ef-b02d-0ea2b6457dc0.avif","./images/f7316d66-f32e-11ee-9201-ee24170e6030.avif"]'>Ver todas las experiencias en las que he colaborado →</button>
+    <div class="img-strip-wrap">
+      <button class="strip-arrow" onclick="document.getElementById('strip-exp').scrollBy({left:-220,behavior:'smooth'})">◀</button>
+      <div class="img-strip" id="strip-exp">
+        <img src="./images/19389a68-bda9-11ed-9d01-caa09a95a17d__1_.avif" alt="Experiencia Fever"/>
+        <img src="./images/1ab63c14-149c-11f0-945a-f65f346f445e.avif" alt="Experiencia Fever"/>
+        <img src="./images/26af92b8-dcf6-11f0-bcea-5e51a343a1d9.avif" alt="Experiencia Fever"/>
+        <img src="./images/54284b9e-f360-11ee-9b78-867a69e72567.avif" alt="Experiencia Fever"/>
+        <img src="./images/57449226-83e2-11ee-9acb-3acdc8d03b37.avif" alt="Experiencia Fever"/>
+        <img src="./images/6e22302c-1dfc-11ed-81a0-ee55a8afce53.avif" alt="Experiencia Fever"/>
+        <img src="./images/6e259ce8-9d69-11ed-b29f-62126ee6fd7f.avif" alt="Experiencia Fever"/>
+        <img src="./images/771d6e2c-efc6-11f0-97d2-1e3ee3bc4382.avif" alt="Experiencia Fever"/>
+        <img src="./images/80b2e58e-b567-11ee-9252-0e388b743076.avif" alt="Experiencia Fever"/>
+        <img src="./images/8e5c9108-fce6-11f0-b716-ba704879749a.avif" alt="Experiencia Fever"/>
+        <img src="./images/8f4b6b08-d1bb-11f0-897f-72ec648b0a13.avif" alt="Experiencia Fever"/>
+        <img src="./images/c4b45714-ba63-11ec-9cb3-7a4757b76804.avif" alt="Experiencia Fever"/>
+        <img src="./images/efe4e09a-1517-11f0-b544-a6b24187f688.avif" alt="Experiencia Fever"/>
+        <img src="./images/f0083116-7c7e-11f0-914d-2a2c387f1324.avif" alt="Experiencia Fever"/>
+        <img src="./images/f4cc2962-0c4c-11ef-b02d-0ea2b6457dc0.avif" alt="Experiencia Fever"/>
+        <img src="./images/f7316d66-f32e-11ee-9201-ee24170e6030.avif" alt="Experiencia Fever"/>
+      </div>
+      <button class="strip-arrow" onclick="document.getElementById('strip-exp').scrollBy({left:220,behavior:'smooth'})">▶</button>
+    </div>
     <hr class="section-divider" style="margin:1.4rem 0"/>
     <p class="corp-section-label">Ejemplos de CRM</p>
     <p style="font-size:.8rem;color:rgba(28,26,20,.55);margin-bottom:.8rem">Campañas de email marketing diseñadas para experiencias Fever en todo el mundo.</p>
-    <button class="gallery-more-btn" data-modal-title="Ejemplos de CRM — Fever" data-images='["./images/WhatsApp_Image_2025-12-18_at_15_22_24.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_24__1_.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_25.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_25__1_.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_26.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_26__1_.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_27.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_27__1_.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_29.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_30.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_22_30__1_.jpeg","./images/WhatsApp_Image_2025-12-18_at_15_24_22.jpeg"]'>Ver campañas de email</button>
+    <div class="img-strip-wrap">
+      <button class="strip-arrow" onclick="document.getElementById('strip-crm').scrollBy({left:-220,behavior:'smooth'})">◀</button>
+      <div class="img-strip crm" id="strip-crm">
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_24.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_24__1_.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_25.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_25__1_.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_26.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_26__1_.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_27.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_27__1_.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_29.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_30.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_22_30__1_.jpeg" alt="CRM Fever"/>
+        <img src="./images/WhatsApp_Image_2025-12-18_at_15_24_22.jpeg" alt="CRM Fever"/>
+      </div>
+      <button class="strip-arrow" onclick="document.getElementById('strip-crm').scrollBy({left:220,behavior:'smooth'})">▶</button>
+    </div>
   </div>
   <div class="win-statusbar">
     <span>03 — Corporate Girl</span>
@@ -869,7 +1016,7 @@
         <h2 style="font-family:Fraunces,serif;font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:900;line-height:1.05;color:#1C1A14;margin-bottom:1rem">Tienes un<br><em style="color:#D13955;font-style:italic">proyecto.</em></h2>
         <p style="font-size:.9rem;color:rgba(28,26,20,.62);line-height:1.8;margin-bottom:2rem">Siempre abierta a colaboraciones, proyectos freelance y nuevos retos creativos. ¡Escríbeme!</p>
         <div style="display:flex;flex-direction:column;gap:.8rem">
-          <a href="/cdn-cgi/l/email-protection#5f3d3a3e2b2d3625712f3e333e252a3a333071382a36353e2d2d301f38323e3633713c3032" style="display:flex;align-items:center;gap:.8rem;font-family:'Press Start 2P',monospace;font-size:.46rem;color:#562915;text-decoration:none;background:#FFEAD6;border:2px solid #562915;border-radius:10px;padding:.75rem 1.1rem;box-shadow:3px 3px 0 #562915;transition:transform .15s,box-shadow .15s" onmouseover="this.style.cssText+=';transform:translate(-2px,-2px);box-shadow:5px 5px 0 #562915'" onmouseout="this.style.transform='';this.style.boxShadow='3px 3px 0 #562915'">
+          <a href="/cdn-cgi/l/email-protection#5f3d3a3e2b2d3625712f3e333e252a3a333071382a36353e2d2d301f38323e3633713c3032" style="display:flex;align-items:center;gap:.8rem;font-family:'Press Start 2P',monospace;font-size:.46rem;color:#562915;text-decoration:none;background:#3b2a52;border:2px solid #562915;border-radius:10px;padding:.75rem 1.1rem;box-shadow:3px 3px 0 #562915;transition:transform .15s,box-shadow .15s" onmouseover="this.style.cssText+=';transform:translate(-2px,-2px);box-shadow:5px 5px 0 #562915'" onmouseout="this.style.transform='';this.style.boxShadow='3px 3px 0 #562915'">
             <span style="font-size:1.1rem">✉</span> <span class="__cf_email__" data-cfemail="b0d2d5d1c4c2d9ca9ec0d1dcd1cac5d5dcdf9ed7c5d9dad1c2c2dff0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</span>
           </a>
           <a href="https://www.linkedin.com/in/beatriz-palazuelo-guijarro-038671209/" target="_blank"
@@ -882,7 +1029,7 @@
       </div>
 
       <!-- Right: form -->
-      <div style="background:#FFEAD6;border:3px solid #562915;border-radius:16px;padding:2rem;box-shadow:5px 5px 0 #562915">
+      <div style="background:#3b2a52;border:3px solid #562915;border-radius:16px;padding:2rem;box-shadow:5px 5px 0 #562915">
         <div style="font-family:'Press Start 2P',monospace;font-size:.46rem;color:#562915;margin-bottom:1.4rem;letter-spacing:.1em;opacity:.7">✉ nuevo_mensaje.exe</div>
         <form onsubmit="handleContactForm(event)" style="display:flex;flex-direction:column;gap:1.1rem">
           <div style="display:flex;flex-direction:column;gap:.4rem">
@@ -1104,6 +1251,10 @@ document.addEventListener('keydown', function(e){
   function setLang(lang) {
     currentLang = lang;
     var t = translations[lang];
+    // bubble
+    var bl1=document.getElementById('bub-line1'); if(bl1) bl1.textContent=lang==='es'?'¡Bienvenida a mi portfolio!':'Welcome to my portfolio!';
+    var bl2=document.getElementById('bub-line2'); if(bl2) bl2.textContent=lang==='es'?'Para cualquier consulta,':'For any enquiries,';
+    var bb=document.getElementById('bub-btn'); if(bb) bb.textContent=lang==='es'?'Contacto ✉':'Contact ✉';
     document.getElementById('btn-es').classList.toggle('active', lang==='es');
     document.getElementById('btn-en').classList.toggle('active', lang==='en');
     // circles
@@ -1187,6 +1338,37 @@ document.addEventListener('keydown', function(e){
       var succ=document.getElementById('form-success'); if(succ) succ.textContent=t.con_success;
     }
   }
+
+  // drag to scroll strips
+  document.querySelectorAll('.img-strip').forEach(function(strip){
+    var isDown=false, startX, scrollLeft;
+    strip.addEventListener('mousedown',function(e){isDown=true;startX=e.pageX-strip.offsetLeft;scrollLeft=strip.scrollLeft;});
+    strip.addEventListener('mouseleave',function(){isDown=false;});
+    strip.addEventListener('mouseup',function(){isDown=false;});
+    strip.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();var x=e.pageX-strip.offsetLeft;strip.scrollLeft=scrollLeft-(x-startX);});
+    // click on image opens modal
+    strip.querySelectorAll('img').forEach(function(img){
+      img.addEventListener('click',function(){
+        var imgs=Array.from(strip.querySelectorAll('img')).map(function(i){return i.src;});
+        openModal(strip.closest('.img-strip-wrap').previousElementSibling?strip.closest('.img-strip-wrap').previousElementSibling.textContent:'Galería', imgs);
+      });
+    });
+  });
+
+  // Mobile CTA carousel
+  var mobileCircleIdx = 0;
+  var mobileCircles = ['circle-branding','circle-website','circle-corporate','circle-wedding'];
+  function updateMobileCircles(){
+    mobileCircles.forEach(function(id,i){
+      var el=document.getElementById(id);
+      if(!el) return;
+      if(i===mobileCircleIdx) el.classList.add('mobile-active');
+      else el.classList.remove('mobile-active');
+    });
+  }
+  function mobileNext(){mobileCircleIdx=(mobileCircleIdx+1)%mobileCircles.length;updateMobileCircles();}
+  function mobilePrev(){mobileCircleIdx=(mobileCircleIdx-1+mobileCircles.length)%mobileCircles.length;updateMobileCircles();}
+  updateMobileCircles();
 
   setLang('es');
 
