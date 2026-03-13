@@ -472,7 +472,7 @@
 
     
   </style>
-  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
 
@@ -555,10 +555,10 @@
   </div>
   <div class="scroll-hint"><span>Scroll</span><div class="scroll-bar"></div></div>
 
-  <img src="./images/cuadros.png" alt="" style="position:absolute;right:0;top:0;width:clamp(200px,28vw,420px);height:auto;z-index:1;">
+  <img src="./images/cuadros.png" alt="" style="position:absolute;right:0;top:0;width:clamp(300px,38vw,560px);height:auto;z-index:1;">
 
   <!-- Gameboy lottie -->
-  <dotlottie-player src="./images/bright_gameboy.lottie" autoplay loop style="position:absolute;right:5%;bottom:46%;width:clamp(80px,9vw,130px);z-index:3;pointer-events:none;filter:drop-shadow(4px 4px 0 rgba(86,41,21,.3))"></dotlottie-player>
+  <div id="gameboy-lottie" style="position:absolute;right:5%;bottom:46%;width:clamp(80px,9vw,130px);z-index:3;pointer-events:none;filter:drop-shadow(4px 4px 0 rgba(86,41,21,.3))"></div>
 
   <!-- Pixel girl -->
   <div class="pg-scene-wrap">
@@ -1333,6 +1333,15 @@ document.addEventListener('keydown', function(e){
       var succ=document.getElementById('form-success'); if(succ) succ.textContent=t.con_success;
     }
   }
+
+  // Gameboy lottie
+  lottie.loadAnimation({
+    container: document.getElementById('gameboy-lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './images/gameboy.json'
+  });
 
   setLang('es');
 
