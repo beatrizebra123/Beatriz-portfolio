@@ -83,24 +83,40 @@
     /* CTA circles — purple pastel */
     .hero-cats { display:flex; gap:clamp(.35rem,.7vw,.6rem); flex-wrap:wrap; margin-top:clamp(.5rem,1.5vh,1rem); justify-content:center; align-items:center; position:relative; z-index:1; }
     .float-circle {
-      width:clamp(64px,7.5vw,96px); height:clamp(64px,7.5vw,96px);
-      border-radius:50%; display:flex; align-items:center; justify-content:center; text-align:center;
-      font-family:'Press Start 2P',monospace; font-size:clamp(.3rem,.42vw,.48rem);
-      line-height:1.6; text-transform:uppercase;
-      color:#562915; text-decoration:none; 
-      background:#d4b3f5; border:2.5px solid #562915;
-      box-shadow:3px 3px 0 #562915,5px 5px 0 #9b6fd4;
-      transition:box-shadow .15s,transform .15s,background .2s,color .2s;
-      animation:floatBob 4s ease-in-out infinite;
+      width:clamp(72px,8vw,102px); height:clamp(72px,8vw,102px);
+      border-radius:0;
+      image-rendering:pixelated;
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      font-family:'Press Start 2P',monospace; font-size:clamp(.28rem,.38vw,.44rem);
+      line-height:1.7; text-transform:uppercase;
+      color:#562915; text-decoration:none;
+      background:#f49aa3;
+      border-top:3px solid #ffc4ca;
+      border-left:3px solid #ffc4ca;
+      border-right:3px solid #a05060;
+      border-bottom:3px solid #a05060;
+      box-shadow:4px 4px 0 #562915;
+      transition:box-shadow .1s, transform .1s, background .15s;
+      animation:none;
+      position:relative;
     }
-    .float-circle.c2 { animation-delay:.9s; }
-    .float-circle.c3 { animation-delay:1.8s; }
-    .float-circle.c4 { animation-delay:2.7s; }
-    .float-circle:hover { transform:translate(-2px,-2px); }
-    .float-circle.c1:hover { background:#FCA6AF; box-shadow:3px 3px 0 #562915,5px 5px 0 #D13955; }
-    .float-circle.c2:hover { background:#FFBF52; box-shadow:3px 3px 0 #562915,5px 5px 0 #F0A224; }
-    .float-circle.c3:hover { background:#D13955; color:#FFEAD6; box-shadow:3px 3px 0 #562915,5px 5px 0 #562915; }
-    .float-circle.c4:hover { background:#F0A224; box-shadow:3px 3px 0 #562915; }
+    .float-circle::after {
+      content:''; position:absolute; inset:0;
+      background:repeating-linear-gradient(transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px);
+      pointer-events:none;
+    }
+    .float-circle:hover {
+      transform:translateY(-4px);
+      box-shadow:4px 8px 0 #562915;
+    }
+    .float-circle.c1 { background:#f49aa3; border-top-color:#ffc4ca; border-left-color:#ffc4ca; border-right-color:#a05060; border-bottom-color:#a05060; }
+    .float-circle.c1:hover { background:#e47083; color:#fff; }
+    .float-circle.c2 { background:#f1a57e; border-top-color:#ffc8a8; border-left-color:#ffc8a8; border-right-color:#a06040; border-bottom-color:#a06040; }
+    .float-circle.c2:hover { background:#e08060; color:#fff; }
+    .float-circle.c3 { background:#a8bf89; border-top-color:#c8dfa8; border-left-color:#c8dfa8; border-right-color:#607040; border-bottom-color:#607040; }
+    .float-circle.c3:hover { background:#8aaa60; color:#fff; }
+    .float-circle.c4 { background:#e47083; border-top-color:#f0a0aa; border-left-color:#f0a0aa; border-right-color:#803040; border-bottom-color:#803040; }
+    .float-circle.c4:hover { background:#c85060; color:#fff; }
     /* keyboard + mouse */
     .peripherals { display:flex; align-items:flex-end; gap:clamp(16px,2.5vw,28px); margin-top:10px; }
     .keyboard { background:#F4A4B8; border:2.5px solid #562915; border-radius:10px 10px 14px 14px; padding:clamp(12px,1.8vw,20px) clamp(16px,2.5vw,30px) clamp(14px,2vw,22px); box-shadow:5px 5px 0 #562915; }
@@ -375,8 +391,8 @@
     .pg-d3 { animation:pgD3 3.5s ease forwards 1; transform-origin:center; }
     .pg-bigbub { animation:pgBub 3.5s ease forwards 1; transform-origin:bottom left; }
     .pg-btn-wrap { animation:pgBtn 3.5s ease forwards 1; }
-    .pg-btn { font-family:'Fraunces',serif; font-size:.65rem; font-weight:900; font-style:italic; text-transform:uppercase; padding:.5rem 1.2rem; border-radius:100px; border:3px solid #562915; background:#E8B400; color:#562915; text-decoration:none; box-shadow:4px 4px 0 0 #562915,7px 7px 0 0 #562915; transition:box-shadow .15s,transform .15s,background .2s; display:inline-block; cursor:pointer; white-space:nowrap; pointer-events:all; }
-    .pg-btn:hover { background:#FFF8F2; transform:translate(-3px,-3px); box-shadow:4px 4px 0 0 #562915,7px 7px 0 0 #562915; }
+    .pg-btn { font-family:'Press Start 2P',monospace; font-size:.42rem; text-transform:uppercase; padding:.55rem 1.1rem; border-radius:3px; border-top:3px solid #ffc4ca; border-left:3px solid #ffc4ca; border-right:3px solid #a05060; border-bottom:3px solid #a05060; background:#f49aa3; color:#562915; text-decoration:none; box-shadow:4px 4px 0 #562915; transition:box-shadow .1s,transform .1s,background .15s; display:inline-block; cursor:pointer; white-space:nowrap; pointer-events:all; line-height:1.6; }
+    .pg-btn:hover { background:#e47083; color:#fff; transform:translateY(-4px); box-shadow:4px 8px 0 #562915; }
     @media(max-width:768px){ .pg-scene-wrap{ display:none; } }
 
     .lang-toggle { display:flex; align-items:center; gap:.3rem; justify-content:center; margin-top:.4rem; }
@@ -517,19 +533,18 @@
           <div class="screen-deco" id="screen-deco"></div>
           <div class="hero-name" id="hero-name"></div>
           <div class="screen-subtitle">PORTFOLIO</div>
-          <div class="lang-toggle-mobile">
-            <button onclick="setLang('es')" id="btn-es-m" class="lang-btn" style="font-family:'Press Start 2P',monospace;font-size:.35rem;padding:.3rem .5rem;background:none;border:1px solid rgba(240,96,138,.4);border-radius:4px;color:#f0608a;cursor:pointer">ES</button>
-            <span style="font-size:.4rem;color:rgba(255,255,255,.3)">|</span>
-            <button onclick="setLang('en')" id="btn-en-m" class="lang-btn" style="font-family:'Press Start 2P',monospace;font-size:.35rem;padding:.3rem .5rem;background:none;border:1px solid rgba(91,143,201,.4);border-radius:4px;color:#5b8fc9;cursor:pointer">EN</button>
-          </div>
-          <div class="mobile-cats-hint">swipe ▶</div>
+          <div class="mobile-cats-hint" id="mob-swipe-hint">swipe ▶</div>
           <div class="hero-cats-wrap"><button class="hero-cats-arrow" onclick="mobilePrev()">◀</button><div class="hero-cats" id="hero-cats-mobile">
             <a href="#" onclick="openWindow('win-branding');return false;" class="float-circle c1" id="circle-branding">Diseño gráfico<br>y Branding</a>
             <a href="#" onclick="openWindow('win-website');return false;" class="float-circle c2" id="circle-website">Diseño<br>Web</a>
             <a href="#" onclick="openWindow('win-corporate');return false;" class="float-circle c3" id="circle-corporate">Experiencia<br>Corporativa</a>
             <a href="#" onclick="openWindow('win-wedding');return false;" class="float-circle c4" id="circle-wedding" style="font-size:clamp(.35rem,.5vw,.55rem);letter-spacing:.05em">Bodas</a>
           </div></div>
-          <div class="mobile-cats-hint">swipe ▶</div>
+          <div class="lang-toggle-mobile" style="padding:4px 8px;">
+            <button onclick="setLang('es')" id="btn-es-m" class="lang-btn" style="font-family:'Press Start 2P',monospace;font-size:.35rem;padding:.3rem .5rem;background:none;border:1px solid rgba(240,96,138,.4);border-radius:4px;color:#f0608a;cursor:pointer">ES</button>
+            <span style="font-size:.4rem;color:rgba(255,255,255,.3)">|</span>
+            <button onclick="setLang('en')" id="btn-en-m" class="lang-btn" style="font-family:'Press Start 2P',monospace;font-size:.35rem;padding:.3rem .5rem;background:none;border:1px solid rgba(91,143,201,.4);border-radius:4px;color:#5b8fc9;cursor:pointer">EN</button>
+          </div>
           <div class="lang-toggle">
             <button onclick="setLang('es')" id="btn-es" class="lang-btn active">ES</button>
             <span style="color:rgba(255,234,214,.4);font-size:.5rem">|</span>
@@ -1248,7 +1263,7 @@ document.addEventListener('keydown', function(e){
       w_eyebrow:'02 — Diseño Web', w_title:'Creamos la web a <em>tu medida.</em>', w_desc:'Diseño y desarrollo web — identidad visual coherente, UX intuitiva y estética cuidada. En colaboración con', w_kamara_title:'Kamara Rental — <em>renting de vestidos.</em>', w_kamara_desc:'Web de alquiler de vestidos para eventos, desarrollada junto a Blanca Palazuelo. Diseño elegante e intuitivo pensado para que el cliente encuentre, reserve y disfrute sin fricciones.', w_visit:'Visitar web ↗', w_soon:'✦ Próximamente más proyectos', w_status:'1 proyecto',
       c_eyebrow:'03 — Experiencia Corporativa', c_title:'Experiencia en <em style="color:#F4A4B8">marketing.</em>', c_desc:'Marketing digital y diseño con experiencia en campañas globales, CRM y estrategia para marcas internacionales.', c_cv:'↓ Descargar CV', c_stat1:'Años en<br>Fever', c_stat2:'Campañas', c_stat3:'Herramientas<br>diseño &amp; mkt', c_stat4:'Internacional', c_exp_label:'Experiencias trabajadas', c_exp_btn:'Ver todas las experiencias en las que he colaborado →', c_crm_label:'Ejemplos de CRM', c_crm_desc:'Campañas de email marketing diseñadas para experiencias Fever en todo el mundo.', c_crm_btn:'Ver campañas de email',
       wed_eyebrow:'04 — Bodas', wed_title:'Diseñamos todo para el <em>gran día.</em>', wed_desc:'Web de boda, papelería y señalética para el gran día. Precio amigo para novias 🌸', wed_project_title:'Alba &amp; Ignacio — <em>Web de boda.</em>', wed_project_desc:'Web de boda centrada en la estética acuarela, diseñada para reflejar el espíritu del lugar donde se celebrará el gran día.', wed_visit:'Visitar web ↗', wed_print_title:'Meseros &amp; Carteles — <em>Boda Alba &amp; Ignacio</em>', wed_print_desc:'Señalética completa para las estaciones de aperitivo y menú de boda. Diseño watercolor con ilustraciones a medida.', wed_print_btn:'Ver meseros y carteles',
-      con_eyebrow:'05 — Hablemos', con_title:'Tienes un<br><em style="color:#D13955">proyecto.</em>', con_desc:'Siempre abierta a colaboraciones, proyectos freelance y nuevos retos creativos. ¡Escríbeme!', con_nombre:'TU NOMBRE', con_nombre_ph:'Ej: Ana García', con_email_lbl:'TU EMAIL', con_email_ph:'hola@email.com', con_msg:'MENSAJE', con_msg_ph:'Cuéntame tu proyecto...', con_send:'ENVIAR', con_success:'✦ ¡Mensaje enviado! Te escribo pronto.'
+      con_eyebrow:'05 — Hablemos', con_title:'Tienes un<br><em style="color:#D13955">proyecto.</em>', con_desc:'Siempre abierta a colaboraciones, proyectos freelance y nuevos retos creativos. ¡Escríbeme!', con_nombre:'TU NOMBRE', con_nombre_ph:'Ej: Ana García', con_email_lbl:'TU EMAIL', con_email_ph:'hola@email.com', con_msg:'MENSAJE', con_msg_ph:'Cuéntame tu proyecto...', con_send:'ENVIAR', con_success:'✦ ¡Mensaje enviado! Te escribo pronto.', swipe:'desliza ▶'
     },
     en: {
       circles: ['Branding<br>+ Design','Web<br>Design','Corporate<br>Experience','Weddings'],
@@ -1257,7 +1272,7 @@ document.addEventListener('keydown', function(e){
       w_eyebrow:'02 — Web Design', w_title:'Webs built <em>for you.</em>', w_desc:'Web design and development — consistent visual identity, intuitive UX and thoughtful aesthetics. In collab with', w_kamara_title:'Kamara Rental — <em>dress rental.</em>', w_kamara_desc:'Dress rental website for events, built together with Blanca Palazuelo. Elegant and intuitive design so clients can find, book and enjoy without friction.', w_visit:'Visit website ↗', w_soon:'✦ More coming soon', w_status:'1 project',
       c_eyebrow:'03 — Corporate Experience', c_title:'Experience in <em style="color:#F4A4B8">marketing.</em>', c_desc:'Digital marketing and design with experience in global campaigns, CRM and strategy for international brands.', c_cv:'↓ Download CV', c_stat1:'Years at<br>Fever', c_stat2:'Campaigns', c_stat3:'Design &amp;<br>mkt tools', c_stat4:'International', c_exp_label:'Worked experiences', c_exp_btn:'See all experiences I have collaborated on →', c_crm_label:'CRM examples', c_crm_desc:'Email marketing campaigns designed for Fever experiences around the world.', c_crm_btn:'See email campaigns',
       wed_eyebrow:'04 — Weddings', wed_title:'Designed for <em>your big day.</em>', wed_desc:'Wedding website, stationery and signage for the big day. Friend price for brides 🌸', wed_project_title:'Alba &amp; Ignacio — <em>Wedding website.</em>', wed_project_desc:"Wedding website built around a watercolour aesthetic, designed to capture the spirit of the place where the big day will take place.", wed_visit:'Visit website ↗', wed_print_title:"Table cards &amp; Signs — <em>Alba &amp; Ignacio's Wedding</em>", wed_print_desc:'Full signage for the aperitif stations and wedding menu. Watercolour design with custom illustrations.', wed_print_btn:'View table cards and stationery',
-      con_eyebrow:"05 — Let's talk", con_title:'You have a<br><em style="color:#D13955">project.</em>', con_desc:'Always open to collaborations, freelance projects and new creative challenges. Write to me!', con_nombre:'YOUR NAME', con_nombre_ph:'e.g. Anna Smith', con_email_lbl:'YOUR EMAIL', con_email_ph:'hello@email.com', con_msg:'MESSAGE', con_msg_ph:'Tell me about your project...', con_send:'SEND', con_success:"✦ Message sent! I'll get back to you soon."
+      con_eyebrow:"05 — Let's talk", con_title:'You have a<br><em style="color:#D13955">project.</em>', con_desc:'Always open to collaborations, freelance projects and new creative challenges. Write to me!', con_nombre:'YOUR NAME', con_nombre_ph:'e.g. Anna Smith', con_email_lbl:'YOUR EMAIL', con_email_ph:'hello@email.com', con_msg:'MESSAGE', con_msg_ph:'Tell me about your project...', con_send:'SEND', con_success:"✦ Message sent! I'll get back to you soon.", swipe:'swipe ▶'
     }
   };
 
@@ -1265,6 +1280,7 @@ document.addEventListener('keydown', function(e){
     currentLang = lang;
     var t = translations[lang];
     // bubble
+    var sh=document.querySelector('.mobile-cats-hint'); if(sh) sh.textContent=t.swipe;
     var bl1=document.getElementById('bub-line1'); if(bl1) bl1.textContent=lang==='es'?'¡Bienvenido a mi portfolio!':'Welcome to my portfolio!';
     var bl2=document.getElementById('bub-line2'); if(bl2) bl2.textContent=lang==='es'?'Para cualquier consulta,':'For any enquiries,';
     var bb=document.getElementById('bub-btn'); if(bb) bb.textContent=lang==='es'?'Contacto ✉':'Contact ✉';
