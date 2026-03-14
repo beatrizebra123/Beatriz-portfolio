@@ -856,12 +856,19 @@
   border-bottom:2px solid #562915; flex-shrink:0;
   font-family:'Press Start 2P',monospace; font-size:.42rem;
   background:#FFF8F2;
+  overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
 }
+.win-menubar::-webkit-scrollbar { display:none; }
 .win-menubar span {
   padding:.35rem .75rem; border-right:1.5px solid rgba(86,41,21,.2);
   color:#562915; cursor:pointer; white-space:nowrap;
 }
-.win-menubar span:hover { background:#d4b3f5; }
+#win-branding  .win-menubar span:hover { background:#d4b3f5; }
+#win-website   .win-menubar span:hover { background:#FCA6AF; }
+#win-corporate .win-menubar span:hover { background:#F4A4B8; color:#562915; }
+#win-wedding   .win-menubar span:hover { background:#E8B400; }
+#win-contact   .win-menubar span:hover { background:#D13955; color:#fff; }
 .win-menubar .menu-right {
   margin-left:auto; border-right:none; border-left:1.5px solid rgba(86,41,21,.2);
   color:rgba(86,41,21,.45);
