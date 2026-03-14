@@ -475,11 +475,11 @@
         justify-content:center !important;
       }
       .float-circle {
-        flex:0 0 calc(48% - 4px) !important;
-        width:calc(48% - 4px) !important;
-        max-width:240px !important;
-        height:52px !important;
-        font-size:.22rem !important;
+        flex:0 0 calc(50% - 3px) !important;
+        width:calc(50% - 3px) !important;
+        max-width:none !important;
+        height:clamp(44px,10vw,56px) !important;
+        font-size:clamp(.38rem,1.2vw,.52rem) !important;
         flex-shrink:0 !important;
         border-radius:0 !important;
         box-shadow:2px 2px 0 #562915 !important;
@@ -593,6 +593,10 @@
         gap:.2rem !important;
       }
     }
+
+    @media(max-width:768px){
+      #screen-content { padding:3px !important; gap:.15rem !important; }
+    }
   </style>
 </head>
 <body>
@@ -631,29 +635,7 @@
       <!-- ═══ SCREEN ═══ -->
       <rect x="22" y="22" width="536" height="294" fill="#b8e4f5"/>
 
-      <foreignObject x="22" y="22" width="536" height="294" style="overflow:hidden;">
-        <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.4rem,1.2vh,1rem);background:transparent;overflow:hidden;box-sizing:border-box;padding:8px;position:relative;">
-          <div style="background:repeating-linear-gradient(transparent,transparent 3px,rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px);position:absolute;inset:0;pointer-events:none;z-index:0;"></div>
-          <div class="hero-name" id="hero-name" style="position:relative;z-index:1;"></div>
-          <div class="screen-subtitle" style="position:relative;z-index:1;">PORTFOLIO</div>
-          <div class="hero-cats-wrap" style="position:relative;z-index:1;"><div class="hero-cats" id="hero-cats-mobile">
-            <a href="#" onclick="openWindow('win-branding');return false;" class="float-circle c1" id="circle-branding">Dise&#241;o gr&#225;fico<br/>y Branding</a>
-            <a href="#" onclick="openWindow('win-website');return false;" class="float-circle c2" id="circle-website">Dise&#241;o<br/>Web</a>
-            <a href="#" onclick="openWindow('win-corporate');return false;" class="float-circle c3" id="circle-corporate">Experiencia<br/>Corporativa</a>
-            <a href="#" onclick="openWindow('win-wedding');return false;" class="float-circle c4" id="circle-wedding" style="font-size:clamp(.35rem,.5vw,.55rem)">Bodas</a>
-          </div></div>
-          <div class="lang-toggle-mobile" style="padding:2px 8px;position:relative;z-index:1;">
-            <button onclick="setLang('es')" id="btn-es-m" class="lang-btn" style="font-family:'Press Start 2P',monospace;font-size:.35rem;padding:.25rem .4rem;background:none;border:1px solid rgba(240,96,138,.4);border-radius:0;color:#f0608a;cursor:pointer">ES</button>
-            <span style="font-size:.4rem;color:rgba(255,255,255,.3)">|</span>
-            <button onclick="setLang('en')" id="btn-en-m" class="lang-btn" style="font-family:'Press Start 2P',monospace;font-size:.35rem;padding:.25rem .4rem;background:none;border:1px solid rgba(91,143,201,.4);border-radius:0;color:#5b8fc9;cursor:pointer">EN</button>
-          </div>
-          <div class="lang-toggle" style="position:relative;z-index:1;">
-            <button onclick="setLang('es')" id="btn-es" class="lang-btn active">ES</button>
-            <span style="color:rgba(255,234,214,.4);font-size:.5rem">|</span>
-            <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
-          </div>
-        </div>
-      </foreignObject>
+      <!-- screen content via overlay -->
 
       <!-- Bottom bezel bar -->
       <rect x="14" y="316" width="552" height="18" fill="#3a4a8b"/>
@@ -736,6 +718,43 @@
       <rect x="505" y="472" width="4" height="3" fill="#fff" opacity=".2"/>
 
     </svg>
+    <!-- Screen content overlay -->
+    <div id="screen-overlay" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;">
+      <div id="screen-content" style="
+        position:absolute;
+        left:3.8%;
+        top:4.23%;
+        width:92.4%;
+        height:56.5%;
+        display:flex;flex-direction:column;align-items:center;justify-content:center;
+        gap:clamp(.3rem,.8vh,.7rem);
+        pointer-events:all;
+        overflow:hidden;
+        box-sizing:border-box;
+        padding:6px;
+      ">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 3px,rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px);pointer-events:none;z-index:0;"></div>
+        <div class="hero-name" id="hero-name" style="position:relative;z-index:1;"></div>
+        <div class="screen-subtitle" style="position:relative;z-index:1;">PORTFOLIO</div>
+        <div class="mobile-cats-hint" id="mob-swipe-hint" style="position:relative;z-index:1;display:none"></div>
+        <div class="hero-cats-wrap" style="position:relative;z-index:1;"><div class="hero-cats" id="hero-cats-mobile">
+          <a href="#" onclick="openWindow('win-branding');return false;" class="float-circle c1" id="circle-branding">Diseño gráfico<br>y Branding</a>
+          <a href="#" onclick="openWindow('win-website');return false;" class="float-circle c2" id="circle-website">Diseño<br>Web</a>
+          <a href="#" onclick="openWindow('win-corporate');return false;" class="float-circle c3" id="circle-corporate">Experiencia<br>Corporativa</a>
+          <a href="#" onclick="openWindow('win-wedding');return false;" class="float-circle c4" id="circle-wedding" style="font-size:clamp(.35rem,.5vw,.55rem)">Bodas</a>
+        </div></div>
+        <div class="lang-toggle-mobile" style="position:relative;z-index:1;">
+          <button onclick="setLang('es')" id="btn-es-m" class="lang-btn" style="font-family:'Press Start 2P',monospace;font-size:.35rem;padding:.25rem .4rem;background:none;border:1px solid rgba(240,96,138,.4);border-radius:0;color:#f0608a;cursor:pointer">ES</button>
+          <span style="font-size:.4rem;color:rgba(255,255,255,.3)">|</span>
+          <button onclick="setLang('en')" id="btn-en-m" class="lang-btn" style="font-family:'Press Start 2P',monospace;font-size:.35rem;padding:.25rem .4rem;background:none;border:1px solid rgba(91,143,201,.4);border-radius:0;color:#5b8fc9;cursor:pointer">EN</button>
+        </div>
+        <div class="lang-toggle" style="position:relative;z-index:1;">
+          <button onclick="setLang('es')" id="btn-es" class="lang-btn active">ES</button>
+          <span style="color:rgba(255,234,214,.4);font-size:.5rem">|</span>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="scroll-hint"><span>Scroll</span><div class="scroll-bar"></div></div>
