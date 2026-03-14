@@ -478,8 +478,8 @@
         flex:0 0 calc(50% - 6px) !important;
         width:calc(50% - 6px) !important;
         max-width:none !important;
-        height:50px !important;
-        font-size:.42rem !important;
+        height:44px !important;
+        font-size:.28rem !important;
         flex-shrink:0 !important;
         border-radius:0 !important;
         box-shadow:2px 2px 0 #562915 !important;
@@ -580,9 +580,17 @@
         min-height:48px !important;
       }
       .retro-window {
-        height:92vh !important;
-        max-height:92vh !important;
-        width:98vw !important;
+        height:80vh !important;
+        max-height:80vh !important;
+        width:97vw !important;
+      }
+    }
+
+    @media(max-width:768px){
+      #pixel-monitor-svg { width:min(92vw,400px) !important; }
+      #pixel-monitor-svg foreignObject > div {
+        padding:4px !important;
+        gap:.2rem !important;
       }
     }
   </style>
