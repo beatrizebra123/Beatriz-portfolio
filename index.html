@@ -2608,6 +2608,7 @@ function handleMinigameBackdrop(e){
     L:[[0,0,1],[1,1,1],[0,0,0]]
   };
   var cv=document.getElementById('tg-canvas');
+  if(!cv) return; // Tetris canvas no existe en esta versión
   var ctx=cv.getContext('2d');
   var nc=document.getElementById('tg-next');
   var nctx=nc.getContext('2d');
