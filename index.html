@@ -711,10 +711,7 @@
 
 <div id="cursor"></div>
 
-<nav>
-  <a href="#hero" class="nav-logo" style="font-family:'Press Start 2P',monospace;font-size:.9rem;letter-spacing:.1em">BP</a>
-
-</nav>
+<nav></nav>
 
 <!-- HERO: 100vh, normal flow -->
 <section id="hero">
@@ -1185,6 +1182,8 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
   border-bottom: 2px solid #562915;
   flex-shrink: 0;
   user-select: none;
+  touch-action: none;
+  -webkit-user-select: none;
 }
 .win-btn-group { display:flex; gap:.25rem; align-items:center; }
 .win-btn {
@@ -1221,12 +1220,9 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
   z-index:50 !important;
   flex-shrink:0 !important;
 }
-.win-btn.close-btn::after {
-  content:'';
-  position:absolute;
-  inset:-14px;
-}
+.win-btn.close-btn::after { display:none; }
 .win-btn.close-btn:hover { filter:brightness(1.15) !important; }
+.win-btn.close-btn::before { content:''; position:absolute; inset:-16px; display:block; }
 .win-btn.close-btn:active {
   border-top: 2px solid #801020 !important;
   border-left: 2px solid #801020 !important;
@@ -1404,7 +1400,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
+    <button class="win-btn close-btn" data-close-win="1" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
   </div>
   <div class="win-menubar">
     <span>Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1439,7 +1435,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
+    <button class="win-btn close-btn" data-close-win="1" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span>Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1485,7 +1481,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
+    <button class="win-btn close-btn" data-close-win="1" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span>Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1565,7 +1561,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
+    <button class="win-btn close-btn" data-close-win="1" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span>Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1616,7 +1612,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="margin-left:.5rem;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
+    <button class="win-btn close-btn" data-close-win="1" style="margin-left:.5rem;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
   </div>
 
   <div class="win-menubar">
@@ -2047,7 +2043,7 @@ document.addEventListener('keydown', function(e){
     <div class="win-deco" style="color:rgba(255,255,255,.5);">✦ B·P</div>
     <button class="win-btn min-btn" style="background:#d08090;">_</button>
     <button class="win-btn max-btn" style="background:#d08090;">□</button>
-    <button class="win-btn close-btn" onclick="closeMinigame()" ontouchstart="event.preventDefault();event.stopPropagation();closeMinigame();" style="position:relative;z-index:200;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:44px;min-height:44px;width:44px;height:44px;font-size:.9rem;">✕</button>
+    <button class="win-btn close-btn" data-close-mini="1" style="position:relative;z-index:200;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:44px;min-height:44px;width:44px;height:44px;font-size:.9rem;">✕</button>
   </div>
 
   <style>
@@ -2416,7 +2412,7 @@ function handleMinigameBackdrop(e){
         font-family:'Press Start 2P',monospace;font-size:.38rem;
         color:#fffcf5;white-space:nowrap;text-shadow:1px 1px 0 rgba(0,0,0,.5);
       "></div>
-      <button onclick="closeExpLightbox()" ontouchend="event.preventDefault();closeExpLightbox();" style="
+      <button data-close-explb="1" style="
         position:absolute;top:-14px;right:-14px;
         width:36px;height:30px;font-family:'Press Start 2P',monospace;font-size:.7rem;
         background:#D13955;color:#fff;
@@ -2512,7 +2508,7 @@ document.addEventListener('keydown',function(e){
         color:#fffcf5;white-space:nowrap;text-shadow:1px 1px 0 rgba(0,0,0,.5);
       "></div>
       <!-- X button -->
-      <button onclick="closeLightbox()" ontouchend="event.preventDefault();closeLightbox();" style="
+      <button data-close-crmlb="1" style="
         position:absolute;top:-14px;right:-14px;
         width:36px;height:30px;
         font-family:'Press Start 2P',monospace;font-size:.7rem;
@@ -2575,106 +2571,7 @@ document.addEventListener('keydown',function(e){
 });
 </script>
 <!-- MINIGAME WINDOW — TETRIS -->
-<div class="win-backdrop" id="bd-win-minigame" onclick="handleMinigameBackdrop(event)">
-<div class="retro-window" id="win-minigame" style="width:min(96vw,820px);height:auto;max-height:94vh;overflow-y:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;">
-  <div class="win-titlebar" style="background:#c06070;touch-action:manipulation;">
-    <div class="win-title-text" style="color:#fff;">minijuego.exe</div>
-    <div class="win-deco" style="color:rgba(255,255,255,.5);">✦ B·P</div>
-    <button class="win-btn min-btn" style="background:#d08090;">_</button>
-    <button class="win-btn max-btn" style="background:#d08090;">□</button>
-    <button class="win-btn close-btn" onclick="closeMinigame()" ontouchstart="event.preventDefault();event.stopPropagation();closeMinigame();" style="position:relative;z-index:200;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:44px;min-height:44px;width:44px;height:44px;font-size:.9rem;">✕</button>
-  </div>
 
-  <style>
-  #tg-wrap{font-family:Arial,Helvetica,sans-serif;color:#5f4f48;background:linear-gradient(to bottom,#fde8f0,#f8d0e4);}
-  #win-minigame::-webkit-scrollbar{display:none;}
-  #tg-wrap *{box-sizing:border-box;}
-  .tg-header{padding:10px 14px;border-bottom:3px solid #7a685f;background:#d0bcee;text-align:center;}
-  .tg-title{margin:0;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#e0208a;font-family:'Press Start 2P',monospace;text-shadow:3px 3px 0 #f8b0d8, 5px 5px 0 rgba(220,50,150,.2);}
-  .tg-sub{margin:4px 0 0;font-size:11px;color:#9a877d;}
-  .tg-main{display:grid;grid-template-columns:1fr 200px;gap:12px;padding:12px;}
-  .tg-board-wrap{display:flex;justify-content:center;align-items:flex-start;}
-  .tg-board-stack{position:relative;display:inline-block;}
-  #tg-canvas{display:block;background:#fffdfb;border:3px solid #7a685f;}
-  .tg-overlay{position:absolute;inset:0;display:none;place-items:center;background:rgba(255,250,247,.82);pointer-events:none;}
-  .tg-overlay-card{border:3px solid #7a685f;background:#fff7f3;padding:14px 12px;text-align:center;min-width:160px;}
-  .tg-overlay-card h3{margin:0 0 6px;font-size:17px;text-transform:uppercase;letter-spacing:.06em;}
-  .tg-overlay-card p{margin:0;font-size:11px;color:#9a877d;}
-  .tg-side{display:flex;flex-direction:column;gap:10px;}
-  .tg-panel{border:3px solid #7a685f;background:#e8f4fc;padding:10px;}
-  .tg-panel h2{margin:0 0 8px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#9a877d;}
-  .tg-stats{display:grid;gap:8px;}
-  .tg-stat{border:2px solid #7a685f;background:#fff;padding:8px;text-align:center;}
-  .tg-stat-lbl{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#9a877d;margin-bottom:3px;}
-  .tg-stat-val{display:block;font-size:18px;font-weight:700;line-height:1;}
-  #tg-next{background:#fff;border:2px solid #7a685f;display:block;}
-  .tg-ctrl-list{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:11px;line-height:1.35;}
-  .tg-btns{display:grid;gap:8px;}
-  .tg-btn{width:100%;border:2px solid #7a685f;background:#ffe6b8;color:#5f4f48;padding:10px 8px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;}
-  .tg-btn:hover{filter:brightness(.97);}
-  .tg-btn:active{transform:translateY(1px);}
-  .tg-btn.sec{background:#dff1eb;}
-  .tg-mobile{display:none;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px 12px;}
-  .tg-mob-btn{border:2px solid #7a685f;background:#fff;color:#5f4f48;font-size:17px;font-weight:700;padding:11px 6px;cursor:pointer;min-height:48px;touch-action:manipulation;}
-  .tg-mob-btn.wide{grid-column:span 3;background:#fce5ee;font-size:13px;text-transform:uppercase;letter-spacing:.05em;}
-  @media(max-width:600px){
-    .tg-main{grid-template-columns:1fr;}
-    .tg-side{order:-1;}
-    .tg-stats{grid-template-columns:repeat(3,1fr);}
-    .tg-mobile{display:grid;}
-  }
-  </style>
-
-  <div id="tg-wrap">
-    <div class="tg-header">
-      <h1 class="tg-title">Bea's Pastel Tetris</h1>
-      
-    </div>
-    <div class="tg-main">
-      <div class="tg-board-wrap">
-        <div class="tg-board-stack">
-          <canvas id="tg-canvas" width="240" height="480"></canvas>
-          <div class="tg-overlay" id="tg-overlay">
-            <div class="tg-overlay-card">
-              <h3>Game Over</h3>
-              <p>Pulsa reiniciar para volver</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <aside class="tg-side">
-        <div class="tg-panel">
-          <h2>Marcador</h2>
-          <div class="tg-stats">
-            <div class="tg-stat"><span class="tg-stat-lbl">Puntos</span><span class="tg-stat-val" id="tg-score">0</span></div>
-            <div class="tg-stat"><span class="tg-stat-lbl">Líneas</span><span class="tg-stat-val" id="tg-lines">0</span></div>
-            <div class="tg-stat"><span class="tg-stat-lbl">Nivel</span><span class="tg-stat-val" id="tg-level">1</span></div>
-          </div>
-        </div>
-        <div class="tg-panel">
-          <h2>Siguiente pieza</h2>
-          <div style="display:flex;justify-content:center;padding-top:2px;">
-            <canvas id="tg-next" width="80" height="80"></canvas>
-          </div>
-        </div>
-
-      </aside>
-    </div>
-    <div class="tg-mobile">
-      <button class="tg-mob-btn" id="tg-left">←</button>
-      <button class="tg-mob-btn" id="tg-rotate">↻</button>
-      <button class="tg-mob-btn" id="tg-right">→</button>
-      <div style="grid-column:span 3;display:flex;justify-content:center;"><button class="tg-mob-btn" id="tg-down" style="width:33%;">↓</button></div>
-      <button class="tg-mob-btn wide" id="tg-drop" style="background:#fef0a0;">Caída rápida</button>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 12px;" class="tg-desktop-btns">
-      <button class="tg-btn" id="tg-start-btn-d" style="background:#a8d8a0;">▶ Empezar</button>
-      <button class="tg-btn sec" id="tg-restart-btn-d" style="background:#ffd0d8;">↺ Reiniciar</button>
-    </div>
-  </div>
-</div>
-</div>
 
 <script>
 function openMinigame(){
@@ -2963,6 +2860,28 @@ function handleMinigameBackdrop(e){
     var isMinigame = btn.closest('#win-minigame') !== null;
     bindClose(btn, isMinigame ? closeMinigame : closeWindow);
   });
+})();
+
+// ═══ CLOSE BUTTONS: Solución táctil bulletproof ════════════════════════
+(function() {
+  function addPointerClose(selector, fn) {
+    document.querySelectorAll(selector).forEach(function(el) {
+      // Usar pointerup: funciona en touch y mouse sin conflictos
+      el.addEventListener('pointerup', function(e) {
+        e.stopPropagation();
+        fn();
+      });
+      // Prevenir que el scroll del contenedor padre cancele el tap
+      el.addEventListener('pointerdown', function(e) {
+        e.stopPropagation();
+      });
+    });
+  }
+
+  addPointerClose('[data-close-win="1"]',    function(){ closeWindow && closeWindow(); });
+  addPointerClose('[data-close-mini="1"]',   function(){ closeMinigame && closeMinigame(); });
+  addPointerClose('[data-close-explb="1"]',  function(){ closeExpLightbox && closeExpLightbox(); });
+  addPointerClose('[data-close-crmlb="1"]',  function(){ closeLightbox && closeLightbox(); });
 })();
 
 </script>
