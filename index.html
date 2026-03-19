@@ -1174,6 +1174,12 @@ body.win-open { overflow: hidden !important; width: 100%; }
 }
 @keyframes winOpen  { from{transform:scale(.07) translateY(30px);opacity:0} to{transform:scale(1) translateY(0);opacity:1} }
 @keyframes winClose { from{transform:scale(1);opacity:1} to{transform:scale(.07) translateY(30px);opacity:0} }
+/* iOS Safari: scale transforms desplazan el área táctil — usar fade simple en móvil */
+@media (pointer:coarse) {
+  @keyframes winOpen  { from{opacity:0} to{opacity:1} }
+  @keyframes winClose { from{opacity:1} to{opacity:0} }
+  .retro-window { transform:none !important; }
+}
 
 /* ── Title bar ── */
 .win-titlebar {
