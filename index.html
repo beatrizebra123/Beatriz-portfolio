@@ -705,11 +705,39 @@
     #hero-cuadros { display:none !important; }
     #hero-taza { display:none !important; }
     #hero-bolis { display:none !important; }
-  </style>
+  
+/* ── Botón X flotante para móvil táctil ── */
+#float-close-btn {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 64px;
+  height: 64px;
+  background: #D13955;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 900;
+  border: none;
+  border-bottom-left-radius: 8px;
+  z-index: 99999;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  box-shadow: -3px 3px 0 #801020;
+}
+@media (pointer: coarse) {
+  #float-close-btn { display: none; } /* se activa via JS al abrir */
+}
+</style>
 </head>
 <body>
 
 <div id="cursor"></div>
+<div id="float-close-btn">✕</div>
+
 
 <nav></nav>
 
@@ -1774,6 +1802,8 @@ function openWindow(id) {
   bd.classList.add('is-open');
   var wc = bd.querySelector('.win-content');
   if(wc) wc.scrollTop = 0;
+  var fb = document.getElementById('float-close-btn');
+  if(fb){ fb.style.display='flex'; fb.onclick=function(e){e.stopPropagation();closeWindow();}; fb.ontouchstart=fb.onclick; }
 }
 
 function closeWindow() {
@@ -2138,6 +2168,8 @@ function openMinigame(){
   var bd=document.getElementById('bd-win-minigame');
   document.body.classList.add('win-open');
   bd.style.display='flex'; bd.classList.add('is-open');
+  var fb=document.getElementById('float-close-btn');
+  if(fb){fb.style.display='flex';fb.onclick=function(){closeMinigame();fb.style.display='none';};}
 }
 function closeMinigame(){
   var bd=document.getElementById('bd-win-minigame');
@@ -2578,6 +2610,8 @@ function openMinigame(){
   var bd=document.getElementById('bd-win-minigame');
   document.body.classList.add('win-open');
   bd.style.display='flex'; bd.classList.add('is-open');
+  var fb=document.getElementById('float-close-btn');
+  if(fb){fb.style.display='flex';fb.onclick=function(){closeMinigame();fb.style.display='none';};}
 }
 function closeMinigame(){
   var bd=document.getElementById('bd-win-minigame');
@@ -2842,6 +2876,21 @@ function handleMinigameBackdrop(e){
 })();
 
 // Close buttons: onclick directo en HTML
+
+// Float close button para ventanas normales
+(function(){
+  var fb = document.getElementById('float-close-btn');
+  if(!fb) return;
+  fb.onclick = function(){ 
+    if(typeof closeMinigame !== 'undefined' && document.getElementById('bd-win-minigame') && document.getElementById('bd-win-minigame').classList.contains('is-open')){
+      closeMinigame(); 
+    } else {
+      closeWindow();
+    }
+    fb.style.display = 'none';
+  };
+  fb.ontouchstart = fb.onclick;
+})();
 
 </script>
 </body>
