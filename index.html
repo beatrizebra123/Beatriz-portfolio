@@ -671,7 +671,7 @@
     }
 
     @media(max-width:768px){
-      .win-btn.close-btn { text-decoration:none !important;
+      .win-btn.close-btn { text-decoration:none !important; display:flex !important; align-items:center !important; justify-content:center !important;
         width:44px !important;
         height:44px !important;
         min-width:44px !important;
@@ -1213,7 +1213,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
   border-right: 2px solid rgba(255,255,255,.8);
   border-bottom: 2px solid rgba(255,255,255,.8);
 }
-.win-btn.close-btn { text-decoration:none !important;
+.win-btn.close-btn { text-decoration:none !important; display:flex !important; align-items:center !important; justify-content:center !important;
   background:#D13955 !important; color:#FFEAD6 !important; margin-left:auto;
   width:44px !important; height:44px !important;
   min-width:44px !important; min-height:44px !important;
@@ -1358,7 +1358,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
 #win-corporate .win-title-text { color:#FFEAD6; }
 #win-corporate .win-deco { color:rgba(255,234,214,.4); }
 #win-corporate .win-btn { background:#886050; }
-#win-corporate .win-btn.close-btn { text-decoration:none !important; background:#f0608a; }
+#win-corporate .win-btn.close-btn { text-decoration:none !important; display:flex !important; align-items:center !important; justify-content:center !important; background:#f0608a; }
 #win-corporate .win-menubar { background:#FFF3DC; }
 #win-corporate .win-statusbar { background:#FFF3DC; }
 #win-corporate .win-content { scrollbar-width:none; }
@@ -1416,7 +1416,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindowById('win-branding')">✕</button>
+    <a href="#" class="win-btn close-btn" onclick="closeWindowById('win-branding');return false;">✕</a>
   </div>
   <div class="win-menubar">
     <span>Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1451,7 +1451,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindowById('win-website')">✕</button>
+    <a href="#" class="win-btn close-btn" onclick="closeWindowById('win-website');return false;">✕</a>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span>Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1497,7 +1497,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindowById('win-corporate')">✕</button>
+    <a href="#" class="win-btn close-btn" onclick="closeWindowById('win-corporate');return false;">✕</a>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span>Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1577,7 +1577,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindowById('win-wedding')">✕</button>
+    <a href="#" class="win-btn close-btn" onclick="closeWindowById('win-wedding');return false;">✕</a>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span>Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1628,7 +1628,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindowById('win-contact')">✕</button>
+    <a href="#" class="win-btn close-btn" onclick="closeWindowById('win-contact');return false;">✕</a>
   </div>
 
   <div class="win-menubar">
@@ -2059,7 +2059,7 @@ document.addEventListener('keydown', function(e){
     <div class="win-deco" style="color:rgba(255,255,255,.5);">✦ B·P</div>
     <button class="win-btn min-btn" style="background:#d08090;">_</button>
     <button class="win-btn max-btn" style="background:#d08090;">□</button>
-    <button class="win-btn close-btn" onclick="closeMinigame()">✕</button>
+    <a href="#" class="win-btn close-btn" onclick="closeMinigame();return false;">✕</a>
   </div>
 
   <style>
