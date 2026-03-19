@@ -10,7 +10,7 @@
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     :root { --dark:#1C1A14; --cream:#FFFCF5; --p1:#da1c5c; --p2:#f25a2b; --p3:#fbc131; --p4:#fd5ed2; }
     html { scroll-behavior:smooth; }
-    body { font-family:'DM Sans',sans-serif; background:#562915; color:var(--dark); cursor:url("data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" shape-rendering="crispEdges"><path d="M0 0h2v14h2v-4h2v-2h2v-2h2v-2h-2v-2h-2v-2h-2V0z" fill="%23562915"/><path d="M2 2v10h2v-4h2v-2h2v-2h-2V2z" fill="%23F4A4B8"/><path d="M4 12h2v2H4zm4-4h2v2H8z" fill="%23E06080"/></svg>") 0 0, auto; overflow-x:hidden; }
+    body { font-family:'DM Sans',sans-serif; background:#d4956a; color:var(--dark); cursor:url("data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" shape-rendering="crispEdges"><path d="M0 0h2v14h2v-4h2v-2h2v-2h2v-2h-2v-2h-2v-2h-2V0z" fill="%23562915"/><path d="M2 2v10h2v-4h2v-2h2v-2h-2V2z" fill="%23F4A4B8"/><path d="M4 12h2v2H4zm4-4h2v2H8z" fill="%23E06080"/></svg>") 0 0, auto; overflow-x:hidden; }
     a, button, .prop-card, .site-card { cursor:url("data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" shape-rendering="crispEdges"><path d="M0 0h2v14h2v-4h2v-2h2v-2h2v-2h-2v-2h-2v-2h-2V0z" fill="%23562915"/><path d="M2 2v10h2v-4h2v-2h2v-2h-2V2z" fill="%23F4A4B8"/><path d="M4 12h2v2H4zm4-4h2v2H8z" fill="%23E06080"/></svg>") 0 0, pointer; }
 
     #cursor { display:none; }
@@ -27,7 +27,7 @@
       position:relative; z-index:1; height:100vh;
       display:flex; flex-direction:column; align-items:center; justify-content:center;
       overflow:hidden; padding:0;
-      background: linear-gradient(to bottom, #FFF8F2 54%, #8B5A3C 54%);
+      background: linear-gradient(to bottom, #edd2c1 54%, #d4956a 54%);
     }
     .retro-computer { position:relative; display:flex; flex-direction:column; align-items:center; margin-top:-4vh; z-index:2; }
     .monitor-outer {
@@ -78,47 +78,53 @@
     .cpu-floppy::after { content:''; position:absolute; top:3px; left:4px; right:4px; height:2px; background:rgba(86,41,21,.22); border-radius:1px; }
     .cpu-power { width:13px; height:13px; border-radius:50%; border:2px solid #562915; background:#90EE90; box-shadow:0 0 5px rgba(144,238,144,.8); }
     /* Name pixel */
-    .hero-name { font-family:'Press Start 2P',monospace; font-size:clamp(.7rem,1.8vw,1.5rem); line-height:1.3; letter-spacing:.04em; color:#f0608a; text-shadow: 2px 2px 0 #562915, 4px 4px 0 #3a1a0a; position:relative; z-index:1; }
+    .hero-name { font-family:'Press Start 2P',monospace; font-size:clamp(.6rem,1.3vw,1.1rem); line-height:1.3; letter-spacing:.04em; color:#f0608a; text-shadow: 2px 2px 0 #562915, 4px 4px 0 #3a1a0a; position:relative; z-index:1; }
     .hero-name .letter { display:inline-block; transition:color .2s, text-shadow .2s;  }
     .hero-name .letter.space { display:inline-block; width:.5em; }
-    .screen-subtitle { font-family:'Press Start 2P',monospace; font-size:clamp(.45rem,1vw,.9rem); color:#fff; letter-spacing:.18em; position:relative; z-index:1; text-shadow:1px 1px 0 rgba(43,58,107,.5); margin-bottom:.2rem; margin-top:.4rem; }
-    /* CTA circles — purple pastel */
-    .hero-cats { display:flex; gap:clamp(.35rem,.7vw,.6rem); flex-wrap:wrap; margin-top:clamp(.5rem,1.5vh,1rem); justify-content:center; align-items:center; position:relative; z-index:1; }
+    .screen-subtitle { font-family:'Press Start 2P',monospace; font-size:clamp(.36rem,.75vw,.7rem); color:#fff; letter-spacing:.18em; position:relative; z-index:1; text-shadow:1px 1px 0 rgba(43,58,107,.5); margin-bottom:.2rem; margin-top:.4rem; }
+    /* CTA folders — Mac OS classic desktop folder style */
+    .hero-cats { display:flex; gap:clamp(1.2rem,2.2vw,2.4rem); flex-wrap:wrap; margin-top:clamp(.4rem,1vh,.8rem); justify-content:center; align-items:center; position:relative; z-index:1; }
     .float-circle {
-      width:clamp(72px,8vw,102px); height:clamp(72px,8vw,102px);
-      border-radius:0;
+      width:clamp(105px,12.5vw,155px);
       image-rendering:pixelated;
-      display:flex; align-items:center; justify-content:center; text-align:center;
-      font-family:'Press Start 2P',monospace; font-size:clamp(.28rem,.38vw,.44rem);
-      line-height:1.7; text-transform:uppercase;
+      display:flex; flex-direction:column; align-items:center; justify-content:flex-end; text-align:center;
+      font-family:'Press Start 2P',monospace;
+      line-height:1.5; text-transform:uppercase;
       color:#562915; text-decoration:none;
-      background:#f49aa3;
-      border-top:3px solid #ffc4ca;
-      border-left:3px solid #ffc4ca;
-      border-right:3px solid #a05060;
-      border-bottom:3px solid #a05060;
-      box-shadow:4px 4px 0 #562915;
-      transition:box-shadow .1s, transform .1s, background .15s;
-      animation:none;
-      position:relative;
+      background:transparent; border:none; box-shadow:none;
+      transition:transform .15s, filter .15s;
+      animation:none; position:relative;
+      padding-bottom:0; gap:5px;
     }
-    .float-circle::after {
-      content:''; position:absolute; inset:0;
-      background:repeating-linear-gradient(transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px);
-      pointer-events:none;
+    .float-circle .folder-icon {
+      width:100%; flex-shrink:0;
+      filter:drop-shadow(2px 2px 0 rgba(86,41,21,.35));
+    }
+    .float-circle .folder-label {
+      font-family:'Press Start 2P',monospace;
+      font-size:clamp(.38rem,.54vw,.66rem);
+      color:#562915;
+      line-height:1.6;
+      text-align:center;
+      text-shadow:1px 1px 0 rgba(255,255,255,.7);
+      word-break:normal;
+      overflow-wrap:break-word;
+      hyphens:none;
+      white-space:normal;
+      max-width:120%;
     }
     .float-circle:hover {
-      transform:translateY(-4px);
-      box-shadow:4px 8px 0 #562915;
+      transform:translateY(-6px) scale(1.07);
+      filter:brightness(1.06);
     }
-    .float-circle.c1 { background:#f49aa3; border-top-color:#ffc4ca; border-left-color:#ffc4ca; border-right-color:#a05060; border-bottom-color:#a05060; }
-    .float-circle.c1:hover { background:#e47083; color:#fff; }
-    .float-circle.c2 { background:#f1a57e; border-top-color:#ffc8a8; border-left-color:#ffc8a8; border-right-color:#a06040; border-bottom-color:#a06040; }
-    .float-circle.c2:hover { background:#e08060; color:#fff; }
-    .float-circle.c3 { background:#a8bf89; border-top-color:#c8dfa8; border-left-color:#c8dfa8; border-right-color:#607040; border-bottom-color:#607040; }
-    .float-circle.c3:hover { background:#8aaa60; color:#fff; }
-    .float-circle.c4 { background:#e47083; border-top-color:#f0a0aa; border-left-color:#f0a0aa; border-right-color:#803040; border-bottom-color:#803040; }
-    .float-circle.c4:hover { background:#c85060; color:#fff; }
+    .float-circle::before, .float-circle::after { display:none; }
+    .float-circle.c1,.float-circle.c2,.float-circle.c3,.float-circle.c4 {
+      background:transparent; border:none; box-shadow:none;
+    }
+    .float-circle.c1:hover,.float-circle.c2:hover,.float-circle.c3:hover,.float-circle.c4:hover {
+      background:transparent; color:#562915;
+    }
+
     /* keyboard + mouse */
     .peripherals { display:flex; align-items:flex-end; gap:clamp(16px,2.5vw,28px); margin-top:10px; }
     .keyboard { background:#F4A4B8; border:2.5px solid #562915; border-radius:10px 10px 14px 14px; padding:clamp(12px,1.8vw,20px) clamp(16px,2.5vw,30px) clamp(14px,2vw,22px); box-shadow:5px 5px 0 #562915; }
@@ -396,13 +402,40 @@
     .pg-btn { font-family:'Press Start 2P',monospace; font-size:.42rem; text-transform:uppercase; padding:.55rem 1.1rem; border-radius:3px; border-top:3px solid #ffc4ca; border-left:3px solid #ffc4ca; border-right:3px solid #a05060; border-bottom:3px solid #a05060; background:#f49aa3; color:#562915; text-decoration:none; box-shadow:4px 4px 0 #562915; transition:box-shadow .1s,transform .1s,background .15s; display:inline-block; cursor:pointer; white-space:nowrap; pointer-events:all; line-height:1.6; }
     .pg-btn:hover { background:#e47083; color:#fff; transform:translateY(-4px); box-shadow:4px 8px 0 #562915; }
 
-    .lang-toggle { display:flex; align-items:center; gap:.3rem; justify-content:center; margin-top:.4rem; }
+    .lang-toggle { display:flex; align-items:center; gap:.4rem; justify-content:center; margin-top:.5rem; }
     @media(max-width:768px){ .lang-toggle { display:none !important; } }
-    .lang-btn { font-family:'Press Start 2P',monospace; font-size:.45rem; background:none; border:1.5px solid transparent; padding:.25rem .5rem; border-radius:4px; cursor:pointer; transition:all .15s; }
-    #btn-es { color:#f0608a; border-color:rgba(240,96,138,.4); }
-    #btn-es.active, #btn-es:hover { border-color:#f0608a; background:rgba(240,96,138,.12); }
-    #btn-en { color:#5b8fc9; border-color:rgba(91,143,201,.4); }
-    #btn-en.active, #btn-en:hover { border-color:#5b8fc9; background:rgba(91,143,201,.12); }
+    .lang-btn {
+      font-family:'Press Start 2P',monospace; font-size:.5rem;
+      background:#b0a8e8;
+      border-top:3px solid #d8d4f8;
+      border-left:3px solid #d8d4f8;
+      border-right:3px solid #5050a0;
+      border-bottom:3px solid #5050a0;
+      padding:.4rem .7rem;
+      color:#fff;
+      cursor:pointer;
+      transition:all .08s;
+      image-rendering:pixelated;
+      box-shadow:1px 1px 0 #404080;
+      letter-spacing:.05em;
+      min-width:36px;
+    }
+    .lang-btn:hover {
+      background:#c4bcf0;
+    }
+    .lang-btn:active,
+    .lang-btn.active {
+      border-top:3px solid #5050a0;
+      border-left:3px solid #5050a0;
+      border-right:3px solid #d8d4f8;
+      border-bottom:3px solid #d8d4f8;
+      background:#9088d0;
+      transform:translate(1px,1px);
+      box-shadow:none;
+      color:#fff;
+    }
+    #btn-es { }
+    #btn-en { }
 
     /* ── Image scroll strips ── */
     .img-strip-wrap { position:relative; margin:.6rem 0 1rem; display:flex; align-items:center; gap:6px; }
@@ -442,58 +475,102 @@
         border:3px solid #562915; background:#E8B400; color:#562915; text-decoration:none;
         box-shadow:4px 4px 0 0 #562915,7px 7px 0 0 #562915;
       }
-      /* Monitor mobile — thinner pink border, bigger screen */
+      /* Monitor mobile */
       .monitor-outer {
         padding:8px 10px 6px !important;
         border-radius:16px 16px 10px 10px !important;
         width:min(92vw,400px) !important;
       }
-      #hero { min-height:100svh; display:flex; flex-direction:column; justify-content:center; }
-      .retro-computer { margin-top:7rem !important; }
+      #hero { min-height:100svh; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:.4rem; padding-top:2.5rem; box-sizing:border-box; }
+      .retro-computer { margin-top:0 !important; }
       .monitor-inner-bezel { padding:4px !important; }
-      /* Mobile CTAs: 4 squares in 2x2 grid, readable text */
-      .hero-name, .screen-subtitle, .screen-deco, .lang-toggle { display:none !important; }
+
+      /* Show keyboard-key lang buttons above monitor */
+      .mobile-lang-keys {
+        display:flex !important;
+        gap:.4rem;
+        justify-content:center;
+        z-index:5;
+        flex-shrink:0;
+        margin-bottom:1.1rem;
+      }
+      .mobile-lang-keys button {
+        font-size:.52rem !important;
+        padding:.35rem .6rem .48rem !important;
+      }
+
+      /* Hide name/subtitle wrapper completely on mobile */
+      #screen-name-wrap { display:none !important; }
+
+      /* Mobile CTAs: folders in 2x2 grid, fit inside screen */
+      .hero-name, .screen-subtitle, .screen-deco, .lang-toggle, .lang-toggle-mobile { display:none !important; }
       .hero-cats-arrow { display:none !important; }
       .mobile-next-arrow, .mobile-cats-hint { display:none !important; }
 
+      /* screen-content: use overflow:hidden to clip scanlines, flex from center */
+      #screen-content {
+        overflow:hidden !important;
+        justify-content:center !important;
+        padding:0 !important;
+        gap:0 !important;
+      }
+
+      /* Also clip the scanline overlay */
+      #scanline-overlay { overflow:hidden !important; }
+
+      #screen-taskbar { height:12px !important; font-size:.18rem !important; }
+
       .hero-cats-wrap {
+        flex:0 0 auto !important;
         flex-direction:column !important;
         align-items:center !important;
+        justify-content:center !important;
         width:100% !important;
-        gap:2px !important;
-        padding:2px !important;
+        gap:0 !important;
+        padding:0 4px !important;
         box-sizing:border-box !important;
+        margin-top:0 !important;
       }
       .hero-cats {
         flex-wrap:wrap !important;
         overflow:hidden !important;
-        width:100% !important;
-        gap:2px !important;
+        width:76% !important;
+        gap:0 !important;
         padding:0 !important;
         display:flex !important;
-        align-items:center !important;
+        align-items:stretch !important;
         justify-content:center !important;
       }
       .float-circle {
-        flex:0 0 calc(50% - 3px) !important;
-        width:calc(50% - 3px) !important;
-        max-width:none !important;
-        height:clamp(44px,10vw,56px) !important;
-        font-size:clamp(.38rem,1.2vw,.52rem) !important;
+        flex:0 0 50% !important;
+        width:50% !important;
+        max-width:50% !important;
+        height:auto !important;
+        min-height:0 !important;
         flex-shrink:0 !important;
         border-radius:0 !important;
-        box-shadow:2px 2px 0 #562915 !important;
+        box-shadow:none !important;
         display:flex !important;
+        flex-direction:column !important;
         align-items:center !important;
         justify-content:center !important;
-        line-height:1.7 !important;
+        line-height:1.4 !important;
         text-align:center !important;
         transform:none !important;
+        background:transparent !important;
+        border:none !important;
+        padding:2px 1px !important;
+        gap:2px !important;
       }
-      .lang-toggle-mobile {
-        display:flex !important;
-        padding:3px 0;
-        justify-content:center;
+      .float-circle .folder-icon {
+        width:clamp(48px,14.5vw,70px) !important;
+        height:auto !important;
+      }
+      .float-circle .folder-label {
+        font-size:clamp(.32rem,1vw,.44rem) !important;
+        line-height:1.55 !important;
+        hyphens:none !important;
+        word-break:normal !important;
       }
       /* Wall frame on mobile — below monitor */
       .pg-scene-wrap { display:block !important; position:relative !important; width:100% !important; height:auto !important; }
@@ -512,8 +589,12 @@
     .hero-cats-wrap { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; }
     .hero-cats-arrow { display:none; }
     @media(min-width:769px){
-      .hero-cats { flex-wrap:wrap !important; overflow:visible !important; width:auto !important; justify-content:center !important; gap:clamp(.35rem,.7vw,.6rem) !important; }
-      .float-circle { display:flex !important; width:clamp(64px,7.5vw,96px) !important; height:clamp(64px,7.5vw,96px) !important; font-size:clamp(.3rem,.42vw,.48rem) !important; }
+      .mobile-lang-keys { display:none !important; }
+      .hero-cats { flex-wrap:wrap !important; overflow:visible !important; width:auto !important; justify-content:center !important; gap:clamp(1.2rem,2vw,2.8rem) !important; }
+      .float-circle { display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:flex-end !important; width:clamp(100px,11.5vw,148px) !important; height:auto !important; background:transparent !important; border:none !important; box-shadow:none !important; }
+      .float-circle .folder-label { font-size:clamp(.44rem,.58vw,.72rem) !important; }
+      .hero-cats-wrap { flex:0 0 auto !important; }
+      #screen-content { justify-content:center !important; padding-top:0 !important; }
       .mobile-cats-hint { display:none !important; }
       .lang-toggle-mobile { display:none !important; }
     }
@@ -580,28 +661,20 @@
         min-height:48px !important;
       }
       .retro-window {
-        height:80vh !important;
-        max-height:80vh !important;
-        width:97vw !important;
+        height:88vh !important;
+        max-height:88vh !important;
+        width:98vw !important;
       }
     }
 
     @media(max-width:768px){
-      #pixel-monitor-svg { width:min(92vw,400px) !important; }
-      #pixel-monitor-svg foreignObject > div {
-        padding:4px !important;
-        gap:.2rem !important;
-      }
+      #pixel-monitor-svg { width:min(96vw,480px) !important; }
     }
 
-    @media(max-width:768px){
-      #screen-content { padding:3px !important; gap:.15rem !important; }
-    }
-
-    /* Hide decorative images before they overlap the PC */
-    @media(max-width:1600px){ #hero-cuadros { display:none !important; } }
-    @media(max-width:1600px){ #hero-taza { display:none !important; } }
-    @media(max-width:1600px){ #hero-bolis { display:none !important; } }
+    /* Hide decorative images */
+    #hero-cuadros { display:none !important; }
+    #hero-taza { display:none !important; }
+    #hero-bolis { display:none !important; }
   </style>
 </head>
 <body>
@@ -619,10 +692,48 @@
     <span class="mht-name">Beatriz Palazuelo</span>
     <span class="mht-sub">PORTFOLIO</span>
   </div>
-  <div class="retro-computer" style="position:relative;display:flex;flex-direction:column;align-items:center;">
+    <!-- Mobile-only: keyboard key ES/EN above monitor -->
+    <div class="mobile-lang-keys" style="display:none;">
+      <button onclick="setLang('es')" id="btn-es-mob" style="
+        font-family:'Press Start 2P',monospace; font-size:.7rem;
+        background:#c8b0d8;
+        border-top:3px solid #e8d8f4;
+        border-left:3px solid #e8d8f4;
+        border-right:3px solid #6040a0;
+        border-bottom:3px solid #6040a0;
+        padding:.5rem .85rem .65rem;
+        color:#fff;
+        cursor:pointer;
+        box-shadow:0 4px 0 #5030a0, 1px 1px 0 rgba(255,255,255,.2) inset;
+        letter-spacing:.05em;
+        text-shadow:1px 1px 0 rgba(0,0,0,.3);
+        transition:transform .08s, box-shadow .08s;
+      " onmousedown="this.style.transform='translateY(3px)';this.style.boxShadow='0 1px 0 #5030a0'"
+         onmouseup="this.style.transform='';this.style.boxShadow='0 4px 0 #5030a0'"
+         ontouchstart="this.style.transform='translateY(3px)';this.style.boxShadow='0 1px 0 #5030a0'"
+         ontouchend="this.style.transform='';this.style.boxShadow='0 4px 0 #5030a0'">ES</button>
+      <button onclick="setLang('en')" id="btn-en-mob" style="
+        font-family:'Press Start 2P',monospace; font-size:.7rem;
+        background:#a8b8e0;
+        border-top:3px solid #d0daf4;
+        border-left:3px solid #d0daf4;
+        border-right:3px solid #304090;
+        border-bottom:3px solid #304090;
+        padding:.5rem .85rem .65rem;
+        color:#fff;
+        cursor:pointer;
+        box-shadow:0 4px 0 #304090, 1px 1px 0 rgba(255,255,255,.2) inset;
+        letter-spacing:.05em;
+        text-shadow:1px 1px 0 rgba(0,0,0,.3);
+        transition:transform .08s, box-shadow .08s;
+      " onmousedown="this.style.transform='translateY(3px)';this.style.boxShadow='0 1px 0 #304090'"
+         onmouseup="this.style.transform='';this.style.boxShadow='0 4px 0 #304090'"
+         ontouchstart="this.style.transform='translateY(3px)';this.style.boxShadow='0 1px 0 #304090'"
+         ontouchend="this.style.transform='';this.style.boxShadow='0 4px 0 #304090'">EN</button>
+    </div>
 
-    <!-- PIXEL ART MONITOR SVG — all visual + interactive in one -->
-    <svg id="pixel-monitor-svg" viewBox="0 0 580 520" xmlns="http://www.w3.org/2000/svg" style="width:min(80vw,720px);display:block;image-rendering:pixelated;overflow:visible">
+  <div class="retro-computer" style="position:relative;display:flex;flex-direction:column;align-items:center;">  <!-- PIXEL ART MONITOR SVG — all visual + interactive in one -->
+    <svg id="pixel-monitor-svg" viewBox="0 0 580 520" xmlns="http://www.w3.org/2000/svg" style="width:min(93vw,min(calc(92vh * 1.115),1060px));display:block;image-rendering:pixelated;overflow:visible">
 
       <!-- ═══ MONITOR BODY ═══ -->
       <polygon points="8,0 572,0 580,8 580,340 572,348 8,348 0,340 0,8" fill="#F4A4B8" stroke="#562915" stroke-width="4"/>
@@ -633,9 +744,9 @@
       <polygon points="8,348 572,348 580,356 0,356" fill="#3a1a08" opacity=".2"/>
 
       <!-- Inner bezel -->
-      <rect x="14" y="14" width="552" height="318" fill="#2b3a6b"/>
-      <rect x="14" y="14" width="552" height="4" fill="#4a5a9b" opacity=".6"/>
-      <rect x="14" y="14" width="4" height="318" fill="#4a5a9b" opacity=".4"/>
+      <rect x="14" y="14" width="552" height="318" fill="#c0607a"/>
+      <rect x="14" y="14" width="552" height="4" fill="#de8090" opacity=".6"/>
+      <rect x="14" y="14" width="4" height="318" fill="#de8090" opacity=".4"/>
 
       <!-- ═══ SCREEN ═══ -->
       <rect x="22" y="22" width="536" height="294" fill="#b8e4f5"/>
@@ -643,14 +754,14 @@
       <!-- screen content via overlay -->
 
       <!-- Bottom bezel bar -->
-      <rect x="14" y="316" width="552" height="18" fill="#3a4a8b"/>
+      <rect x="14" y="316" width="552" height="18" fill="#c0607a"/>
+      <rect x="14" y="316" width="552" height="2" fill="#e090a0" opacity=".5"/>
       <circle cx="30" cy="325" r="5" fill="#4CAF50" stroke="#1a4a1a" stroke-width="1.5"/>
       <rect x="28" y="320" width="3" height="3" fill="#8fff8f" opacity=".6"/>
-      <circle cx="48" cy="325" r="5" fill="#D13955" stroke="#4a1020" stroke-width="1.5"/>
-      <circle cx="66" cy="325" r="5" fill="#F4A4B8" stroke="#562915" stroke-width="1.5"/>
-      <circle cx="80" cy="325" r="5" fill="#F4A4B8" stroke="#562915" stroke-width="1.5" opacity=".4"/>
-      <text x="290" y="329" text-anchor="middle" font-family="'Press Start 2P',monospace" font-size="5" fill="#F4A4B8" opacity=".35">B.P</text>
-      <rect x="450" y="318" width="56" height="10" fill="none" stroke="#F4A4B8" stroke-width="1.5" opacity=".35"/>
+      <circle cx="48" cy="325" r="5" fill="#ff9090" stroke="#802020" stroke-width="1.5"/>
+      <circle cx="66" cy="325" r="5" fill="#ffd0d8" stroke="#a05060" stroke-width="1.5"/>
+      <circle cx="80" cy="325" r="5" fill="#ffd0d8" stroke="#a05060" stroke-width="1.5" opacity=".4"/>
+      <text x="290" y="329" text-anchor="middle" font-family="'Press Start 2P',monospace" font-size="5" fill="#ffe0e8" opacity=".5">B.P</text>
 
       <!-- ═══ NECK ═══ -->
       <polygon points="246,348 334,348 320,374 260,374" fill="#F4A4B8" stroke="#562915" stroke-width="4"/>
@@ -710,6 +821,13 @@
       <rect x="290" y="490" width="28" height="14" fill="#ffe8ee" stroke="#562915" stroke-width="2"/>
       <rect x="322" y="490" width="120" height="14" fill="#ffe8ee" stroke="#562915" stroke-width="2"/>
 
+      <!-- ═══ MOUSE PAD ═══ -->
+      <rect x="464" y="444" width="112" height="76" rx="6" fill="#b8b0e0" stroke="#7060b0" stroke-width="2.5"/>
+      <rect x="466" y="446" width="108" height="3" fill="#d8d4f4" opacity=".7"/>
+      <rect x="466" y="446" width="3" height="70" fill="#d8d4f4" opacity=".5"/>
+      <rect x="466" y="516" width="108" height="3" fill="#8070b0" opacity=".4"/>
+      <rect x="573" y="446" width="3" height="70" fill="#8070b0" opacity=".4"/>
+
       <!-- ═══ MOUSE ═══ -->
       <polygon points="478,450 554,450 560,456 560,506 554,512 478,512 472,506 472,456" fill="#F4A4B8" stroke="#562915" stroke-width="4"/>
       <rect x="478" y="450" width="76" height="5" fill="#ffc8d8" opacity=".6"/>
@@ -725,39 +843,131 @@
     </svg>
     <!-- Screen content overlay -->
     <div id="screen-overlay" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;">
+      <!-- Scanlines overlay -->
+      <div id="scanline-overlay" style="position:absolute;left:3.8%;top:4.23%;width:92.4%;height:56.5%;pointer-events:none;z-index:20;background:repeating-linear-gradient(transparent,transparent 2px,rgba(0,0,0,.045) 2px,rgba(0,0,0,.045) 3px);overflow:hidden;"></div>
+
       <div id="screen-content" style="
         position:absolute;
         left:3.8%;
         top:4.23%;
         width:92.4%;
         height:56.5%;
-        display:flex;flex-direction:column;align-items:center;justify-content:center;
-        gap:clamp(.3rem,.8vh,.7rem);
+        display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
         pointer-events:all;
         overflow:hidden;
         box-sizing:border-box;
-        padding:6px;
+        padding:0;
       ">
-        <div style="position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 3px,rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px);pointer-events:none;z-index:0;"></div>
-        <div class="hero-name" id="hero-name" style="position:relative;z-index:1;"></div>
-        <div class="screen-subtitle" style="position:relative;z-index:1;">PORTFOLIO</div>
-        <div class="mobile-cats-hint" id="mob-swipe-hint" style="position:relative;z-index:1;display:none"></div>
-        <div class="hero-cats-wrap" style="position:relative;z-index:1;"><div class="hero-cats" id="hero-cats-mobile">
-          <a href="#" onclick="openWindow('win-branding');return false;" class="float-circle c1" id="circle-branding">Diseño gráfico<br>y Branding</a>
-          <a href="#" onclick="openWindow('win-website');return false;" class="float-circle c2" id="circle-website">Diseño<br>Web</a>
-          <a href="#" onclick="openWindow('win-corporate');return false;" class="float-circle c3" id="circle-corporate">Experiencia<br>Corporativa</a>
-          <a href="#" onclick="openWindow('win-wedding');return false;" class="float-circle c4" id="circle-wedding" style="font-size:clamp(.35rem,.5vw,.55rem)">Bodas</a>
-        </div></div>
-        <div class="lang-toggle-mobile" style="position:relative;z-index:1;">
-          <button onclick="setLang('es')" id="btn-es-m" class="lang-btn" style="font-family:'Press Start 2P',monospace;font-size:.35rem;padding:.25rem .4rem;background:none;border:1px solid rgba(240,96,138,.4);border-radius:0;color:#f0608a;cursor:pointer">ES</button>
-          <span style="font-size:.4rem;color:rgba(255,255,255,.3)">|</span>
-          <button onclick="setLang('en')" id="btn-en-m" class="lang-btn" style="font-family:'Press Start 2P',monospace;font-size:.35rem;padding:.25rem .4rem;background:none;border:1px solid rgba(91,143,201,.4);border-radius:0;color:#5b8fc9;cursor:pointer">EN</button>
+        <!-- Name + subtitle -->
+        <div id="screen-name-wrap" style="position:absolute;top:14%;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;z-index:3;">
+          <div class="hero-name" id="hero-name" style="position:relative;z-index:1;"></div>
+          <div class="screen-subtitle" style="position:relative;z-index:1;">PORTFOLIO</div>
         </div>
-        <div class="lang-toggle" style="position:relative;z-index:1;">
+
+
+
+        <!-- Folders -->
+        <div class="mobile-cats-hint" id="mob-swipe-hint" style="display:none"></div>
+        <div class="hero-cats-wrap" style="display:flex;align-items:center;justify-content:center;width:100%;margin-top:14%;"><div class="hero-cats" id="hero-cats-mobile">
+          <a href="#" onclick="openWindow('win-branding');return false;" class="float-circle c1" id="circle-branding">
+            <svg class="folder-icon" viewBox="0 0 88 72" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+              <path d="M2,11 L2,5 C2,3.3 3.3,2 5,2 L33,2 C34.7,2 36,3.3 36,5 L36,11" fill="#f49aa3" stroke="#1a1a1a" stroke-width="1.5" stroke-linejoin="round" fill-rule="evenodd"/>
+              <rect x="1" y="10" width="86" height="60" rx="2" fill="#f49aa3" stroke="#1a1a1a" stroke-width="1.5"/>
+              <rect x="3" y="12" width="82" height="1.5" fill="white" opacity=".55"/>
+              <rect x="3" y="12" width="1.5" height="56" fill="white" opacity=".35"/>
+            </svg>
+            <span class="folder-label" id="circle-branding-label">Diseño gráfico<br>y Branding</span>
+          </a>
+          <a href="#" onclick="openWindow('win-website');return false;" class="float-circle c2" id="circle-website">
+            <svg class="folder-icon" viewBox="0 0 88 72" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+              <path d="M2,11 L2,5 C2,3.3 3.3,2 5,2 L33,2 C34.7,2 36,3.3 36,5 L36,11" fill="#f1a57e" stroke="#1a1a1a" stroke-width="1.5" stroke-linejoin="round"/>
+              <rect x="1" y="10" width="86" height="60" rx="2" fill="#f1a57e" stroke="#1a1a1a" stroke-width="1.5"/>
+              <rect x="3" y="12" width="82" height="1.5" fill="white" opacity=".55"/>
+              <rect x="3" y="12" width="1.5" height="56" fill="white" opacity=".35"/>
+            </svg>
+            <span class="folder-label" id="circle-website-label">Diseño<br>Web</span>
+          </a>
+          <a href="#" onclick="openWindow('win-corporate');return false;" class="float-circle c3" id="circle-corporate">
+            <svg class="folder-icon" viewBox="0 0 88 72" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+              <path d="M2,11 L2,5 C2,3.3 3.3,2 5,2 L33,2 C34.7,2 36,3.3 36,5 L36,11" fill="#a8bf89" stroke="#1a1a1a" stroke-width="1.5" stroke-linejoin="round"/>
+              <rect x="1" y="10" width="86" height="60" rx="2" fill="#a8bf89" stroke="#1a1a1a" stroke-width="1.5"/>
+              <rect x="3" y="12" width="82" height="1.5" fill="white" opacity=".55"/>
+              <rect x="3" y="12" width="1.5" height="56" fill="white" opacity=".35"/>
+            </svg>
+            <span class="folder-label" id="circle-corporate-label">Experiencia<br>Corporativa</span>
+          </a>
+          <a href="#" onclick="openWindow('win-wedding');return false;" class="float-circle c4" id="circle-wedding">
+            <svg class="folder-icon" viewBox="0 0 88 72" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+              <path d="M2,11 L2,5 C2,3.3 3.3,2 5,2 L33,2 C34.7,2 36,3.3 36,5 L36,11" fill="#e47083" stroke="#1a1a1a" stroke-width="1.5" stroke-linejoin="round"/>
+              <rect x="1" y="10" width="86" height="60" rx="2" fill="#e47083" stroke="#1a1a1a" stroke-width="1.5"/>
+              <rect x="3" y="12" width="82" height="1.5" fill="white" opacity=".55"/>
+              <rect x="3" y="12" width="1.5" height="56" fill="white" opacity=".35"/>
+            </svg>
+            <span class="folder-label" id="circle-wedding-label">Bodas</span>
+          </a>
+        </div></div>
+
+        <!-- ES/EN desktop — below folders, above taskbar -->
+        <div class="lang-toggle" style="position:relative;z-index:6;margin-top:clamp(30px,9%,46px);margin-bottom:0;">
           <button onclick="setLang('es')" id="btn-es" class="lang-btn active">ES</button>
-          <span style="color:rgba(255,234,214,.4);font-size:.5rem">|</span>
+          <span style="color:rgba(200,210,255,.4);font-size:.5rem">|</span>
           <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
         </div>
+
+        <!-- Win95 taskbar — bigger, pink -->
+        <div id="screen-taskbar" style="
+          position:absolute;bottom:0;left:0;right:0;
+          height:clamp(18px,4.2%,28px);
+          background:#8dcbd8;
+          border-top:2px solid #b8e8f0;
+          box-shadow:inset 0 1px 0 rgba(255,255,255,.5);
+          display:flex;align-items:center;
+          justify-content:space-between;
+          padding:0 5px;
+          z-index:15;
+          overflow:hidden;
+        ">
+          <div style="display:flex;align-items:center;gap:3px;height:100%;">
+            <div style="
+              display:flex;align-items:center;gap:2px;
+              background:#5a9eb0;
+              border-top:2px solid #90d8e8;
+              border-left:2px solid #90d8e8;
+              border-right:2px solid #3a7888;
+              border-bottom:2px solid #3a7888;
+              padding:1px 6px;height:80%;
+              font-family:'Press Start 2P',monospace;font-size:clamp(.22rem,.32vw,.4rem);
+              color:#fff;white-space:nowrap;cursor:default;
+              font-weight:900;
+            ">▶ BP</div>
+          </div>
+          <div id="screen-clock" style="
+            font-family:'Press Start 2P',monospace;
+            font-size:clamp(.21rem,.3vw,.38rem);
+            color:#fff;
+            background:#4a8898;
+            border-top:2px solid rgba(0,0,0,.25);
+            border-left:2px solid rgba(0,0,0,.25);
+            border-right:2px solid rgba(180,240,255,.6);
+            border-bottom:2px solid rgba(180,240,255,.6);
+            padding:1px 5px;
+            white-space:nowrap;
+            text-shadow:1px 1px 0 rgba(0,0,0,.3);
+          ">00:00</div>
+        </div>
+
+        <!-- Email icon — bottom-right corner, bigger, NO text -->
+        <a href="#" onclick="openWindow('win-contact');return false;" title="Contacto" style="position:absolute;bottom:clamp(22px,5.5%,36px);right:7px;z-index:16;display:flex;flex-direction:column;align-items:center;gap:0;text-decoration:none;pointer-events:all;">
+          <svg viewBox="0 0 36 30" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" style="image-rendering:pixelated;width:clamp(36px,4.5vw,54px);height:auto;filter:drop-shadow(1px 2px 0 rgba(86,41,21,.4));">
+            <rect x="1" y="3" width="34" height="24" fill="#f0d8c8" stroke="#562915" stroke-width="1.5"/>
+            <rect x="2" y="4" width="32" height="2" fill="white" opacity=".5"/>
+            <rect x="2" y="4" width="2" height="20" fill="white" opacity=".35"/>
+            <rect x="1" y="25" width="34" height="2" fill="#a07060" opacity=".4"/>
+            <rect x="33" y="4" width="2" height="20" fill="#a07060" opacity=".35"/>
+            <polygon points="1,3 18,17 35,3" fill="#e8c0a8" stroke="#562915" stroke-width="1.5"/>
+            <line x1="2" y1="3" x2="18" y2="16" stroke="white" stroke-width="1.2" opacity=".45"/>
+          </svg>
+        </a>
       </div>
     </div>
   </div>
@@ -809,17 +1019,22 @@
 
 .retro-window {
   position: relative;
-  width: min(96vw, 1200px);
-  height: 82vh;
-  max-height: 82vh;
+  width: min(97vw, 1260px);
+  height: 90vh;
+  max-height: 90vh;
   z-index: 501;
   display: flex;
   flex-direction: column;
   transform-origin: 50% 50%;
   background: #FFEAD6;
-  border: 3px solid #562915;
-  border-radius: 18px;
-  box-shadow: 8px 8px 0 #562915, 14px 14px 0 rgba(86,41,21,.2);
+  border-radius: 0;
+  /* Win95 beveled border */
+  border-top: 2px solid #ffd0c0;
+  border-left: 2px solid #ffd0c0;
+  border-right: 2px solid #6a3010;
+  border-bottom: 2px solid #6a3010;
+  outline: 2px solid #562915;
+  box-shadow: 3px 3px 0 #562915, 1px 1px 0 rgba(255,255,255,.4) inset;
   overflow: hidden;
   animation: winOpen .38s cubic-bezier(.34,1.4,.64,1) forwards;
 }
@@ -831,85 +1046,152 @@
 
 /* ── Title bar ── */
 .win-titlebar {
-  display: flex; align-items: center; gap:.7rem;
-  padding: .42rem 1rem;
-  border-bottom: 3px solid #562915;
+  display: flex; align-items: center; gap:.5rem;
+  padding: .3rem .4rem;
+  border-bottom: 2px solid #562915;
   flex-shrink: 0;
   user-select: none;
 }
-.win-btn-group { display:flex; gap:.35rem; align-items:center; }
+.win-btn-group { display:flex; gap:.25rem; align-items:center; }
 .win-btn {
-  width:18px; height:18px; border-radius:50%;
-  border:2px solid #562915; font-size:.52rem; font-weight:900;
+  width:20px; height:18px; border-radius:0;
+  /* Win95 bevel */
+  border-top: 2px solid rgba(255,255,255,.8);
+  border-left: 2px solid rgba(255,255,255,.8);
+  border-right: 2px solid rgba(0,0,0,.5);
+  border-bottom: 2px solid rgba(0,0,0,.5);
+  font-size:.55rem; font-weight:900;
   display:flex; align-items:center; justify-content:center;
   cursor:pointer; line-height:1; font-family:'Press Start 2P',monospace;
-  transition: filter .1s, transform .1s;
+  transition: filter .05s;
+  background: #d4b4c8;
 }
-.win-btn:hover { filter: brightness(1.15); transform: scale(1.1); }
-.win-btn.close-btn { background:#D13955; color:#FFEAD6; margin-left:auto; width:22px; height:22px; font-size:.6rem; }
-.win-btn.min-btn   { display:none; }
-.win-btn.max-btn   { display:none; }
+.win-btn:hover { filter: brightness(1.1); }
+.win-btn:active {
+  border-top: 2px solid rgba(0,0,0,.5);
+  border-left: 2px solid rgba(0,0,0,.5);
+  border-right: 2px solid rgba(255,255,255,.8);
+  border-bottom: 2px solid rgba(255,255,255,.8);
+}
+.win-btn.close-btn {
+  background:#D13955 !important; color:#FFEAD6 !important; margin-left:auto;
+  width:22px; height:18px; font-size:.55rem;
+  border-top: 2px solid #f07080 !important;
+  border-left: 2px solid #f07080 !important;
+  border-right: 2px solid #801020 !important;
+  border-bottom: 2px solid #801020 !important;
+}
+.win-btn.close-btn:hover { filter:brightness(1.15) !important; }
+.win-btn.close-btn:active {
+  border-top: 2px solid #801020 !important;
+  border-left: 2px solid #801020 !important;
+  border-right: 2px solid #f07080 !important;
+  border-bottom: 2px solid #f07080 !important;
+}
+.win-btn.min-btn { display:flex; color:#562915; font-size:.6rem; }
+.win-btn.max-btn { display:flex; color:#562915; font-size:.5rem; }
 .win-title-text {
   font-family:'Press Start 2P',monospace; font-size:.52rem;
-  color:#562915; flex:1; text-align:left; letter-spacing:.06em; padding-left:.3rem;
+  color:#FFEAD6; flex:1; text-align:left; letter-spacing:.06em; padding-left:.2rem;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.4);
 }
-.win-deco { font-size:.65rem; color:rgba(86,41,21,.35); white-space:nowrap; }
+.win-deco { font-size:.55rem; color:rgba(255,234,214,.5); white-space:nowrap; }
 
 /* ── Menubar ── */
 .win-menubar {
   display:flex; gap:0; align-items:center;
   border-bottom:2px solid #562915; flex-shrink:0;
   font-family:'Press Start 2P',monospace; font-size:.42rem;
-  background:#FFF8F2;
+  background:#d4c4c0;
+  /* Win95 raised menubar */
+  border-top:2px solid rgba(255,255,255,.7);
   overflow-x:auto; -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
 }
 .win-menubar::-webkit-scrollbar { display:none; }
 .win-menubar span {
-  padding:.35rem .75rem; border-right:1.5px solid rgba(86,41,21,.2);
-  color:#562915; cursor:pointer; white-space:nowrap;
+  padding:.35rem .75rem; border-right:none;
+  color:#1a1a1a; cursor:pointer; white-space:nowrap;
 }
-#win-branding  .win-menubar span:hover { background:#d4b3f5; }
-#win-website   .win-menubar span:hover { background:#FCA6AF; }
-#win-corporate .win-menubar span:hover { background:#F4A4B8; color:#562915; }
-#win-wedding   .win-menubar span:hover { background:#E8B400; }
-#win-contact   .win-menubar span:hover { background:#D13955; color:#fff; }
+.win-menubar span:hover {
+  background:#562915; color:#fff;
+}
+#win-branding  .win-menubar { background:#d0c0e8; }
+#win-website   .win-menubar { background:#e8c0c8; }
+#win-corporate .win-menubar { background:#e8d8c0; }
+#win-wedding   .win-menubar { background:#e8e0a0; }
+#win-contact   .win-menubar { background:#e8c0b8; }
+
+/* Each tab hovers with its OWN category colour, in every window */
+/* slot 1 = Branding (purple), 2 = Web (pink-red), 3 = Corporate (brown), 4 = Wedding (gold), 5 = Contact (red) */
+.win-menubar span:nth-child(1):hover { background:#8b5fc0 !important; color:#fff !important; }
+.win-menubar span:nth-child(2):hover { background:#c04060 !important; color:#fff !important; }
+.win-menubar span:nth-child(3):hover { background:#6a7a40 !important; color:#fff !important; }
+.win-menubar span:nth-child(4):hover { background:#b08800 !important; color:#fff !important; }
+.win-menubar span:nth-child(5):hover { background:#D13955 !important; color:#fff !important; }
+
+#win-branding  .win-menubar span:hover { background: unset; color: unset; }
+#win-website   .win-menubar span:hover { background: unset; color: unset; }
+#win-corporate .win-menubar span:hover { background: unset; color: unset; }
+#win-wedding   .win-menubar span:hover { background: unset; color: unset; }
+#win-contact   .win-menubar span:hover { background: unset; color: unset; }
 .win-menubar .menu-right {
-  margin-left:auto; border-right:none; border-left:1.5px solid rgba(86,41,21,.2);
+  margin-left:auto; border-left:1.5px solid rgba(86,41,21,.2);
   color:rgba(86,41,21,.45);
 }
 
 /* ── Content area ── */
 .win-content {
   flex:1; overflow-y:auto; overflow-x:hidden;
-  scrollbar-width:thin; scrollbar-color:#F4A4B8 transparent;
+  scrollbar-width:thin; scrollbar-color:#d4b3f5 #e8d8e0;
   padding:2.5rem min(5vw,5rem);
   max-width:960px; width:100%; margin:0 auto;
   background:transparent;
 }
-.win-content::-webkit-scrollbar { width:8px; }
-.win-content::-webkit-scrollbar-thumb { background:#F4A4B8; border-radius:4px; }
+.win-content::-webkit-scrollbar { width:16px; background:#c8b8c0; }
+.win-content::-webkit-scrollbar-thumb {
+  background:#a090a0;
+  border-top:2px solid #d0c0d0;
+  border-left:2px solid #d0c0d0;
+  border-right:2px solid #604060;
+  border-bottom:2px solid #604060;
+}
+.win-content::-webkit-scrollbar-track {
+  background:repeating-linear-gradient(135deg,#c0b0b8 0px,#c0b0b8 2px,#b8a8b0 2px,#b8a8b0 4px);
+}
 
 /* ── Status bar ── */
 .win-statusbar {
   display:flex; justify-content:space-between; align-items:center;
-  padding:.3rem 1rem; border-top:2px solid #562915; flex-shrink:0;
+  padding:.28rem 1rem; border-top:2px solid rgba(255,255,255,.5); flex-shrink:0;
   font-family:'Press Start 2P',monospace; font-size:.38rem;
-  color:rgba(86,41,21,.5); background:#FFF8F2;
+  color:rgba(86,41,21,.6);
+  /* Win95 recessed panels */
+  background:#d4c4c0;
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.2), inset -1px -1px 0 rgba(255,255,255,.6);
 }
 .win-statusbar .status-pill {
-  background:#d4b3f5; border:1.5px solid #562915; border-radius:100px;
-  padding:.2rem .6rem; color:#562915; font-size:.38rem;
+  background:#c0b0c0;
+  border-top:2px solid rgba(0,0,0,.3);
+  border-left:2px solid rgba(0,0,0,.3);
+  border-right:2px solid rgba(255,255,255,.7);
+  border-bottom:2px solid rgba(255,255,255,.7);
+  border-radius:0;
+  padding:.2rem .6rem; color:#1a1a1a; font-size:.38rem;
 }
 
 /* ── Per-window colours ── */
 #win-branding  { background:#EDE0FF; }
-#win-branding  .win-titlebar { background:#d4b3f5; }
+#win-branding  .win-titlebar { background:#8b5fc0; }
+#win-branding  .win-title-text { color:#fff; }
+#win-branding  .win-btn { background:#b490e0; }
 #win-branding  .win-menubar { background:#EDE0FF; }
 #win-branding  .win-statusbar { background:#EDE0FF; }
 
 #win-website   { background:#FFE0E8; }
-#win-website   .win-titlebar { background:#FCA6AF; }
+#win-website   .win-titlebar { background:#c04060; }
+#win-website   .win-title-text { color:#fff; }
+#win-website   .win-btn { background:#e07090; }
 #win-website   .win-menubar { background:#FFE0E8; }
 #win-website   .win-statusbar { background:#FFE0E8; }
 
@@ -917,12 +1199,17 @@
 #win-corporate .win-titlebar { background:#562915; }
 #win-corporate .win-title-text { color:#FFEAD6; }
 #win-corporate .win-deco { color:rgba(255,234,214,.4); }
+#win-corporate .win-btn { background:#886050; }
 #win-corporate .win-btn.close-btn { background:#f0608a; }
 #win-corporate .win-menubar { background:#FFF3DC; }
 #win-corporate .win-statusbar { background:#FFF3DC; }
+#win-corporate .win-content { scrollbar-width:none; }
+#win-corporate .win-content::-webkit-scrollbar { display:none; }
 
 #win-wedding   { background:#FFF8CC; }
-#win-wedding   .win-titlebar { background:#E8B400; }
+#win-wedding   .win-titlebar { background:#b08800; }
+#win-wedding   .win-title-text { color:#fff; }
+#win-wedding   .win-btn { background:#d4ac30; }
 #win-wedding   .win-menubar { background:#FFF8CC; }
 #win-wedding   .win-statusbar { background:#FFF8CC; }
 
@@ -930,6 +1217,7 @@
 #win-contact   .win-titlebar { background:#D13955; }
 #win-contact   .win-title-text { color:#FFEAD6; }
 #win-contact   .win-deco { color:rgba(255,234,214,.35); }
+#win-contact   .win-btn { background:#e06878; }
 #win-contact   .win-menubar { background:#FFD6D0; }
 #win-contact   .win-statusbar { background:#FFD6D0; }
 
@@ -964,6 +1252,8 @@
   <div class="win-titlebar">
     <div class="win-title-text">Branding_and_Design.exe</div>
     <div class="win-deco">✦ B·P</div>
+    <button class="win-btn min-btn">_</button>
+    <button class="win-btn max-btn">□</button>
     <button class="win-btn close-btn" onclick="closeWindow()">✕</button>
   </div>
   <div class="win-menubar">
@@ -977,7 +1267,7 @@
     <a href="https://blancapalazuelo.com" target="_blank" class="collab-badge" style="display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1.2rem;font-size:.72rem;font-weight:600;color:#562915;text-decoration:none;background:#d4b3f5;padding:.35rem .9rem;border-radius:100px;border:1.5px solid #562915"><span style="width:8px;height:8px;border-radius:50%;background:#562915"></span>En colaboración con Blanca Palazuelo — Motion &amp; Branding ↗</a>
     <hr class="section-divider"/>
 
-    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:4rem 2rem;border:2px dashed rgba(86,41,21,.2);border-radius:20px;text-align:center;">
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:clamp(32px,6vw,64px);gap:1rem;padding:4rem 2rem;border:2px dashed rgba(86,41,21,.2);border-radius:20px;text-align:center;">
       <div style="font-size:2rem">✦</div>
       <p style="font-family:'Press Start 2P',monospace;font-size:.65rem;color:#562915">Proyectos en camino</p>
       <p style="font-size:.85rem;color:rgba(28,26,20,.5)">Pronto aquí estarán mis proyectos de branding e identidad visual.</p>
@@ -997,6 +1287,8 @@
   <div class="win-titlebar">
     <div class="win-title-text">Web_Design.exe</div>
     <div class="win-deco">✦ B·P</div>
+    <button class="win-btn min-btn">_</button>
+    <button class="win-btn max-btn">□</button>
     <button class="win-btn close-btn" onclick="closeWindow()">✕</button>
   </div>
   <div class="win-menubar">
@@ -1041,6 +1333,8 @@
   <div class="win-titlebar">
     <div class="win-title-text">Corporate_Girl.exe</div>
     <div class="win-deco">✦ B·P</div>
+    <button class="win-btn min-btn">_</button>
+    <button class="win-btn max-btn">□</button>
     <button class="win-btn close-btn" onclick="closeWindow()">✕</button>
   </div>
   <div class="win-menubar">
@@ -1120,6 +1414,8 @@
   <div class="win-titlebar">
     <div class="win-title-text">Wedding_Enquiries.exe</div>
     <div class="win-deco">✦ B·P</div>
+    <button class="win-btn min-btn">_</button>
+    <button class="win-btn max-btn">□</button>
     <button class="win-btn close-btn" onclick="closeWindow()">✕</button>
   </div>
   <div class="win-menubar">
@@ -1169,6 +1465,8 @@
     <div class="win-btn-group"></div>
     <div class="win-title-text">Contacto.exe</div>
     <div class="win-deco">✦ B·P</div>
+    <button class="win-btn min-btn">_</button>
+    <button class="win-btn max-btn">□</button>
     <button class="win-btn close-btn" onclick="closeWindow()" style="margin-left:.5rem">✕</button>
   </div>
 
@@ -1441,9 +1739,14 @@ document.addEventListener('keydown', function(e){
     var bb=document.getElementById('bub-btn'); if(bb) bb.textContent=lang==='es'?'Contacto ✉':'Contact ✉';
     document.getElementById('btn-es').classList.toggle('active', lang==='es');
     document.getElementById('btn-en').classList.toggle('active', lang==='en');
+    // mobile keyboard-key buttons active state
+    var esMob=document.getElementById('btn-es-mob'); var enMob=document.getElementById('btn-en-mob');
+    if(esMob){ esMob.style.boxShadow=lang==='es'?'0 2px 0 #9a3040,inset 0 1px 0 rgba(255,255,255,.2)':'0 5px 0 #9a3040, 0 6px 0 #7a2030, inset 0 1px 0 rgba(255,255,255,.4)'; esMob.style.transform=lang==='es'?'translateY(3px)':''; }
+    if(enMob){ enMob.style.boxShadow=lang==='en'?'0 2px 0 #305080,inset 0 1px 0 rgba(255,255,255,.2)':'0 5px 0 #305080, 0 6px 0 #204060, inset 0 1px 0 rgba(255,255,255,.4)'; enMob.style.transform=lang==='en'?'translateY(3px)':''; }
     // circles
     ['circle-branding','circle-website','circle-corporate','circle-wedding'].forEach(function(id,i){
-      var el=document.getElementById(id); if(el) el.innerHTML=t.circles[i];
+      var el=document.getElementById(id); if(!el) return;
+      var lbl=el.querySelector('.folder-label'); if(lbl) lbl.innerHTML=t.circles[i];
     });
     // menu labels
     ['win-branding','win-website','win-corporate','win-wedding','win-contact'].forEach(function(wid){
@@ -1540,6 +1843,18 @@ document.addEventListener('keydown', function(e){
   });
 
   setLang('es');
+
+  // ── Taskbar clock ──
+  function updateClock() {
+    var el = document.getElementById('screen-clock');
+    if (!el) return;
+    var now = new Date();
+    var h = String(now.getHours()).padStart(2,'0');
+    var m = String(now.getMinutes()).padStart(2,'0');
+    el.textContent = h + ':' + m;
+  }
+  updateClock();
+  setInterval(updateClock, 15000);
 
 </script>
 </body>
