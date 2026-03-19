@@ -1376,18 +1376,18 @@
     <div class="img-strip-wrap">
       <button class="strip-arrow" onclick="document.getElementById('strip-crm').scrollBy({left:-220,behavior:'smooth'})">◀</button>
       <div class="img-strip crm" id="strip-crm">
-        <img src="./images/a.jpeg" alt="CRM Fever"/>
-        <img src="./images/b.jpeg" alt="CRM Fever"/>
-        <img src="./images/c.jpeg" alt="CRM Fever"/>
-        <img src="./images/d.jpeg" alt="CRM Fever"/>
-        <img src="./images/e.jpeg" alt="CRM Fever"/>
-        <img src="./images/g.jpeg" alt="CRM Fever"/>
-        <img src="./images/h.jpeg" alt="CRM Fever"/>
-        <img src="./images/i.jpeg" alt="CRM Fever"/>
-        <img src="./images/j.jpeg" alt="CRM Fever"/>
-        <img src="./images/k.jpeg" alt="CRM Fever"/>
-        <img src="./images/l.jpeg" alt="CRM Fever"/>
-        <img src="./images/m.jpeg" alt="CRM Fever"/>
+        <img src="./images/a.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/b.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/c.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/d.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/e.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/g.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/h.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/i.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/j.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/k.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/l.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/m.jpeg" alt="CRM Fever" onclick="openLightbox(this.src)" style="cursor:zoom-in"/>
       </div>
       <button class="strip-arrow" onclick="document.getElementById('strip-crm').scrollBy({left:220,behavior:'smooth'})">▶</button>
     </div>
@@ -1847,6 +1847,56 @@ document.addEventListener('keydown', function(e){
   updateClock();
   setInterval(updateClock, 15000);
 
+</script>
+<!-- CRM Lightbox -->
+<div id="crm-lightbox" onclick="closeLightbox()" style="
+  display:none; position:fixed; inset:0; z-index:2000;
+  background:rgba(0,0,0,0);
+  align-items:center; justify-content:center;
+  animation:lbIn .18s ease forwards;
+">
+  <div onclick="event.stopPropagation()" style="position:relative;max-width:min(92vw,640px);max-height:90vh;">
+    <img id="crm-lightbox-img" src="" alt="CRM" style="
+      display:block; max-width:100%; max-height:88vh;
+      border:4px solid #562915;
+      box-shadow:8px 8px 0 #562915, 14px 14px 0 rgba(86,41,21,.25);
+      image-rendering:auto;
+    "/>
+    <!-- Vintage X button -->
+    <button onclick="closeLightbox()" style="
+      position:absolute; top:-14px; right:-14px;
+      width:32px; height:28px;
+      font-family:'Press Start 2P',monospace; font-size:.7rem;
+      background:#D13955; color:#fff;
+      border-top:3px solid #f07080;
+      border-left:3px solid #f07080;
+      border-right:3px solid #801020;
+      border-bottom:3px solid #801020;
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:3px 3px 0 #562915;
+      z-index:10;
+    ">✕</button>
+  </div>
+</div>
+
+<style>
+@keyframes lbIn { from{opacity:0;transform:scale(.96)} to{opacity:1;transform:scale(1)} }
+</style>
+
+<script>
+function openLightbox(src){
+  var lb = document.getElementById('crm-lightbox');
+  document.getElementById('crm-lightbox-img').src = src;
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  var lb = document.getElementById('crm-lightbox');
+  lb.style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLightbox(); });
 </script>
 </body>
 </html>
