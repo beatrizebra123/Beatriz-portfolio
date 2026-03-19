@@ -522,10 +522,10 @@
 
       #screen-taskbar { height:16px !important; }
       #minigame-icon svg { width:clamp(22px,8vw,34px) !important; }
-      #minigame-icon span { font-size:clamp(.22rem,.65vw,.3rem) !important; }
+      #minigame-icon span { font-size:clamp(.3rem,.9vw,.4rem) !important; }
       #minigame-icon { gap:2px !important; top:4px !important; right:5px !important; }
       #calendar-icon svg { width:clamp(20px,7vw,30px) !important; }
-      #calendar-icon span { font-size:clamp(.18rem,.55vw,.24rem) !important; }
+      #calendar-icon span { font-size:clamp(.28rem,.9vw,.36rem) !important; }
       #calendar-icon { gap:1px !important; bottom:16px !important; left:4px !important; }
       #email-icon svg { width:clamp(24px,8vw,34px) !important; }
       #email-icon { bottom:14px !important; right:4px !important; }
@@ -579,7 +579,7 @@
         height:auto !important;
       }
       .float-circle .folder-label {
-        font-size:clamp(.32rem,1vw,.44rem) !important;
+        font-size:clamp(.34rem,1.1vw,.46rem) !important;
         line-height:1.55 !important;
         hyphens:none !important;
         word-break:normal !important;
@@ -594,6 +594,9 @@
         z-index:10 !important;
         display:block !important;
       }
+      #bub-line1 { font-size:clamp(.62rem,2.2vw,.82rem) !important; }
+      #bub-line2 { font-size:clamp(.52rem,1.8vw,.7rem) !important; }
+      .pg-btn { font-size:clamp(.5rem,1.6vw,.65rem) !important; padding:.6rem 1.2rem !important; }
       .mobile-contact-btn { display:none !important; }
     }
 
@@ -644,7 +647,7 @@
       }
       .mht-name {
         font-family:'Press Start 2P',monospace;
-        font-size:.65rem;
+        font-size:.85rem;
         color:#f0608a;
         text-shadow:2px 2px 0 #562915;
         text-align:center;
@@ -652,7 +655,7 @@
       }
       .mht-sub {
         font-family:'Press Start 2P',monospace;
-        font-size:.35rem;
+        font-size:.46rem;
         color:#562915;
         letter-spacing:.2em;
         opacity:.6;
@@ -974,7 +977,7 @@
         </div>
 
         <!-- Game controller — top-right corner -->
-        <a id="minigame-icon" href="#" onclick="openMinigame();return false;" title="Minijuego" style="position:absolute;top:10px;right:14px;z-index:16;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;pointer-events:all;">
+        <a id="minigame-icon" href="#" onclick="openMinigame();return false;" title="Minijuego" style="position:absolute;top:10px;right:14px;z-index:16;display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;pointer-events:all;">
           <svg viewBox="0 0 340 460" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" style="image-rendering:pixelated;width:clamp(38px,5vw,64px);height:auto;filter:drop-shadow(1px 2px 0 rgba(86,41,21,.35));">
 <rect x="27" y="24" width="296" height="424" fill="#f0b8d0"/>
 <rect x="18" y="14" width="296" height="424" fill="#fde0ee"/>
@@ -1039,7 +1042,7 @@
 <rect x="196" y="394" width="72" height="8" fill="#fde0ee"/>
 <rect x="208" y="402" width="62" height="6" fill="#fde0ee"/>
 </svg>
-          <span style="font-family:'Press Start 2P',monospace;font-size:clamp(.42rem,.58vw,.68rem);color:#562915;line-height:1.3;text-shadow:1px 1px 0 rgba(255,255,255,.7);">Minijuego</span>
+          <span style="font-family:'Press Start 2P',monospace;font-size:clamp(.42rem,.58vw,.68rem);color:#562915;line-height:1.3;text-shadow:1px 1px 0 rgba(255,255,255,.7);" style="margin-top:8px;display:block;">Juego</span>
         </a>
 
         <!-- Calendar icon — bottom-left corner -->
@@ -2178,7 +2181,7 @@ function handleMinigameBackdrop(e){
     document.getElementById('sk-speed').textContent=speedLvl;
   }
 
-  function getMs(){return Math.max(85,180-(speedLvl-1)*10);}
+  function getMs(){return Math.max(100,220-(speedLvl-1)*10);}
 
   function runLoop(){clearInterval(loop);loop=setInterval(tick,getMs());}
 
