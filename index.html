@@ -459,14 +459,21 @@
     }
     .img-strip:active { cursor:grabbing; }
     .img-strip::-webkit-scrollbar { display:none; }
-    .img-strip img {
-      height:160px; width:auto; flex-shrink:0;
+    .img-strip-item {
+      flex-shrink:0;
+      width:160px; height:160px;
       border-radius:8px; border:2px solid #562915;
-      object-fit:cover; cursor:pointer;
+      overflow:hidden; cursor:pointer;
       transition:transform .15s, box-shadow .15s;
+      position:relative;
     }
-    .img-strip img:hover { transform:translateY(-3px); box-shadow:4px 4px 0 #562915; }
-    .img-strip.crm img { height:200px; }
+    .img-strip-item:hover { transform:translateY(-3px); box-shadow:4px 4px 0 #562915; }
+    .img-strip-item img {
+      width:100%; height:100%;
+      object-fit:cover; display:block;
+      pointer-events:none;
+    }
+    .img-strip.crm .img-strip-item { width:160px; height:200px; }
 
     /* ── Mobile contact btn ── */
     .mobile-contact-btn { display:none; }
@@ -1132,7 +1139,7 @@
   background: rgba(86,41,21,.18); backdrop-filter: blur(0px);
   display: none; align-items: center; justify-content: center;
   padding: 2vh 2vw;
-  touch-action: none;
+  touch-action: manipulation;
   overscroll-behavior: contain;
 }
 body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
@@ -1217,7 +1224,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
 .win-btn.close-btn::after {
   content:'';
   position:absolute;
-  inset:-8px;
+  inset:-14px;
 }
 .win-btn.close-btn:hover { filter:brightness(1.15) !important; }
 .win-btn.close-btn:active {
@@ -1397,7 +1404,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0)">✕</button>
+    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
   </div>
   <div class="win-menubar">
     <span>Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1432,7 +1439,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0)">✕</button>
+    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span>Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1478,7 +1485,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0)">✕</button>
+    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span>Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1502,22 +1509,22 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="img-strip-wrap">
       <button class="strip-arrow" onclick="document.getElementById('strip-exp').scrollBy({left:-220,behavior:'smooth'})">◀</button>
       <div class="img-strip" id="strip-exp">
-        <img src="./images/1.avif" alt="Experiencia Fever" onclick="openExpLightbox(0)" style="cursor:zoom-in"/>
-        <img src="./images/2.avif" alt="Experiencia Fever" onclick="openExpLightbox(1)" style="cursor:zoom-in"/>
-        <img src="./images/3.avif" alt="Experiencia Fever" onclick="openExpLightbox(2)" style="cursor:zoom-in"/>
-        <img src="./images/4.avif" alt="Experiencia Fever" onclick="openExpLightbox(3)" style="cursor:zoom-in"/>
-        <img src="./images/5.avif" alt="Experiencia Fever" onclick="openExpLightbox(4)" style="cursor:zoom-in"/>
-        <img src="./images/6.avif" alt="Experiencia Fever" onclick="openExpLightbox(5)" style="cursor:zoom-in"/>
-        <img src="./images/7.avif" alt="Experiencia Fever" onclick="openExpLightbox(6)" style="cursor:zoom-in"/>
-        <img src="./images/8.avif" alt="Experiencia Fever" onclick="openExpLightbox(7)" style="cursor:zoom-in"/>
-        <img src="./images/9.avif" alt="Experiencia Fever" onclick="openExpLightbox(8)" style="cursor:zoom-in"/>
-        <img src="./images/10.avif" alt="Experiencia Fever" onclick="openExpLightbox(9)" style="cursor:zoom-in"/>
-        <img src="./images/11.avif" alt="Experiencia Fever" onclick="openExpLightbox(10)" style="cursor:zoom-in"/>
-        <img src="./images/12.avif" alt="Experiencia Fever" onclick="openExpLightbox(11)" style="cursor:zoom-in"/>
-        <img src="./images/13.avif" alt="Experiencia Fever" onclick="openExpLightbox(12)" style="cursor:zoom-in"/>
-        <img src="./images/14.avif" alt="Experiencia Fever" onclick="openExpLightbox(13)" style="cursor:zoom-in"/>
-        <img src="./images/15.avif" alt="Experiencia Fever" onclick="openExpLightbox(14)" style="cursor:zoom-in"/>
-        <img src="./images/16.avif" alt="Experiencia Fever" onclick="openExpLightbox(15)" style="cursor:zoom-in"/>
+        <div class="img-strip-item" onclick="openExpLightbox(0)" style="cursor:zoom-in"><img src="./images/1.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(1)" style="cursor:zoom-in"><img src="./images/2.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(2)" style="cursor:zoom-in"><img src="./images/3.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(3)" style="cursor:zoom-in"><img src="./images/4.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(4)" style="cursor:zoom-in"><img src="./images/5.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(5)" style="cursor:zoom-in"><img src="./images/6.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(6)" style="cursor:zoom-in"><img src="./images/7.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(7)" style="cursor:zoom-in"><img src="./images/8.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(8)" style="cursor:zoom-in"><img src="./images/9.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(9)" style="cursor:zoom-in"><img src="./images/10.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(10)" style="cursor:zoom-in"><img src="./images/11.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(11)" style="cursor:zoom-in"><img src="./images/12.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(12)" style="cursor:zoom-in"><img src="./images/13.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(13)" style="cursor:zoom-in"><img src="./images/14.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(14)" style="cursor:zoom-in"><img src="./images/15.avif" alt="Experiencia Fever"/></div>
+        <div class="img-strip-item" onclick="openExpLightbox(15)" style="cursor:zoom-in"><img src="./images/16.avif" alt="Experiencia Fever"/></div>
       </div>
       <button class="strip-arrow" onclick="document.getElementById('strip-exp').scrollBy({left:220,behavior:'smooth'})">▶</button>
     </div>
@@ -1527,18 +1534,18 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="img-strip-wrap">
       <button class="strip-arrow" onclick="document.getElementById('strip-crm').scrollBy({left:-220,behavior:'smooth'})">◀</button>
       <div class="img-strip crm" id="strip-crm">
-        <img src="./images/a.jpeg" alt="CRM Fever" onclick="openLightbox(0)" style="cursor:zoom-in"/>
-        <img src="./images/b.jpeg" alt="CRM Fever" onclick="openLightbox(1)" style="cursor:zoom-in"/>
-        <img src="./images/c.jpeg" alt="CRM Fever" onclick="openLightbox(2)" style="cursor:zoom-in"/>
-        <img src="./images/d.jpeg" alt="CRM Fever" onclick="openLightbox(3)" style="cursor:zoom-in"/>
-        <img src="./images/e.jpeg" alt="CRM Fever" onclick="openLightbox(4)" style="cursor:zoom-in"/>
-        <img src="./images/g.jpeg" alt="CRM Fever" onclick="openLightbox(5)" style="cursor:zoom-in"/>
-        <img src="./images/h.jpeg" alt="CRM Fever" onclick="openLightbox(6)" style="cursor:zoom-in"/>
-        <img src="./images/i.jpeg" alt="CRM Fever" onclick="openLightbox(7)" style="cursor:zoom-in"/>
-        <img src="./images/j.jpeg" alt="CRM Fever" onclick="openLightbox(8)" style="cursor:zoom-in"/>
-        <img src="./images/k.jpeg" alt="CRM Fever" onclick="openLightbox(9)" style="cursor:zoom-in"/>
-        <img src="./images/l.jpeg" alt="CRM Fever" onclick="openLightbox(10)" style="cursor:zoom-in"/>
-        <img src="./images/m.jpeg" alt="CRM Fever" onclick="openLightbox(11)" style="cursor:zoom-in"/>
+        <div class="img-strip-item" onclick="openLightbox(0)" style="cursor:zoom-in"><img src="./images/a.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(1)" style="cursor:zoom-in"><img src="./images/b.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(2)" style="cursor:zoom-in"><img src="./images/c.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(3)" style="cursor:zoom-in"><img src="./images/d.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(4)" style="cursor:zoom-in"><img src="./images/e.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(5)" style="cursor:zoom-in"><img src="./images/g.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(6)" style="cursor:zoom-in"><img src="./images/h.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(7)" style="cursor:zoom-in"><img src="./images/i.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(8)" style="cursor:zoom-in"><img src="./images/j.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(9)" style="cursor:zoom-in"><img src="./images/k.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(10)" style="cursor:zoom-in"><img src="./images/l.jpeg" alt="CRM Fever"/></div>
+        <div class="img-strip-item" onclick="openLightbox(11)" style="cursor:zoom-in"><img src="./images/m.jpeg" alt="CRM Fever"/></div>
       </div>
       <button class="strip-arrow" onclick="document.getElementById('strip-crm').scrollBy({left:220,behavior:'smooth'})">▶</button>
     </div>
@@ -1558,7 +1565,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0)">✕</button>
+    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span>Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1609,7 +1616,7 @@ body.win-open { overflow: hidden !important; position: fixed; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" style="margin-left:.5rem" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="margin-left:.5rem;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0)">✕</button>
+    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.preventDefault();event.stopPropagation();closeWindow();" style="margin-left:.5rem;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
   </div>
 
   <div class="win-menubar">
@@ -2932,6 +2939,24 @@ function handleMinigameBackdrop(e){
   }
 
 })();
+
+// ── Cierre robusto en móvil: bind directo sobre todos los botones ✕ ────────
+(function() {
+  function bindClose(el, fn) {
+    if (!el) return;
+    el.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      fn();
+    }, { passive: false, capture: true });
+  }
+  // Botones de ventanas normales
+  document.querySelectorAll('.win-btn.close-btn').forEach(function(btn) {
+    var isMinigame = btn.closest('#win-minigame') !== null;
+    bindClose(btn, isMinigame ? closeMinigame : closeWindow);
+  });
+})();
+
 </script>
 </body>
 </html>
