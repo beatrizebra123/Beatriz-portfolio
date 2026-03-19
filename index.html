@@ -1222,7 +1222,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
 }
 .win-btn.close-btn::after { display:none; }
 .win-btn.close-btn:hover { filter:brightness(1.15) !important; }
-.win-btn.close-btn::before { content:''; position:absolute; inset:-16px; display:block; }
+.win-btn.close-btn::before { display:none; }
 .win-btn.close-btn:active {
   border-top: 2px solid #801020 !important;
   border-left: 2px solid #801020 !important;
@@ -1402,7 +1402,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchend="event.stopPropagation();event.preventDefault();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;position:relative;z-index:9999;pointer-events:all;cursor:pointer;">✕</button>
+    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.stopImmediatePropagation();event.preventDefault();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;position:relative;z-index:9999;pointer-events:all;cursor:pointer;">✕</button>
   </div>
   <div class="win-menubar">
     <span>Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1437,7 +1437,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchend="event.stopPropagation();event.preventDefault();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;position:relative;z-index:9999;pointer-events:all;cursor:pointer;">✕</button>
+    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.stopImmediatePropagation();event.preventDefault();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;position:relative;z-index:9999;pointer-events:all;cursor:pointer;">✕</button>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span>Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1483,7 +1483,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchend="event.stopPropagation();event.preventDefault();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;position:relative;z-index:9999;pointer-events:all;cursor:pointer;">✕</button>
+    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.stopImmediatePropagation();event.preventDefault();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;position:relative;z-index:9999;pointer-events:all;cursor:pointer;">✕</button>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span>Experiencia Corporativa</span><span onclick="switchWindow('win-wedding')">Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1563,7 +1563,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" ontouchend="event.stopPropagation();event.preventDefault();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;position:relative;z-index:9999;pointer-events:all;cursor:pointer;">✕</button>
+    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.stopImmediatePropagation();event.preventDefault();closeWindow();" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;position:relative;z-index:9999;pointer-events:all;cursor:pointer;">✕</button>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span>Bodas</span><span onclick="switchWindow('win-contact')">Contacto</span>
@@ -1614,7 +1614,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="win-deco">✦ B·P</div>
     <button class="win-btn min-btn">_</button>
     <button class="win-btn max-btn">□</button>
-    <button class="win-btn close-btn" onclick="closeWindow()" style="margin-left:.5rem;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;position:relative;z-index:9999;pointer-events:all;cursor:pointer;margin-left:.5rem;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);min-width:48px;min-height:48px;width:48px;height:48px;font-size:1rem;position:relative;z-index:9999;pointer-events:all;">✕</button>
+    <button class="win-btn close-btn" onclick="closeWindow()" ontouchstart="event.stopImmediatePropagation();event.preventDefault();closeWindow();" style="margin-left:.5rem;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;position:relative;z-index:9999;pointer-events:all;cursor:pointer;">✕</button>
   </div>
 
   <div class="win-menubar">
@@ -2040,7 +2040,7 @@ document.addEventListener('keydown', function(e){
     <div class="win-deco" style="color:rgba(255,255,255,.5);">✦ B·P</div>
     <button class="win-btn min-btn" style="background:#d08090;">_</button>
     <button class="win-btn max-btn" style="background:#d08090;">□</button>
-    <button class="win-btn close-btn" onclick="closeMinigame()" ontouchend="event.stopPropagation();event.preventDefault();closeMinigame();" style="position:relative;z-index:9999;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;cursor:pointer;pointer-events:all;">✕</button>
+    <button class="win-btn close-btn" onclick="closeMinigame()" ontouchstart="event.stopImmediatePropagation();event.preventDefault();closeMinigame();" style="position:relative;z-index:9999;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:56px;min-height:56px;width:56px;height:56px;font-size:1.1rem;cursor:pointer;pointer-events:all;">✕</button>
   </div>
 
   <style>
