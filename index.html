@@ -752,6 +752,70 @@
 .retro-window .win-content .section-title {font-weight:500;}
 .photo-modal-title {font-weight:600;}
 </style>
+
+<style>
+/* Tipografía unificada: referencia Music Player */
+:root { --title-ui-font: Tahoma, Verdana, Arial, sans-serif; }
+h1, h2, h3, h4, h5, h6,
+.section-eyebrow, .corp-section-label, .wedding-print-title,
+.win-title-text, .photo-modal-title, .site-info h3,
+.sk-title, #sk-ov-title, .section-title, .exp-title,
+.mht-name, .mht-sub {
+  font-family:var(--title-ui-font) !important;
+  font-style:normal !important;
+  letter-spacing:normal !important;
+  text-transform:none !important;
+  text-shadow:none !important;
+}
+/* Mantener jerarquía y no forzar mayúsculas en los títulos secundarios */
+.corp-section-label { font-size:1rem !important; font-weight:600 !important; line-height:1.45 !important; }
+.strip-arrow { display:flex !important; flex-shrink:0; }
+.img-strip-wrap { gap:8px !important; }
+@media(max-width:480px) { .strip-arrow { width:28px;height:32px; } }
+</style>
+
+<style>
+/* Tipografía de referencia: EXPERIENCIAS TRABAJADAS */
+:root { --title-ui-font: 'Press Start 2P', monospace; }
+/* Cabeceras de páginas, títulos de proyectos/webs y secciones */
+.retro-window .win-title-text,
+.retro-window .win-content .section-eyebrow,
+.retro-window .win-content .corp-section-label,
+.retro-window .win-content .wedding-print-title,
+.retro-window .win-content .site-info h3,
+.retro-window .win-content .section-title,
+.retro-window .win-content h1,
+.retro-window .win-content h2,
+.retro-window .win-content h3,
+.retro-window .win-content h4,
+.retro-window .win-content .exp-title,
+.photo-modal-title, .sk-title, #sk-ov-title,
+.mht-name, .mht-sub {
+  font-family:'Press Start 2P',monospace !important;
+  font-style:normal !important;
+  font-weight:400 !important;
+  text-shadow:none !important;
+  letter-spacing:.025em !important;
+  line-height:1.7 !important;
+  overflow-wrap:break-word;
+}
+.retro-window .win-title-text { font-size:clamp(.43rem,.75vw,.68rem) !important; line-height:1.4 !important; }
+.retro-window .win-content .section-eyebrow { font-size:clamp(.85rem,1.8vw,1.35rem) !important; line-height:1.7 !important; }
+.retro-window .win-content .corp-section-label { font-size:clamp(.55rem,.85vw,.72rem) !important; text-transform:uppercase !important; letter-spacing:.11em !important; }
+.retro-window .win-content .site-info h3,
+.retro-window .win-content .wedding-print-title,
+.retro-window .win-content h3 { font-size:clamp(.64rem,1.2vw,.88rem) !important; }
+.retro-window .win-content h2 { font-size:clamp(.85rem,1.7vw,1.25rem) !important; }
+.retro-window .win-content .exp-title { font-size:.72rem !important; }
+.photo-modal-title { font-size:clamp(.75rem,1.35vw,1rem) !important; }
+@media(max-width:600px) {
+  .retro-window .win-title-text { font-size:.48rem !important; }
+  .retro-window .win-content .section-eyebrow { font-size:.85rem !important; }
+  .retro-window .win-content .site-info h3,
+  .retro-window .win-content .wedding-print-title,
+  .retro-window .win-content h3 { font-size:.65rem !important; }
+}
+</style>
 </head>
 <body>
 
@@ -1603,6 +1667,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
     </div>
     <p class="corp-section-label">Experiencias trabajadas</p>
     <div class="img-strip-wrap">
+      <button type="button" class="strip-arrow" aria-label="Desplazar galería hacia la izquierda" onclick="document.getElementById('strip-exp').scrollBy({left:-220,behavior:'smooth'})">◀</button>
       <div class="img-strip" id="strip-exp">
         <div class="img-strip-item" onclick="openExpLightbox(0)" style="cursor:zoom-in"><img src="./images/1.avif" alt="Experiencia Fever"/></div>
         <div class="img-strip-item" onclick="openExpLightbox(1)" style="cursor:zoom-in"><img src="./images/2.avif" alt="Experiencia Fever"/></div>
@@ -1621,10 +1686,12 @@ body.win-open { overflow: hidden !important; width: 100%; }
         <div class="img-strip-item" onclick="openExpLightbox(14)" style="cursor:zoom-in"><img src="./images/15.avif" alt="Experiencia Fever"/></div>
         <div class="img-strip-item" onclick="openExpLightbox(15)" style="cursor:zoom-in"><img src="./images/16.avif" alt="Experiencia Fever"/></div>
       </div>
+      <button type="button" class="strip-arrow" aria-label="Desplazar galería hacia la derecha" onclick="document.getElementById('strip-exp').scrollBy({left:220,behavior:'smooth'})">▶</button>
     </div>
     <p class="corp-section-label">Ejemplos de CRM</p>
     <p style="font-size:.8rem;color:rgba(28,26,20,.55);margin-bottom:.8rem">Campañas de email marketing diseñadas para experiencias Fever en todo el mundo.</p>
     <div class="img-strip-wrap">
+      <button type="button" class="strip-arrow" aria-label="Desplazar galería hacia la izquierda" onclick="document.getElementById('strip-crm').scrollBy({left:-220,behavior:'smooth'})">◀</button>
       <div class="img-strip crm" id="strip-crm">
         <div class="img-strip-item" onclick="openLightbox(0)" style="cursor:zoom-in"><img src="./images/a.jpeg" alt="CRM Fever"/></div>
         <div class="img-strip-item" onclick="openLightbox(1)" style="cursor:zoom-in"><img src="./images/b.jpeg" alt="CRM Fever"/></div>
@@ -1639,6 +1706,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
         <div class="img-strip-item" onclick="openLightbox(10)" style="cursor:zoom-in"><img src="./images/l.jpeg" alt="CRM Fever"/></div>
         <div class="img-strip-item" onclick="openLightbox(11)" style="cursor:zoom-in"><img src="./images/m.jpeg" alt="CRM Fever"/></div>
       </div>
+      <button type="button" class="strip-arrow" aria-label="Desplazar galería hacia la derecha" onclick="document.getElementById('strip-crm').scrollBy({left:220,behavior:'smooth'})">▶</button>
     </div>
   </div>
 </div>
