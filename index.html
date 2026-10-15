@@ -146,11 +146,11 @@
     .mouse-cable { width:3px; height:clamp(28px,4vw,50px); background:#562915; border-radius:2px; position:absolute; top:-clamp(28px,4vw,50px); left:50%; transform:translateX(-50%); opacity:.6; }
     .scroll-hint { position:absolute; bottom:1.8rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:.5rem; font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,234,214,.5); pointer-events:none; }
     .scroll-bar { width:1.5px; height:28px; background:linear-gradient(rgba(255,234,214,.6),transparent); animation:growBar 1.8s ease-in-out infinite; }
-       #stack-spacer  →  lives in normal flow AFTER the hero.
+       #stack-spacer   lives in normal flow AFTER the hero.
                          Height = (N-1) × 100vh.
                          This is the ONLY thing creating scroll distance.
        
-       #stack-stage   →  position: FIXED. Full screen. z-index: 2.
+       #stack-stage    position: FIXED. Full screen. z-index: 2.
                          Hidden until hero is scrolled past.
                          Once visible, it stays on screen.
                          All cards live here, absolutely positioned.
@@ -159,7 +159,7 @@
          scrolled = window.scrollY - heroHeight
          
          Card 0:  translateY(0)  always. Scales down as card 1 enters.
-         Card i:  enters as scrolled goes (i-1)×VH → i×VH
+         Card i:  enters as scrolled goes (i-1)×VH i×VH
                   translateY = (1 - progress) × 100%
     ══════════════════════════════════════════════════════ */
 
@@ -710,6 +710,19 @@
     #hero-taza { display:none !important; }
     #hero-bolis { display:none !important; }
   
+</style>
+
+<style>
+/* Simplificación visual · octubre 2026 */
+.win-deco, .win-statusbar, .win-corner-deco, .win-menubar .menu-right, .win-btn.min-btn, .win-btn.max-btn, .url-arrow { display:none !important; }
+.win-content .section-divider, .section-divider { display:none !important; }
+.site-row + .site-row { border-top:none !important; padding-top:1.5rem; }
+.win-content .section-desc { margin-bottom:1.5rem; }
+.collab-line { font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:400; color:rgba(28,26,20,.67); line-height:1.6; margin:0 0 1.65rem; }
+.collab-line a { color:#562915; font-weight:700; text-underline-offset:3px; text-decoration:underline; }
+.collab-line a:hover { color:#9B7EC8; }
+.img-strip { overscroll-behavior-x:contain; }
+.img-strip-wrap { gap:0; }
 </style>
 </head>
 <body>
@@ -1423,21 +1436,16 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="retro-window" id="win-branding">
   <div class="win-titlebar">
     <div class="win-title-text">Branding_and_Design.exe</div>
-    <div class="win-deco">✦ B·P</div>
-    <button class="win-btn min-btn">_</button>
-    <button class="win-btn max-btn">□</button>
     <div class="win-btn close-btn" onclick="closeWindowById('win-branding')">✕</div>
   </div>
   <div class="win-menubar">
     <span>Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-illustration')">Ilustraciones y Carteles</span><span onclick="switchWindow('win-contact')">Contacto</span>
-    <span class="menu-right">B·P</span>
   </div>
   <div class="win-content" id="wc-branding">
     <p class="section-eyebrow">Diseño gráfico y Branding</p>
     <h2 class="section-title">Marcas construidas desde <em>cero.</em></h2>
     <p class="section-desc">Serie de proposals completos: logo, identidad visual, mockups y sistema de diseño para marcas ficticias y reales.</p>
-    <a href="https://blancapalazuelo.com" target="_blank" class="collab-badge" style="display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1.2rem;font-size:.72rem;font-weight:600;color:#562915;text-decoration:none;background:#d4b3f5;padding:.35rem .9rem;border-radius:100px;border:1.5px solid #562915"><span style="width:8px;height:8px;border-radius:50%;background:#562915"></span>En colaboración con Blanca Palazuelo — Motion &amp; Branding ↗</a>
-    <hr class="section-divider"/>
+    <p class="collab-line">En colaboración con <a href="https://blancapalazuelo.com" target="_blank" rel="noopener">Blanca Palazuelo</a>, Motion &amp; Branding.</p>
 
     <div style="display:flex;gap:2.5rem;align-items:flex-start;flex-wrap:wrap">
 
@@ -1471,16 +1479,11 @@ body.win-open { overflow: hidden !important; width: 100%; }
         </div>
         <a href="https://www.instagram.com/p/DYCglLFjHAh/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:700;color:#562915;text-decoration:none;background:#FDA0B0;border:1.5px solid #562915;border-radius:100px;padding:.35rem .9rem;box-shadow:2px 2px 0 #562915">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:13px;height:13px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          Ver en Instagram ↗
+          Ver en Instagram
         </a>
       </div>
     </div>
     <!-- ════ AÑADIR BRANDING — sube imagen a images/ y descomenta bloque de abajo ════ -->
-  </div>
-  <div class="win-statusbar">
-    <span>01 — Branding &amp; Design</span>
-    <span class="status-pill">1 proyecto</span>
-    
   </div>
 </div>
 
@@ -1489,20 +1492,15 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="retro-window" id="win-website">
   <div class="win-titlebar">
     <div class="win-title-text">Web_Design.exe</div>
-    <div class="win-deco">✦ B·P</div>
-    <button class="win-btn min-btn">_</button>
-    <button class="win-btn max-btn">□</button>
     <div class="win-btn close-btn" onclick="closeWindowById('win-website')">✕</div>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span>Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-illustration')">Ilustraciones y Carteles</span><span onclick="switchWindow('win-contact')">Contacto</span>
-    <span class="menu-right">B·P</span>
   </div>
   <div class="win-content" id="wc-website">
     <p class="section-eyebrow">Diseño Web</p>
     <h2 class="section-title">Creamos la web a <em>tu medida.</em></h2>
-    <p class="section-desc">Diseño y desarrollo web — identidad visual coherente, UX intuitiva y estética cuidada. En colaboración con <a href="https://blancapalazuelo.com" target="_blank" style="color:#D13955;font-weight:600;text-decoration:none;border-bottom:1px solid #D13955;">Blanca Palazuelo ↗</a></p>
-    <hr class="section-divider"/>
+    <p class="section-desc">Diseño y desarrollo web — identidad visual coherente, UX intuitiva y estética cuidada. En colaboración con <a href="https://blancapalazuelo.com" target="_blank" style="color:#D13955;font-weight:600;text-decoration:none;border-bottom:1px solid #D13955;">Blanca Palazuelo</a></p>
     <div class="website-list">
       <div class="site-row">
         <div class="site-card">
@@ -1517,10 +1515,10 @@ body.win-open { overflow: hidden !important; width: 100%; }
         <div class="site-info">
           <h3>Kamara Rental · renting de vestidos.</h3>
           <ul style="margin:.6rem 0 .9rem 1.1rem;font-size:.82rem;line-height:1.8;color:rgba(28,26,20,.62);"><li>Diseño de componentes visuales consistentes (tipografía, layout, espaciados, grid)</li><li>Integración de CTAs estratégicos en los puntos de mayor intención de compra</li><li>Optimización de la experiencia mobile-first</li><li>Selección de periodos de alquiler dinámicos y gestión de disponibilidad por fechas</li><li>Control de stock por producto y configuración de precios según duración del alquiler</li><li>Gestión automatizada de reservas</li></ul>
-          <a class="visit-pill" href="https://kamararental.com/" target="_blank" rel="noopener">Visitar web ↗</a>
+          <a class="visit-pill" href="https://kamararental.com/" target="_blank" rel="noopener">Visitar web</a>
         </div>
       </div>
-      <div class="site-row" style="padding-top:1.5rem;border-top:1px dashed rgba(28,26,20,.12)">
+      <div class="site-row" style="padding-top:1.5rem">
         <div class="site-card">
           <a class="site-link" href="https://www.dacostaloboart.com/" target="_blank" rel="noopener">
             <div class="browser-bar">
@@ -1533,13 +1531,11 @@ body.win-open { overflow: hidden !important; width: 100%; }
         <div class="site-info">
           <h3>Da Costa Lobo Art · portfolio de artista.</h3>
           <p style="font-size:.84rem;line-height:1.7;color:rgba(28,26,20,.62);margin-bottom:.9rem">Web diseñada para Da Costa Lobo, artista hiperrealista especializado en pintura al óleo. El objetivo: una galería digital que deje hablar a los cuadros, limpia, sin ruido, con una navegación que guía al visitante por cada obra como si recorriera una exposición.</p>
-          <a class="visit-pill" href="https://www.dacostaloboart.com/" target="_blank" rel="noopener">Visitar web ↗</a>
+          <a class="visit-pill" href="https://www.dacostaloboart.com/" target="_blank" rel="noopener">Visitar web</a>
         </div>
       </div>
-      <hr class="section-divider" style="margin:2rem 0"/>
       <!-- Bodas subsection -->
       <p class="section-eyebrow" style="margin-bottom:.5rem;font-size:clamp(1.2rem,2.5vw,1.8rem)">Bodas</p>
-      <h3 style="font-family:'Abril Fatface',serif;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:400;margin-bottom:1.2rem;color:#1C1A14">Diseñamos todo para el gran día.</h3>
       <div class="site-row">
         <div class="site-card">
           <a class="site-link" href="https://alba-ignacio.lovable.app/" target="_blank" rel="noopener">
@@ -1553,15 +1549,10 @@ body.win-open { overflow: hidden !important; width: 100%; }
         <div class="site-info">
           <h3>Alba &amp; Ignacio · Web de boda.</h3>
           <p>Web de boda centrada en la estética acuarela, diseñada para reflejar el espíritu del lugar donde se celebrará el gran día.</p>
-          <a class="visit-pill" href="https://alba-ignacio.lovable.app/" target="_blank" rel="noopener">Visitar web ↗</a>
+          <a class="visit-pill" href="https://alba-ignacio.lovable.app/" target="_blank" rel="noopener">Visitar web</a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="win-statusbar">
-    <span>02 — Web Design</span>
-    <span class="status-pill">2 proyectos</span>
-    
   </div>
 </div>
 
@@ -1570,32 +1561,20 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="retro-window" id="win-corporate">
   <div class="win-titlebar">
     <div class="win-title-text">Corporate_Girl.exe</div>
-    <div class="win-deco">✦ B·P</div>
-    <button class="win-btn min-btn">_</button>
-    <button class="win-btn max-btn">□</button>
     <div class="win-btn close-btn" onclick="closeWindowById('win-corporate')">✕</div>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span>Experiencia Corporativa</span><span onclick="switchWindow('win-illustration')">Ilustraciones y Carteles</span><span onclick="switchWindow('win-contact')">Contacto</span>
-    <span class="menu-right">B·P</span>
   </div>
   <div class="win-content" id="wc-corporate">
     <p class="section-eyebrow">Experiencia Corporativa</p>
     <div style="background:#562915;border-radius:18px;padding:2rem;margin-top:2rem;margin-bottom:1.5rem;position:relative;overflow:hidden">
       <h2 class="section-title" style="color:#FFEAD6">Experiencia en <em style="color:#FFEAD6">marketing.</em></h2>
       <p style="font-size:.9rem;color:rgba(255,234,214,.65);line-height:1.7;max-width:560px;margin-bottom:.25rem">Marketing digital y diseño con experiencia en campañas globales, CRM y estrategia para marcas internacionales.</p>
-      <div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;margin-top:1rem;"><a href="https://drive.google.com/file/d/1iTfQdHQ5tYWWk6X2-50xCGbsymCfucOT/view?usp=sharing" target="_blank" rel="noopener" class="cv-download-btn" style="display:inline-flex;align-items:center;gap:.5rem;margin:0">↓ Descargar CV</a></div>
-      <div class="fever-stats" style="margin-top:1.8rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem">
-        <div class="fever-stat" style="text-align:center"><div style="font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:#FFEAD6">5+</div><div style="font-size:.62rem;color:rgba(255,234,214,.6);margin-top:.25rem;line-height:1.3">Years</div></div>
-        <div class="fever-stat" style="text-align:center"><div style="font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:#FFEAD6">150+</div><div style="font-size:.62rem;color:rgba(255,234,214,.6);margin-top:.25rem;line-height:1.3">Campañas</div></div>
-        <div class="fever-stat" style="text-align:center"><div style="font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:#FFEAD6">5</div><div style="font-size:.62rem;color:rgba(255,234,214,.6);margin-top:.25rem;line-height:1.3">Herramientas<br>diseño &amp; mkt</div></div>
-        <div class="fever-stat" style="text-align:center"><div style="font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:#FFEAD6"><svg viewBox="0 0 24 24" fill="none" stroke="#FFEAD6" stroke-width="1.8" width="1.6rem" height="1.6rem"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></svg></div><div style="font-size:.62rem;color:rgba(255,234,214,.6);margin-top:.25rem;line-height:1.3">Internacional</div></div>
-      </div>
+      <div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;margin-top:1rem;"><a href="https://drive.google.com/file/d/1iTfQdHQ5tYWWk6X2-50xCGbsymCfucOT/view?usp=sharing" target="_blank" rel="noopener" class="cv-download-btn" style="display:inline-flex;align-items:center;gap:.5rem;margin:0">Descargar CV</a></div>
     </div>
-    <hr class="section-divider"/>
     <p class="corp-section-label">Experiencias trabajadas</p>
     <div class="img-strip-wrap">
-      <button class="strip-arrow" onclick="document.getElementById('strip-exp').scrollBy({left:-220,behavior:'smooth'})">◀</button>
       <div class="img-strip" id="strip-exp">
         <div class="img-strip-item" onclick="openExpLightbox(0)" style="cursor:zoom-in"><img src="./images/1.avif" alt="Experiencia Fever"/></div>
         <div class="img-strip-item" onclick="openExpLightbox(1)" style="cursor:zoom-in"><img src="./images/2.avif" alt="Experiencia Fever"/></div>
@@ -1614,13 +1593,10 @@ body.win-open { overflow: hidden !important; width: 100%; }
         <div class="img-strip-item" onclick="openExpLightbox(14)" style="cursor:zoom-in"><img src="./images/15.avif" alt="Experiencia Fever"/></div>
         <div class="img-strip-item" onclick="openExpLightbox(15)" style="cursor:zoom-in"><img src="./images/16.avif" alt="Experiencia Fever"/></div>
       </div>
-      <button class="strip-arrow" onclick="document.getElementById('strip-exp').scrollBy({left:220,behavior:'smooth'})">▶</button>
     </div>
-    <hr class="section-divider" style="margin:1.4rem 0"/>
     <p class="corp-section-label">Ejemplos de CRM</p>
     <p style="font-size:.8rem;color:rgba(28,26,20,.55);margin-bottom:.8rem">Campañas de email marketing diseñadas para experiencias Fever en todo el mundo.</p>
     <div class="img-strip-wrap">
-      <button class="strip-arrow" onclick="document.getElementById('strip-crm').scrollBy({left:-220,behavior:'smooth'})">◀</button>
       <div class="img-strip crm" id="strip-crm">
         <div class="img-strip-item" onclick="openLightbox(0)" style="cursor:zoom-in"><img src="./images/a.jpeg" alt="CRM Fever"/></div>
         <div class="img-strip-item" onclick="openLightbox(1)" style="cursor:zoom-in"><img src="./images/b.jpeg" alt="CRM Fever"/></div>
@@ -1635,13 +1611,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
         <div class="img-strip-item" onclick="openLightbox(10)" style="cursor:zoom-in"><img src="./images/l.jpeg" alt="CRM Fever"/></div>
         <div class="img-strip-item" onclick="openLightbox(11)" style="cursor:zoom-in"><img src="./images/m.jpeg" alt="CRM Fever"/></div>
       </div>
-      <button class="strip-arrow" onclick="document.getElementById('strip-crm').scrollBy({left:220,behavior:'smooth'})">▶</button>
     </div>
-  </div>
-  <div class="win-statusbar">
-    <span>03 — Corporate Girl</span>
-    <span class="status-pill" style="background:#F4A4B8">✦ Fever</span>
-    
   </div>
 </div>
 
@@ -1650,20 +1620,15 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="retro-window" id="win-illustration">
   <div class="win-titlebar">
     <div class="win-title-text">Ilustraciones_y_Carteles.exe</div>
-    <div class="win-deco">✦ B·P</div>
-    <button class="win-btn min-btn">_</button>
-    <button class="win-btn max-btn">□</button>
     <div class="win-btn close-btn" onclick="closeWindowById('win-illustration')">✕</div>
   </div>
   <div class="win-menubar">
     <span onclick="switchWindow('win-branding')" >Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span>Ilustraciones y Carteles</span><span onclick="switchWindow('win-contact')">Contacto</span>
-    <span class="menu-right">B·P</span>
   </div>
   <div class="win-content" id="wc-illustration">
     <p class="section-eyebrow">Ilustraciones y Carteles</p>
     <h2 class="section-title">Ilustraciones y carteles <em>a medida.</em></h2>
     <p class="section-desc">Carteles e ilustraciones a medida para cualquier ocasión: bodas, bachelorette parties, cumpleaños, eventos de empresa, festivales y cualquier proyecto que necesite una pieza única.</p>
-    <hr class="section-divider"/>
     <!-- Subsección Bodas -->
     <p class="corp-section-label" style="margin-top:0">Bodas</p>
     <div class="wedding-print-section">
@@ -1671,10 +1636,6 @@ body.win-open { overflow: hidden !important; width: 100%; }
       <p class="wedding-print-desc">Carteles completos para las estaciones de aperitivo y menú de boda. Diseño watercolor con ilustraciones a medida.</p>
       <button class="gallery-more-btn" data-modal-title="Meseros &amp; Carteles — Boda Alba &amp; Ignacio" data-images='["./images/carteles-11.png","./images/carteles-13.png","./images/carteles-14.png","./images/carteles-16.png","./images/carteles-17.png","./images/carteles-19.png","./images/carteles_Lista_aperitivos.png","./images/Menu_pedida_alba__1_.png"]'>Ver meseros y carteles</button>
     </div>
-  </div>
-  <div class="win-statusbar">
-    <span>04 — Ilustraciones y Carteles</span>
-    <span class="status-pill" style="background:#E8B400">✏️ encargos</span>
   </div>
 </div>
 
@@ -1685,9 +1646,6 @@ body.win-open { overflow: hidden !important; width: 100%; }
   <div class="win-titlebar">
     <div class="win-btn-group"></div>
     <div class="win-title-text">Contacto.exe</div>
-    <div class="win-deco">✦ B·P</div>
-    <button class="win-btn min-btn">_</button>
-    <button class="win-btn max-btn">□</button>
     <div class="win-btn close-btn" onclick="closeWindowById('win-contact')">✕</div>
   </div>
 
@@ -1697,7 +1655,6 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <span onclick="switchWindow('win-corporate')">Corporate</span>
     <span onclick="switchWindow('win-illustration')">Ilustraciones y Carteles</span>
     <span style="background:rgba(86,41,21,.1);font-weight:700">Contacto</span>
-    <span class="menu-right">B·P</span>
   </div>
 
   <div class="win-content" id="wc-contact">
@@ -1710,19 +1667,19 @@ body.win-open { overflow: hidden !important; width: 100%; }
         <p style="font-size:.9rem;color:rgba(28,26,20,.62);line-height:1.8;margin-bottom:2rem">Siempre abierta a colaboraciones, proyectos freelance y nuevos retos creativos. ¡Escríbeme!</p>
         <div style="display:flex;flex-direction:column;gap:.8rem">
           <a href="https://bpalazuelocreative.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.8rem;font-family:'Press Start 2P',monospace;font-size:.46rem;color:#D13955;text-decoration:none;background:#FFF8F0;border:2px solid #D13955;border-radius:10px;padding:.75rem 1.1rem;box-shadow:3px 3px 0 #D13955;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translate(-2px,-2px)'" onmouseout="this.style.transform=''">
-            <span style="font-size:1.1rem">✉</span> bpalazuelocreative.com ↗
+            <span style="font-size:1.1rem">✉</span> bpalazuelocreative.com
           </a>
           <a href="https://www.linkedin.com/in/beatriz-palazuelo-guijarro-038671209/" target="_blank"
             style="display:flex;align-items:center;gap:.8rem;font-family:'Press Start 2P',monospace;font-size:.46rem;color:#D13955;text-decoration:none;background:#FFF8F0;border:2px solid #D13955;border-radius:10px;padding:.75rem 1.1rem;box-shadow:3px 3px 0 rgba(209,57,85,.35);transition:transform .15s"
             onmouseover="this.style.transform='translate(-2px,-2px)'"
             onmouseout="this.style.transform=''">
-            <span style="font-size:1.1rem;font-weight:900">in</span> LinkedIn ↗
+            <span style="font-size:1.1rem;font-weight:900">in</span> LinkedIn
           </a>
           <a href="https://calendar.app.google/kuMsrN5Zxibrfk7y7" target="_blank" rel="noopener"
             style="display:flex;align-items:center;gap:.8rem;font-family:'Press Start 2P',monospace;font-size:.46rem;color:#D13955;text-decoration:none;background:#FFF8F0;border:2px solid #D13955;border-radius:10px;padding:.75rem 1.1rem;box-shadow:3px 3px 0 rgba(209,57,85,.35);transition:transform .15s"
             onmouseover="this.style.transform='translate(-2px,-2px)'"
             onmouseout="this.style.transform=''">
-            <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" style="width:18px;height:18px;flex-shrink:0;image-rendering:pixelated"><rect x="1" y="3" width="16" height="14" fill="#f0d8c8" stroke="#562915" stroke-width="1"/><rect x="1" y="3" width="16" height="4" fill="#e8b090" stroke="#562915" stroke-width="1"/><rect x="4" y="1" width="2" height="4" rx="0" fill="#562915"/><rect x="4.5" y="1.5" width="1" height="3" fill="#ffd8b0"/><rect x="12" y="1" width="2" height="4" fill="#562915"/><rect x="12.5" y="1.5" width="1" height="3" fill="#ffd8b0"/><rect x="1" y="9" width="16" height="1" fill="#562915" opacity=".15"/><rect x="1" y="13" width="16" height="1" fill="#562915" opacity=".15"/><rect x="6" y="7" width="1" height="10" fill="#562915" opacity=".1"/><rect x="12" y="7" width="1" height="10" fill="#562915" opacity=".1"/><rect x="2" y="10" width="3" height="3" rx="0" fill="#9080c8" opacity=".75"/></svg> Reservar cita ↗
+            <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" style="width:18px;height:18px;flex-shrink:0;image-rendering:pixelated"><rect x="1" y="3" width="16" height="14" fill="#f0d8c8" stroke="#562915" stroke-width="1"/><rect x="1" y="3" width="16" height="4" fill="#e8b090" stroke="#562915" stroke-width="1"/><rect x="4" y="1" width="2" height="4" rx="0" fill="#562915"/><rect x="4.5" y="1.5" width="1" height="3" fill="#ffd8b0"/><rect x="12" y="1" width="2" height="4" fill="#562915"/><rect x="12.5" y="1.5" width="1" height="3" fill="#ffd8b0"/><rect x="1" y="9" width="16" height="1" fill="#562915" opacity=".15"/><rect x="1" y="13" width="16" height="1" fill="#562915" opacity=".15"/><rect x="6" y="7" width="1" height="10" fill="#562915" opacity=".1"/><rect x="12" y="7" width="1" height="10" fill="#562915" opacity=".1"/><rect x="2" y="10" width="3" height="3" rx="0" fill="#9080c8" opacity=".75"/></svg> Reservar cita
           </a>
         </div>
       </div>
@@ -1763,12 +1720,6 @@ body.win-open { overflow: hidden !important; width: 100%; }
       </div>
 
     </div>
-  </div>
-
-  <div class="win-statusbar">
-    <span>05 — Contacto</span>
-    <span class="status-pill">disponible ✦</span>
-    
   </div>
 
 </div>
@@ -1954,19 +1905,19 @@ document.addEventListener('keydown', function(e){
     es: {
       circles: ['Diseño gráfico<br>y Branding','Diseño<br>Web','Experiencia<br>Corporativa','Ilustraciones<br>y Carteles'],
       menuLabels: ['Diseño gráfico y Branding','Diseño Web','Experiencia Corporativa','Ilustraciones y Carteles','Contacto'],
-      b_eyebrow:'Diseño gráfico y Branding', b_title:'Marcas construidas desde cero.', b_desc:'Serie de proposals completos: logo, identidad visual, mockups y sistema de diseño para marcas ficticias y reales.', b_collab:'En colaboración con Blanca Palazuelo, Motion &amp; Branding ↗', b_wip:'', b_wip2:'', b_status:'1 proyecto',
-      w_eyebrow:'Diseño Web', w_title:'Creamos la web a tu medida.', w_desc:'Diseño y desarrollo web, identidad visual coherente, UX intuitiva y estética cuidada. En colaboración con', w_kamara_title:'Kamara Rental · renting de vestidos.', w_kamara_desc:'Web de alquiler de vestidos para eventos, desarrollada junto a Blanca Palazuelo:<ul style="margin:.6rem 0 .6rem 1.1rem;font-size:.82rem;line-height:1.8;color:rgba(28,26,20,.62);"><li>Diseño de componentes visuales consistentes (tipografía, layout, espaciados, grid)</li><li>Integración de CTAs estratégicos en los puntos de mayor intención de compra</li><li>Optimización de la experiencia mobile-first</li><li>Selección de periodos de alquiler dinámicos y gestión de disponibilidad por fechas</li><li>Control de stock por producto y configuración de precios según duración del alquiler</li><li>Gestión automatizada de reservas</li></ul>', w_visit:'Visitar web ↗', w_soon:'', w_status:'2 proyectos',
-      c_eyebrow:'Experiencia Corporativa', c_title:'Experiencia en marketing.', c_desc:'Marketing digital y diseño con experiencia en campañas globales, CRM, HTML para campañas vía Salesforce, control de KPIs, estudios de mercado y estrategia para marcas internacionales.', c_cv:'↓ Descargar CV', c_cvtag:'', c_stat1:'Years', c_stat2:'Campañas', c_stat3:'Herramientas<br>diseño &amp; mkt', c_stat4:'Internacional', c_exp_label:'Experiencias trabajadas', c_exp_btn:'Ver todas las experiencias en las que he colaborado →', c_crm_label:'Ejemplos de CRM', c_crm_desc:'Campañas de email marketing diseñadas para experiencias Fever en todo el mundo.', c_crm_btn:'Ver campañas de email',
-      wed_eyebrow:'Ilustraciones y Carteles', wed_title:'Ilustraciones y carteles a medida.', wed_desc:'Carteles e ilustraciones para bodas, bachelorette parties, cumpleaños, eventos y más.', wed_project_title:'Alba &amp; Ignacio · Web de boda.', wed_project_desc:'Web de boda centrada en la estética acuarela, diseñada para reflejar el espíritu del lugar donde se celebrará el gran día.', wed_visit:'Visitar web ↗', wed_print_title:'Meseros &amp; Carteles · Boda Alba &amp; Ignacio', wed_print_desc:'Carteles completos para las estaciones de aperitivo y menú de boda. Diseño watercolor con ilustraciones a medida.', wed_print_btn:'Ver meseros y carteles',
+      b_eyebrow:'Diseño gráfico y Branding', b_title:'Marcas construidas desde cero.', b_desc:'Serie de proposals completos: logo, identidad visual, mockups y sistema de diseño para marcas ficticias y reales.', b_collab:'En colaboración con Blanca Palazuelo, Motion &amp; Branding', b_wip:'', b_wip2:'', b_status:'1 proyecto',
+      w_eyebrow:'Diseño Web', w_title:'Creamos la web a tu medida.', w_desc:'Diseño y desarrollo web, identidad visual coherente, UX intuitiva y estética cuidada. En colaboración con', w_kamara_title:'Kamara Rental · renting de vestidos.', w_kamara_desc:'Web de alquiler de vestidos para eventos, desarrollada junto a Blanca Palazuelo:<ul style="margin:.6rem 0 .6rem 1.1rem;font-size:.82rem;line-height:1.8;color:rgba(28,26,20,.62);"><li>Diseño de componentes visuales consistentes (tipografía, layout, espaciados, grid)</li><li>Integración de CTAs estratégicos en los puntos de mayor intención de compra</li><li>Optimización de la experiencia mobile-first</li><li>Selección de periodos de alquiler dinámicos y gestión de disponibilidad por fechas</li><li>Control de stock por producto y configuración de precios según duración del alquiler</li><li>Gestión automatizada de reservas</li></ul>', w_visit:'Visitar web', w_soon:'', w_status:'2 proyectos',
+      c_eyebrow:'Experiencia Corporativa', c_title:'Experiencia en marketing.', c_desc:'Marketing digital y diseño con experiencia en campañas globales, CRM, HTML para campañas vía Salesforce, control de KPIs, estudios de mercado y estrategia para marcas internacionales.', c_cv:'Descargar CV', c_cvtag:'', c_stat1:'Years', c_stat2:'Campañas', c_stat3:'Herramientas<br>diseño &amp; mkt', c_stat4:'Internacional', c_exp_label:'Experiencias trabajadas', c_exp_btn:'Ver todas las experiencias en las que he colaborado', c_crm_label:'Ejemplos de CRM', c_crm_desc:'Campañas de email marketing diseñadas para experiencias Fever en todo el mundo.', c_crm_btn:'Ver campañas de email',
+      wed_eyebrow:'Ilustraciones y Carteles', wed_title:'Ilustraciones y carteles a medida.', wed_desc:'Carteles e ilustraciones para bodas, bachelorette parties, cumpleaños, eventos y más.', wed_project_title:'Alba &amp; Ignacio · Web de boda.', wed_project_desc:'Web de boda centrada en la estética acuarela, diseñada para reflejar el espíritu del lugar donde se celebrará el gran día.', wed_visit:'Visitar web', wed_print_title:'Meseros &amp; Carteles · Boda Alba &amp; Ignacio', wed_print_desc:'Carteles completos para las estaciones de aperitivo y menú de boda. Diseño watercolor con ilustraciones a medida.', wed_print_btn:'Ver meseros y carteles',
       con_eyebrow:'Hablemos', con_title:'Tienes un<br>proyecto.', con_desc:'Siempre abierta a colaboraciones, proyectos freelance y nuevos retos creativos. ¡Escríbeme!', con_nombre:'TU NOMBRE', con_nombre_ph:'Ej: Ana García', con_email_lbl:'TU EMAIL', con_email_ph:'hola@email.com', con_msg:'MENSAJE', con_msg_ph:'Cuéntame tu proyecto...', con_send:'ENVIAR', con_success:'✦ ¡Mensaje enviado! Te escribo pronto.', swipe:'desliza ▶'
     },
     en: {
       circles: ['Branding<br>+ Design','Web<br>Design','Corporate<br>Experience','Illustrations<br>+ Prints'],
       menuLabels: ['Branding + Design','Web Design','Corporate Experience','Illustrations + Prints','Contact'],
-      b_eyebrow:'Branding &amp; Design', b_title:'Brands built from scratch.', b_desc:'Full brand proposals: logo, visual identity, mockups and design system for both fictional and real brands.', b_collab:'In collaboration with Blanca Palazuelo, Motion &amp; Branding ↗', b_wip:'', b_wip2:'', b_status:'1 project',
-      w_eyebrow:'Web Design', w_title:'Webs built for you.', w_desc:'Web design and development, consistent visual identity, intuitive UX and thoughtful aesthetics. In collab with', w_kamara_title:'Kamara Rental · dress rental.', w_kamara_desc:'Dress rental website for events, built together with Blanca Palazuelo:<ul style="margin:.6rem 0 .6rem 1.1rem;font-size:.82rem;line-height:1.8;color:rgba(28,26,20,.62);"><li>Consistent visual component design (typography, layout, spacing, grid)</li><li>Strategic CTAs placed at highest purchase-intent moments</li><li>Mobile-first experience optimisation</li><li>Dynamic rental period selection and date-based availability management</li><li>Per-product stock control and duration-based pricing</li><li>Automated booking management</li></ul>', w_visit:'Visit website ↗', w_soon:'', w_status:'2 projects',
-      c_eyebrow:'Corporate Experience', c_title:'Experience in marketing.', c_desc:'Digital marketing and design with experience in global campaigns, CRM, HTML for Salesforce campaigns, KPI tracking, market research and strategy for international brands.', c_cv:'↓ Download CV', c_cvtag:'', c_stat1:'Years', c_stat2:'Campaigns', c_stat3:'Design &amp;<br>mkt tools', c_stat4:'International', c_exp_label:'Worked experiences', c_exp_btn:'See all experiences I have collaborated on →', c_crm_label:'CRM examples', c_crm_desc:'Email marketing campaigns designed for Fever experiences around the world.', c_crm_btn:'See email campaigns',
-      wed_eyebrow:'Illustrations + Prints', wed_title:'Custom illustrations and prints.', wed_desc:'Posters, illustrations and prints for weddings, bachelorette parties, birthdays, events and more.', wed_project_title:'Alba &amp; Ignacio — <em>Wedding website.</em>', wed_project_desc:"Wedding website built around a watercolour aesthetic, designed to capture the spirit of the place where the big day will take place.", wed_visit:'Visit website ↗', wed_print_title:"Table cards &amp; Prints · Alba &amp; Ignacio's Wedding", wed_print_desc:'Full prints for the aperitif stations and wedding menu. Watercolour design with custom illustrations.', wed_print_btn:'View table cards and prints',
+      b_eyebrow:'Branding &amp; Design', b_title:'Brands built from scratch.', b_desc:'Full brand proposals: logo, visual identity, mockups and design system for both fictional and real brands.', b_collab:'In collaboration with Blanca Palazuelo, Motion &amp; Branding', b_wip:'', b_wip2:'', b_status:'1 project',
+      w_eyebrow:'Web Design', w_title:'Webs built for you.', w_desc:'Web design and development, consistent visual identity, intuitive UX and thoughtful aesthetics. In collab with', w_kamara_title:'Kamara Rental · dress rental.', w_kamara_desc:'Dress rental website for events, built together with Blanca Palazuelo:<ul style="margin:.6rem 0 .6rem 1.1rem;font-size:.82rem;line-height:1.8;color:rgba(28,26,20,.62);"><li>Consistent visual component design (typography, layout, spacing, grid)</li><li>Strategic CTAs placed at highest purchase-intent moments</li><li>Mobile-first experience optimisation</li><li>Dynamic rental period selection and date-based availability management</li><li>Per-product stock control and duration-based pricing</li><li>Automated booking management</li></ul>', w_visit:'Visit website', w_soon:'', w_status:'2 projects',
+      c_eyebrow:'Corporate Experience', c_title:'Experience in marketing.', c_desc:'Digital marketing and design with experience in global campaigns, CRM, HTML for Salesforce campaigns, KPI tracking, market research and strategy for international brands.', c_cv:'Download CV', c_cvtag:'', c_stat1:'Years', c_stat2:'Campaigns', c_stat3:'Design &amp;<br>mkt tools', c_stat4:'International', c_exp_label:'Worked experiences', c_exp_btn:'See all experiences I have collaborated on', c_crm_label:'CRM examples', c_crm_desc:'Email marketing campaigns designed for Fever experiences around the world.', c_crm_btn:'See email campaigns',
+      wed_eyebrow:'Illustrations + Prints', wed_title:'Custom illustrations and prints.', wed_desc:'Posters, illustrations and prints for weddings, bachelorette parties, birthdays, events and more.', wed_project_title:'Alba &amp; Ignacio — <em>Wedding website.</em>', wed_project_desc:"Wedding website built around a watercolour aesthetic, designed to capture the spirit of the place where the big day will take place.", wed_visit:'Visit website', wed_print_title:"Table cards &amp; Prints · Alba &amp; Ignacio's Wedding", wed_print_desc:'Full prints for the aperitif stations and wedding menu. Watercolour design with custom illustrations.', wed_print_btn:'View table cards and prints',
       con_eyebrow:"Let's talk", con_title:'You have a<br>project.', con_desc:'Always open to collaborations, freelance projects and new creative challenges. Write to me!', con_nombre:'YOUR NAME', con_nombre_ph:'e.g. Anna Smith', con_email_lbl:'YOUR EMAIL', con_email_ph:'hello@email.com', con_msg:'MESSAGE', con_msg_ph:'Tell me about your project...', con_send:'SEND', con_success:"✦ Message sent! I'll get back to you soon.", swipe:'swipe ▶'
     }
   };
@@ -2003,7 +1954,7 @@ document.addEventListener('keydown', function(e){
       b.querySelector('.section-eyebrow').innerHTML=t.b_eyebrow;
       b.querySelector('.section-title').innerHTML=t.b_title;
       b.querySelector('.section-desc').innerHTML=t.b_desc;
-      var collab=b.querySelector('.collab-badge'); if(collab) collab.innerHTML='<span style="width:8px;height:8px;border-radius:50%;background:#562915;display:inline-block"></span> '+t.b_collab;
+      var collab=b.querySelector('.collab-line'); if(collab) collab.innerHTML=(lang==='en'?'In collaboration with ':'En colaboración con ')+'<a href="https://blancapalazuelo.com" target="_blank" rel="noopener">Blanca Palazuelo</a>, Motion &amp; Branding.';
       var wips=b.querySelectorAll('[style*="Press Start 2P"]'); if(wips[0]) wips[0].textContent=t.b_wip;
       var wip2=b.querySelector('[style*="rgba(28,26,20,.5)"]'); if(wip2) wip2.textContent=t.b_wip2;
       var st=document.querySelector('#bd-win-branding .status-pill'); if(st) st.textContent=t.b_status;
@@ -2013,7 +1964,7 @@ document.addEventListener('keydown', function(e){
     if(w){
       w.querySelector('.section-eyebrow').innerHTML=t.w_eyebrow;
       w.querySelector('.section-title').innerHTML=t.w_title;
-      var wdesc=w.querySelector('.section-desc'); if(wdesc) wdesc.innerHTML=t.w_desc+' <a href="https://blancapalazuelo.com" target="_blank" style="color:#D13955;font-weight:600;text-decoration:none;border-bottom:1px solid #D13955">Blanca Palazuelo ↗</a>';
+      var wdesc=w.querySelector('.section-desc'); if(wdesc) wdesc.innerHTML=t.w_desc+' <a href="https://blancapalazuelo.com" target="_blank" style="color:#D13955;font-weight:600;text-decoration:none;border-bottom:1px solid #D13955">Blanca Palazuelo</a>';
       var kh=w.querySelector('.site-info h3'); if(kh) kh.innerHTML=t.w_kamara_title;
       var vp=w.querySelector('.visit-pill'); if(vp) vp.textContent=t.w_visit;
       var cs=w.querySelector('.coming-soon-label'); if(cs) cs.textContent=t.w_soon;
@@ -2126,9 +2077,6 @@ document.addEventListener('keydown', function(e){
 <div class="retro-window" id="win-minigame" style="width:min(96vw,820px);height:auto;max-height:94vh;overflow-y:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;">
   <div class="win-titlebar" style="background:#c06070;touch-action:manipulation;">
     <div class="win-title-text" style="color:#fff;">minijuego.exe</div>
-    <div class="win-deco" style="color:rgba(255,255,255,.5);">✦ B·P</div>
-    <button class="win-btn min-btn" style="background:#d08090;">_</button>
-    <button class="win-btn max-btn" style="background:#d08090;">□</button>
     <div class="win-btn close-btn" onclick="closeMinigame()">✕</div>
   </div>
 
