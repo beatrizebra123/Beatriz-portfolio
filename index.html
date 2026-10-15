@@ -724,6 +724,34 @@
 .img-strip { overscroll-behavior-x:contain; }
 .img-strip-wrap { gap:0; }
 </style>
+<style>
+
+/* TITULOS — estilo Music Player (interfaz clásica, sans serif) */
+:root { --title-ui-font: Tahoma, Verdana, Arial, sans-serif; }
+.retro-window .win-title-text,
+.retro-window .win-content .section-eyebrow,
+.retro-window .win-content .corp-section-label,
+.retro-window .win-content .wedding-print-title,
+.retro-window .win-content .site-info h3,
+.retro-window .win-content .photo-modal-title,
+.retro-window .win-content .section-title,
+.retro-window .win-content h2,
+.retro-window .win-content h3,
+.photo-modal-title {
+  font-family:var(--title-ui-font) !important;
+  font-style:normal !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+}
+.retro-window .win-title-text {font-size:.75rem; font-weight:400; text-shadow:none;}
+.retro-window .win-content .section-eyebrow {font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:500;line-height:1.25;}
+.retro-window .win-content .corp-section-label {font-size:1rem;font-weight:600;line-height:1.5;}
+.retro-window .win-content .site-info h3,
+.retro-window .win-content .wedding-print-title {font-size:1.1rem;font-weight:600;line-height:1.4;}
+.retro-window .win-content h2:not(.section-title) {font-weight:500 !important;line-height:1.2;}
+.retro-window .win-content .section-title {font-weight:500;}
+.photo-modal-title {font-weight:600;}
+</style>
 </head>
 <body>
 
