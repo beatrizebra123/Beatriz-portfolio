@@ -2369,6 +2369,19 @@ document.addEventListener('keydown', function(e){
       var wips=b.querySelectorAll('[style*="Press Start 2P"]'); if(wips[0]) wips[0].textContent=t.b_wip;
       var wip2=b.querySelector('[style*="rgba(28,26,20,.5)"]'); if(wip2) wip2.textContent=t.b_wip2;
       var st=document.querySelector('#bd-win-branding .status-pill'); if(st) st.textContent=t.b_status;
+      // Créditos integrados al final de las frases de cada marca.
+      var rentero=b.querySelector('[data-client="rentero-diaz"] .branding-client-desc');
+      if(rentero){
+        rentero.innerHTML=(lang==='en' ? rentero.dataset.copyEn : rentero.dataset.copyEs) +
+          ' — ' + (lang==='en' ? 'Bottle design: ' : 'Diseño botella: ') +
+          '<a href="https://mariaruiz.work/" target="_blank" rel="noopener noreferrer">mariaruiz.work</a>';
+      }
+      var wistimber=b.querySelector('[data-client="wistimber"] .branding-client-desc');
+      if(wistimber){
+        wistimber.innerHTML=(lang==='en' ? wistimber.dataset.copyEn : wistimber.dataset.copyEs) +
+          ' — Branding: <a href="https://mariaruiz.work/" target="_blank" rel="noopener noreferrer">mariaruiz.work</a>';
+      }
+
     }
     // Website
     var w=document.getElementById('wc-website');
@@ -3259,32 +3272,6 @@ function handleMinigameBackdrop(e){
 
   // Pause button touch
   var pauseEl = document.getElementById</script><script>
-(function () {
-  function refreshClientDescriptions(){
-    var en=typeof currentLang!=='undefined' && currentLang==='en';
-    document.querySelectorAll('#wc-branding .branding-client-desc').forEach(function(p){
-      if (!p.dataset.copyEs && !p.dataset.copyEn) return;
-      p.textContent=en?p.dataset.copyEn:p.dataset.copyEs;
-      var section=p.closest('.branding-client');
-      var client=section && section.getAttribute('data-client');
-      if(client==='rentero-diaz' || client==='wistimber'){
-        p.appendChild(document.createTextNode(' — ' + (client==='rentero-diaz' ? (en?'Bottle design: ':'Diseño botella: ') : 'Branding: ')));
-        var credit=document.createElement('a');
-        credit.href='https://mariaruiz.work/';
-        credit.target='_blank';
-        credit.rel='noopener noreferrer';
-        credit.textContent='mariaruiz.work';
-        p.appendChild(credit);
-      }
-    });
-  }
-  var oldSetLang=window.setLang;
-  if (typeof oldSetLang==='function'){
-    window.setLang=function(lang){oldSetLang(lang);refreshClientDescriptions();};
-  }
-  document.addEventListener('DOMContentLoaded',refreshClientDescriptions);
-})();
-</script><script>
 function scrollCorporateGallery(id, direction) {
   const strip = document.getElementById(id);
   if (!strip || !strip.firstElementChild) return;
