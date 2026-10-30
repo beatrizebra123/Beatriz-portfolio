@@ -942,6 +942,21 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 </style>
+
+<style id="portfolio-content-only-updates">
+/* Únicamente la distribución de las galerías nuevas; la estética es la original. */
+.branding-client { margin:1.3rem 0 2.3rem; }
+.branding-client .corp-section-label { margin:0 0 .65rem; }
+.branding-client .img-strip-wrap { margin:.5rem 0 .8rem; }
+.branding-links { display:flex; flex-wrap:wrap; gap:.55rem; }
+.branding-client .img-strip-item { width:160px; height:160px; }
+.branding-empty-gallery { flex:1; min-height:160px; border:1.5px dashed rgba(86,41,21,.16); border-radius:8px; background:rgba(86,41,21,.02); }
+.illustration-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:.8rem; margin:1rem 0 1.5rem; }
+.illustration-grid img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; border-radius:10px; border:1.5px solid rgba(28,26,20,.08); box-shadow:0 3px 12px rgba(0,0,0,.07); transition:transform .2s,box-shadow .2s; }
+.illustration-grid img:hover { transform:translateY(-4px) scale(1.03); box-shadow:0 10px 28px rgba(0,0,0,.13); }
+@media(max-width:700px){.illustration-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}}
+@media(max-width:420px){.illustration-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
 </head>
 <body>
 
@@ -1662,46 +1677,53 @@ body.win-open { overflow: hidden !important; width: 100%; }
   <div class="win-content" id="wc-branding">
     <p class="section-eyebrow">Diseño gráfico y Branding</p>
     <h2 class="section-title">Marcas construidas desde <em>cero.</em></h2>
-    <p class="section-desc">Serie de proposals completos: logo, identidad visual, mockups y sistema de diseño para marcas ficticias y reales.</p>
-    <p class="collab-line">En colaboración con <a href="https://blancapalazuelo.com" target="_blank" rel="noopener">Blanca Palazuelo</a>, Motion &amp; Branding.</p>
 
-    <div style="display:flex;gap:2.5rem;align-items:flex-start;flex-wrap:wrap">
-
-      <!-- Instagram embed oficial — muestra el carrusel real -->
-      <div style="width:min(340px,100%);flex-shrink:0">
-        <blockquote class="instagram-media"
-          data-instgrm-captioned
-          data-instgrm-permalink="https://www.instagram.com/p/DYCglLFjHAh/?utm_source=ig_embed&amp;utm_campaign=loading"
-          data-instgrm-version="14"
-          style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:340px;min-width:220px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
-        </blockquote>
-        <script async src="//www.instagram.com/embed.js"></script>
+    <!-- Galerías de clientes. Las imágenes se definen en BRANDING_IMAGES, al final del archivo. -->
+    <section class="branding-client" data-client="oblique">
+      <h3 class="corp-section-label">OBLIQUE</h3>
+      <div class="img-strip-wrap">
+        <button type="button" class="strip-arrow" onclick="portfolioStripMove('branding-oblique',-1)" aria-label="Anterior">&#8249;</button>
+        <div class="img-strip" id="branding-oblique" data-gallery="oblique"></div>
+        <button type="button" class="strip-arrow" onclick="portfolioStripMove('branding-oblique',1)" aria-label="Siguiente">&#8250;</button>
       </div>
-
-      <!-- Descripción del post -->
-      <div style="flex:1;min-width:200px;padding-top:.5rem">
-        <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem">
-          <!-- Logo Instagram bpalazuelocreative -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:20px;height:20px;flex-shrink:0" fill="none" stroke="#562915" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          <a href="https://www.instagram.com/bpalazuelocreative/" target="_blank" rel="noopener" style="font-size:.78rem;font-weight:700;color:#562915;text-decoration:none">@bpalazuelocreative</a>
-        </div>
-        <p style="font-size:.82rem;font-weight:700;color:#1C1A14;margin-bottom:.6rem;line-height:1.3">¿Y si Ferrari diseñara muebles?</p>
-        <p style="font-size:.75rem;color:rgba(28,26,20,.45);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem">Explora cada propuesta</p>
-        <div style="margin-bottom:.75rem;padding-left:.8rem;border-left:2px solid rgba(28,26,20,.1)">
-          <p style="font-size:.77rem;font-weight:700;color:#1C1A14;margin-bottom:.25rem">Blanca ✧</p>
-          <p style="font-size:.75rem;color:rgba(28,26,20,.62);line-height:1.6">Inspirada en las carreteras, los circuitos de carreras y las curvas que definen el movimiento, la velocidad y la dirección. La propuesta traduce los elementos que hacen única cada carrera en un concepto de mobiliario.</p>
-        </div>
-        <div style="margin-bottom:.85rem;padding-left:.8rem;border-left:2px solid rgba(28,26,20,.1)">
-          <p style="font-size:.77rem;font-weight:700;color:#1C1A14;margin-bottom:.25rem">Beatriz ✧</p>
-          <p style="font-size:.75rem;color:rgba(28,26,20,.62);line-height:1.6">Jugando con la idea del equipo de boxes, Bea creó un conversation pit inspirado en el circuito privado de Ferrari en Italia. Un espacio social definido por la cultura del motor, el trabajo en equipo y la geometría del circuito.</p>
-        </div>
-        <a href="https://www.instagram.com/p/DYCglLFjHAh/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:700;color:#562915;text-decoration:none;background:#FDA0B0;border:1.5px solid #562915;border-radius:100px;padding:.35rem .9rem;box-shadow:2px 2px 0 #562915">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:13px;height:13px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          Ver en Instagram
-        </a>
+      <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener">Instagram</a> <a class="visit-pill" href="https://theobliquestudio.com/" target="_blank" rel="noopener">Web</a></div>
+    </section>
+    <section class="branding-client" data-client="rentero-diaz">
+      <h3 class="corp-section-label">RENTERO DÍAZ</h3>
+      <div class="img-strip-wrap">
+        <button type="button" class="strip-arrow" onclick="portfolioStripMove('branding-rentero-diaz',-1)" aria-label="Anterior">&#8249;</button>
+        <div class="img-strip" id="branding-rentero-diaz" data-gallery="rentero-diaz"></div>
+        <button type="button" class="strip-arrow" onclick="portfolioStripMove('branding-rentero-diaz',1)" aria-label="Siguiente">&#8250;</button>
       </div>
-    </div>
-    <!-- ════ AÑADIR BRANDING — sube imagen a images/ y descomenta bloque de abajo ════ -->
+      <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/renterodiaz_aove/" target="_blank" rel="noopener">Instagram</a> <a class="visit-pill" href="https://aovetresolivos.com/" target="_blank" rel="noopener">Web</a></div>
+    </section>
+    <section class="branding-client" data-client="terra-homes">
+      <h3 class="corp-section-label">TERRA HOMES</h3>
+      <div class="img-strip-wrap">
+        <button type="button" class="strip-arrow" onclick="portfolioStripMove('branding-terra-homes',-1)" aria-label="Anterior">&#8249;</button>
+        <div class="img-strip" id="branding-terra-homes" data-gallery="terra-homes"></div>
+        <button type="button" class="strip-arrow" onclick="portfolioStripMove('branding-terra-homes',1)" aria-label="Siguiente">&#8250;</button>
+      </div>
+      <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener">Instagram</a> <a class="visit-pill" href="https://terrahomes.es/" target="_blank" rel="noopener">Web</a></div>
+    </section>
+    <section class="branding-client" data-client="wistimber">
+      <h3 class="corp-section-label">WISTIMBER</h3>
+      <div class="img-strip-wrap">
+        <button type="button" class="strip-arrow" onclick="portfolioStripMove('branding-wistimber',-1)" aria-label="Anterior">&#8249;</button>
+        <div class="img-strip" id="branding-wistimber" data-gallery="wistimber"></div>
+        <button type="button" class="strip-arrow" onclick="portfolioStripMove('branding-wistimber',1)" aria-label="Siguiente">&#8250;</button>
+      </div>
+      <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/wistimber_/" target="_blank" rel="noopener">Instagram</a></div>
+    </section>
+    <section class="branding-client" data-client="double-b">
+      <h3 class="corp-section-label">DOUBLE B</h3>
+      <div class="img-strip-wrap">
+        <button type="button" class="strip-arrow" onclick="portfolioStripMove('branding-double-b',-1)" aria-label="Anterior">&#8249;</button>
+        <div class="img-strip" id="branding-double-b" data-gallery="double-b"></div>
+        <button type="button" class="strip-arrow" onclick="portfolioStripMove('branding-double-b',1)" aria-label="Siguiente">&#8250;</button>
+      </div>
+      <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/bpalazuelocreative/" target="_blank" rel="noopener">Instagram</a> <a class="visit-pill" href="https://bpalazuelocreative.com/" target="_blank" rel="noopener">Web</a></div>
+    </section>
   </div>
 </div>
 
@@ -1752,7 +1774,16 @@ body.win-open { overflow: hidden !important; width: 100%; }
           <a class="visit-pill" href="https://www.dacostaloboart.com/" target="_blank" rel="noopener">Visitar web</a>
         </div>
       </div>
-      <!-- Bodas subsection -->
+             <div class="site-row" style="padding-top:1.5rem">
+         <div class="site-card">
+           <a class="site-link" href="https://www.serenapromociones.com/" target="_blank" rel="noopener">
+             <div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url"><span>serenapromociones.com</span><span class="url-arrow">↗</span></div></div>
+             <img class="browser-screen" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.serenapromociones.com%2F&screenshot=true&meta=false&embed=screenshot.url" alt="Serena Promociones" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'<span>serenapromociones.com</span>'}))"/>
+           </a>
+         </div>
+         <div class="site-info"><h3>Serena Promociones</h3><a class="visit-pill" href="https://www.serenapromociones.com/" target="_blank" rel="noopener">Visitar web</a></div>
+       </div>
+<!-- Bodas subsection -->
       <p class="section-eyebrow" style="margin-bottom:.5rem;font-size:clamp(1.2rem,2.5vw,1.8rem)">Bodas</p>
       <div class="site-row">
         <div class="site-card">
@@ -1856,7 +1887,16 @@ body.win-open { overflow: hidden !important; width: 100%; }
     <div class="wedding-print-section">
       <h3 class="wedding-print-title">Meseros &amp; Carteles · Boda Alba &amp; Ignacio</h3>
       <p class="wedding-print-desc">Carteles completos para las estaciones de aperitivo y menú de boda. Diseño watercolor con ilustraciones a medida.</p>
-      <button class="gallery-more-btn" data-modal-title="Meseros &amp; Carteles — Boda Alba &amp; Ignacio" data-images='["./images/carteles-11.png","./images/carteles-13.png","./images/carteles-14.png","./images/carteles-16.png","./images/carteles-17.png","./images/carteles-19.png","./images/carteles_Lista_aperitivos.png","./images/Menu_pedida_alba__1_.png"]'>Ver meseros y carteles</button>
+      <div class="illustration-grid">
+        <img src="./images/carteles-11.png" alt="Ilustración y cartel 1" loading="lazy" onclick="openPortfolioImage(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/carteles-13.png" alt="Ilustración y cartel 2" loading="lazy" onclick="openPortfolioImage(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/carteles-14.png" alt="Ilustración y cartel 3" loading="lazy" onclick="openPortfolioImage(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/carteles-16.png" alt="Ilustración y cartel 4" loading="lazy" onclick="openPortfolioImage(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/carteles-17.png" alt="Ilustración y cartel 5" loading="lazy" onclick="openPortfolioImage(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/carteles-19.png" alt="Ilustración y cartel 6" loading="lazy" onclick="openPortfolioImage(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/carteles_Lista_aperitivos.png" alt="Ilustración y cartel 7" loading="lazy" onclick="openPortfolioImage(this.src)" style="cursor:zoom-in"/>
+        <img src="./images/Menu_pedida_alba__1_.png" alt="Ilustración y cartel 8" loading="lazy" onclick="openPortfolioImage(this.src)" style="cursor:zoom-in"/>
+      </div>
     </div>
   </div>
 </div>
@@ -2175,7 +2215,7 @@ document.addEventListener('keydown', function(e){
     if(b){
       b.querySelector('.section-eyebrow').innerHTML=t.b_eyebrow;
       b.querySelector('.section-title').innerHTML=t.b_title;
-      b.querySelector('.section-desc').innerHTML=t.b_desc;
+      var bd=b.querySelector('.section-desc'); if(bd) bd.innerHTML=t.b_desc;
       var collab=b.querySelector('.collab-line'); if(collab) collab.innerHTML=(lang==='en'?'In collaboration with ':'En colaboración con ')+'<a href="https://blancapalazuelo.com" target="_blank" rel="noopener">Blanca Palazuelo</a>, Motion &amp; Branding.';
       var wips=b.querySelectorAll('[style*="Press Start 2P"]'); if(wips[0]) wips[0].textContent=t.b_wip;
       var wip2=b.querySelector('[style*="rgba(28,26,20,.5)"]'); if(wip2) wip2.textContent=t.b_wip2;
