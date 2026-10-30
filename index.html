@@ -1128,7 +1128,27 @@ h1, h2, h3, h4, h5, h6,
 #wc-illustration .illustration-grid img:hover {transform:translateY(-4px) scale(1.03);box-shadow:0 10px 28px rgba(0,0,0,.13);}
 @media(max-width:700px){#wc-illustration .illustration-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}}
 @media(max-width:420px){#wc-illustration .illustration-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}}
-</style></head>
+</style>
+<style id="illustration-zoom-style">
+/* Ampliador de ilustraciones: se suma sin alterar el diseño existente. */
+#illustration-zoom-overlay {position:fixed;inset:0;z-index:20000;background:rgba(28,20,28,.94);display:none;align-items:center;justify-content:center;padding:62px 72px 70px;}
+#illustration-zoom-overlay.is-open{display:flex;}
+#illustration-zoom-overlay .illustration-zoom-stage{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:none;}
+#illustration-zoom-overlay .illustration-zoom-image{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none;transform-origin:center center;transition:transform .13s ease;cursor:zoom-in;}
+#illustration-zoom-overlay .illustration-zoom-image.is-zoomed{cursor:grab;}
+#illustration-zoom-overlay .illustration-zoom-image.is-dragging{cursor:grabbing;transition:none;}
+#illustration-zoom-overlay .illustration-zoom-control {position:absolute;z-index:3;color:#562915;background:#FFF8F0;border:2.5px solid #562915;border-radius:4px;box-shadow:3px 3px 0 #562915;font-family:'Press Start 2P',monospace;font-size:.68rem;min-width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+#illustration-zoom-overlay .illustration-zoom-control:hover{background:#F4A4B8;}
+#illustration-zoom-overlay .illustration-zoom-close{top:17px;right:20px;}
+#illustration-zoom-overlay .illustration-zoom-prev{left:18px;top:50%;transform:translateY(-50%);}
+#illustration-zoom-overlay .illustration-zoom-next{right:18px;top:50%;transform:translateY(-50%);}
+#illustration-zoom-overlay .illustration-zoom-toolbar{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:4;display:flex;align-items:center;gap:10px;}
+#illustration-zoom-overlay .illustration-zoom-toolbar .illustration-zoom-control{position:static;}
+#illustration-zoom-overlay .illustration-zoom-count{font-family:'DM Sans',sans-serif;color:#FFEAD6;font-size:.78rem;white-space:nowrap;padding:0 8px;}
+@media(max-width:600px){#illustration-zoom-overlay{padding:68px 9px 78px;}#illustration-zoom-overlay .illustration-zoom-prev{left:6px;top:auto;bottom:21px;transform:none;}#illustration-zoom-overlay .illustration-zoom-next{right:6px;top:auto;bottom:21px;transform:none;}#illustration-zoom-overlay .illustration-zoom-close{right:10px;top:14px;}#illustration-zoom-overlay .illustration-zoom-control{height:35px;min-width:35px;}}
+#wc-illustration .illustration-grid img{cursor:zoom-in !important;}
+</style>
+</head>
 <body>
 <div id="cursor"></div>
 <!-- HERO: 100vh, normal flow -->
@@ -3325,5 +3345,50 @@ function portfolioMoveBranding(id,direction) {
   var amount=(card.getBoundingClientRect().width+gap)*direction;
   el.scrollBy({left:amount,behavior:'smooth'});
 }
+</script>
+
+<div id="illustration-zoom-overlay" role="dialog" aria-modal="true" aria-label="Ampliar ilustración" onclick="if(event.target===this) closePortfolioImage()">
+  <button class="illustration-zoom-control illustration-zoom-close" type="button" aria-label="Cerrar imagen" onclick="closePortfolioImage()">✕</button>
+  <button class="illustration-zoom-control illustration-zoom-prev" type="button" aria-label="Ilustración anterior" onclick="movePortfolioImage(-1)">◀</button>
+  <div class="illustration-zoom-stage" id="illustration-zoom-stage"><img class="illustration-zoom-image" id="illustration-zoom-image" alt="Ilustración ampliada" draggable="false"/></div>
+  <button class="illustration-zoom-control illustration-zoom-next" type="button" aria-label="Siguiente ilustración" onclick="movePortfolioImage(1)">▶</button>
+  <div class="illustration-zoom-toolbar">
+    <button class="illustration-zoom-control" type="button" aria-label="Reducir zoom" onclick="zoomPortfolioImage(-1)">−</button>
+    <span class="illustration-zoom-count" id="illustration-zoom-count">1 / 57</span>
+    <button class="illustration-zoom-control" type="button" aria-label="Ampliar zoom" onclick="zoomPortfolioImage(1)">+</button>
+    <button class="illustration-zoom-control" type="button" aria-label="Restablecer zoom" onclick="resetPortfolioZoom()">1:1</button>
+  </div>
+</div>
+<script id="illustration-zoom-script">
+(function(){
+  var overlay=document.getElementById('illustration-zoom-overlay');
+  var stage=document.getElementById('illustration-zoom-stage');
+  var image=document.getElementById('illustration-zoom-image');
+  var count=document.getElementById('illustration-zoom-count');
+  var images=Array.from(document.querySelectorAll('#wc-illustration .illustration-grid img'));
+  var current=0,scale=1,tx=0,ty=0,drag=null,oldFocus=null;
+  function clamp(n,a,b){return Math.max(a,Math.min(b,n));}
+  function render(){image.style.transform='translate('+tx+'px,'+ty+'px) scale('+scale+')';image.classList.toggle('is-zoomed',scale>1);}
+  function reset(){scale=1;tx=0;ty=0;render();}
+  function show(i){current=(i+images.length)%images.length;image.src=images[current].currentSrc||images[current].src;image.alt=images[current].alt||'Ilustración ampliada';count.textContent=(current+1)+' / '+images.length;reset();}
+  window.openPortfolioImage=function(source){
+    oldFocus=document.activeElement;
+    var index=images.findIndex(function(im){return im.src===source||im.currentSrc===source;});
+    if(index<0)index=0;
+    show(index);overlay.classList.add('is-open');overlay.querySelector('.illustration-zoom-close').focus();
+  };
+  window.closePortfolioImage=function(){overlay.classList.remove('is-open');image.removeAttribute('src');reset();if(oldFocus&&oldFocus.focus)oldFocus.focus();};
+  window.movePortfolioImage=function(delta){if(images.length)show(current+delta);};
+  window.zoomPortfolioImage=function(delta){scale=clamp(scale+delta*.5,1,5);if(scale===1){tx=0;ty=0;}render();};
+  window.resetPortfolioZoom=reset;
+  image.addEventListener('dblclick',function(){scale=scale===1?2:1;if(scale===1){tx=0;ty=0;}render();});
+  stage.addEventListener('wheel',function(e){if(!overlay.classList.contains('is-open'))return;e.preventDefault();scale=clamp(scale+(e.deltaY<0?.25:-.25),1,5);if(scale===1){tx=0;ty=0;}render();},{passive:false});
+  stage.addEventListener('pointerdown',function(e){if(scale<=1)return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,startX:tx,startY:ty};stage.setPointerCapture(e.pointerId);image.classList.add('is-dragging');});
+  stage.addEventListener('pointermove',function(e){if(!drag||drag.id!==e.pointerId)return;tx=drag.startX+e.clientX-drag.x;ty=drag.startY+e.clientY-drag.y;render();});
+  function stop(e){if(drag&&drag.id===e.pointerId){drag=null;image.classList.remove('is-dragging');}};
+  stage.addEventListener('pointerup',stop);stage.addEventListener('pointercancel',stop);
+  document.addEventListener('keydown',function(e){if(!overlay.classList.contains('is-open'))return;if(e.key==='Escape'){e.preventDefault();closePortfolioImage();}else if(e.key==='ArrowRight'){e.preventDefault();movePortfolioImage(1);}else if(e.key==='ArrowLeft'){e.preventDefault();movePortfolioImage(-1);}else if(e.key==='+'||e.key==='='){zoomPortfolioImage(1);}else if(e.key==='-'){zoomPortfolioImage(-1);}});
+  images.forEach(function(im){im.setAttribute('tabindex','0');im.setAttribute('role','button');im.setAttribute('aria-label','Ampliar '+(im.alt||'ilustración'));im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openPortfolioImage(im.src);}});});
+})();
 </script>
 </body></html>
