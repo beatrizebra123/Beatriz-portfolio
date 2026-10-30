@@ -1004,18 +1004,67 @@ h1, h2, h3, h4, h5, h6,
 }
 </style>
 <style id="wistimber-player-style">
-/* Ajuste puntual Wistimber: imágenes fijas y reproductor retro. */
 #wc-branding .wistimber-media {margin:.35rem 0 .95rem;}
-#wc-branding .wistimber-static-gallery {display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;}
+#wc-branding .wistimber-static-gallery {display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
 #wc-branding .wistimber-static-gallery .img-strip-item {width:160px;height:160px;flex:0 0 160px;}
 #wc-branding .wistimber-static-gallery .img-strip-item img {width:100%;height:100%;object-fit:cover;}
-#wc-branding .wistimber-player {margin:1rem 0 0;max-width:520px;}
-#wc-branding .wistimber-play-btn {font-family:'Press Start 2P',monospace;font-size:.58rem;line-height:1.5;background:#F4A4B8;color:#562915;border-top:3px solid #ffd5e0;border-left:3px solid #ffd5e0;border-right:3px solid #562915;border-bottom:3px solid #562915;border-radius:2px;box-shadow:4px 4px 0 #562915;padding:.8rem 1.3rem;transition:transform .1s,box-shadow .1s;cursor:pointer;}
-#wc-branding .wistimber-play-btn:hover {transform:translate(-2px,-2px);box-shadow:6px 6px 0 #562915;}
-#wc-branding .wistimber-play-btn:active {transform:translate(2px,2px);box-shadow:2px 2px 0 #562915;}
-#wc-branding .wistimber-spotify {margin-top:1rem;}
-#wc-branding .wistimber-spotify[hidden] {display:none;}
+#wc-branding .wistimber-player {margin:0 0 0 12px;flex:0 0 300px;max-width:300px;}
+#wc-branding .wistimber-player-shell {position:relative;background:#f8f2ff;border:4px solid #42305d;border-radius:18px;box-shadow:6px 6px 0 #42305d;padding:18px 16px 14px;overflow:hidden;}
+#wc-branding .wistimber-player-shell::before {content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(174,192,255,.88) 0%, rgba(169,178,244,.88) 28%, rgba(255,255,255,.18) 28%, rgba(255,255,255,.18) 100%);z-index:0;}
+#wc-branding .wistimber-player-top {position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:12px;}
+#wc-branding .wistimber-clouds {display:flex;align-items:flex-end;gap:6px;}
+#wc-branding .wistimber-cloud {position:relative;display:flex;align-items:center;justify-content:center;color:#35224b;font-family:'Press Start 2P',monospace;font-size:.72rem;line-height:1;background:linear-gradient(180deg,#f7b8d8 0%,#d58fc7 100%);border:3px solid #42305d;border-radius:18px;padding:12px 14px 10px;box-shadow:inset 0 1px 0 rgba(255,255,255,.45);}
+#wc-branding .wistimber-cloud.small {background:linear-gradient(180deg,#d7e0ff 0%,#98b4ff 100%);padding:10px 12px 8px;font-size:.52rem;margin-left:-8px;}
+#wc-branding .wistimber-lights {display:flex;gap:8px;align-items:center;}
+#wc-branding .wistimber-light {width:16px;height:16px;border-radius:50%;border:3px solid #42305d;background:#fff;box-shadow:inset -2px -2px 0 rgba(66,48,93,.18);}
+#wc-branding .wistimber-light.pink {background:#f3a5d8;}
+#wc-branding .wistimber-player-body {position:relative;z-index:1;background:#fffdfc;border:3px solid #42305d;border-radius:8px;padding:14px 12px 12px;}
+#wc-branding .wistimber-progress {position:relative;height:16px;border-radius:999px;border:3px solid #42305d;background:#fff;overflow:hidden;cursor:pointer;}
+#wc-branding .wistimber-progress-fill {position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,#f4a6c8 0%,#f7bfd7 100%);}
+#wc-branding .wistimber-controls {display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:14px;}
+#wc-branding .wistimber-icon, #wc-branding .wistimber-main, #wc-branding .wistimber-side {appearance:none;border:none;background:transparent;color:#42305d;font-family:'Press Start 2P',monospace;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;}
+#wc-branding .wistimber-icon {font-size:1rem;width:34px;height:34px;}
+#wc-branding .wistimber-seek {display:flex;gap:12px;align-items:center;}
+#wc-branding .wistimber-side {font-size:.8rem;width:24px;height:24px;}
+#wc-branding .wistimber-main {width:54px;height:54px;border:3px solid #42305d;border-radius:50%;background:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.8);font-size:.95rem;}
+#wc-branding .wistimber-heart {font-size:1.1rem;color:#f194ca;}
+#wc-branding .wistimber-time {margin-top:8px;font-family:'Press Start 2P',monospace;font-size:.42rem;color:#6d5a84;display:flex;justify-content:space-between;}
 #wc-branding .branding-client-desc a {color:#562915;font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+@media(max-width:600px){#wc-branding .wistimber-player{margin:8px 0 0;flex-basis:100%;max-width:100%;}}
+</style>
+<style id="branding-four-full-images-and-static-works">
+#wc-branding .branding-client[data-client="oblique"] .img-strip,
+#wc-branding .branding-client[data-client="rentero-diaz"] .img-strip,
+#wc-branding .branding-client[data-client="terra-homes"] .img-strip {
+  display:flex !important;
+  gap:10px !important;
+  overflow-x:auto !important;
+  scroll-behavior:smooth;
+}
+#wc-branding .branding-client[data-client="oblique"] .img-strip > .img-strip-item,
+#wc-branding .branding-client[data-client="rentero-diaz"] .img-strip > .img-strip-item,
+#wc-branding .branding-client[data-client="terra-homes"] .img-strip > .img-strip-item {
+  flex:0 0 calc((100% - 30px) / 4);
+  width:calc((100% - 30px) / 4);
+  max-width:calc((100% - 30px) / 4);
+  aspect-ratio:1/1;
+  height:auto;
+}
+@media(max-width:700px){
+  #wc-branding .branding-client[data-client="oblique"] .img-strip > .img-strip-item,
+  #wc-branding .branding-client[data-client="rentero-diaz"] .img-strip > .img-strip-item,
+  #wc-branding .branding-client[data-client="terra-homes"] .img-strip > .img-strip-item {
+    flex:0 0 calc((100% - 10px) / 2);
+    width:calc((100% - 10px) / 2);
+    max-width:calc((100% - 10px) / 2);
+  }
+}
+#wc-branding .wistimber-static-gallery {display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+#wc-branding .double-b-static-gallery {display:flex;align-items:flex-start;margin:.5rem 0 1rem;}
+#wc-branding .double-b-image {width:min(100%,520px);aspect-ratio:16/9;position:relative;display:block;background:#fffaf7;border:2px solid #562915;border-radius:8px;overflow:hidden;}
+#wc-branding .double-b-image img {width:100%;height:100%;display:block;object-fit:cover;}
+#wc-branding .double-b-photo-pending {display:none;font-family:'Press Start 2P',monospace;font-size:.48rem;color:#562915;text-align:center;padding:1rem;line-height:1.8;}
+#wc-branding .double-b-image.missing-double-b .double-b-photo-pending {display:flex;align-items:center;justify-content:center;height:100%;}
 </style>
 </head>
 <body>
@@ -1702,7 +1751,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <section class="branding-client" data-client="oblique">
 <h3 class="corp-section-label">OBLIQUE</h3><p class="branding-client-desc" data-copy-en="Pilates and wellness with a sensual, elegant approach, celebrating movement, the body and feminine aesthetics. Ongoing digital marketing." data-copy-es="Pilates y wellness desde una mirada sensual y elegante, con una identidad visual centrada en el cuerpo, el movimiento y la estética femenina. Gestión activa de marketing digital.">Pilates y wellness desde una mirada sensual y elegante, con una identidad visual centrada en el cuerpo, el movimiento y la estética femenina. Gestión activa de marketing digital.</p>
 <div class="img-strip-wrap">
-<button aria-label="Anterior" class="strip-arrow" onclick="document.getElementById('branding-oblique').scrollBy({left:-220,behavior:'smooth'})" type="button">◀</button>
+<button aria-label="Anterior" class="strip-arrow" onclick="portfolioMoveBranding('branding-oblique',-1)" type="button">◀</button>
 <div class="img-strip" data-gallery="oblique" id="branding-oblique"><a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/01.jpg" alt="oblique · trabajo 1" loading="lazy" decoding="async"></a>
 <a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/02.jpg" alt="oblique · trabajo 2" loading="lazy" decoding="async"></a>
 <a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/03.jpg" alt="oblique · trabajo 3" loading="lazy" decoding="async"></a>
@@ -1721,52 +1770,78 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/16.jpg" alt="oblique · trabajo 16" loading="lazy" decoding="async"></a>
 <a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/17.jpg" alt="oblique · trabajo 17" loading="lazy" decoding="async"></a>
 <a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/18.jpg" alt="oblique · trabajo 18" loading="lazy" decoding="async"></a></div>
-<button aria-label="Siguiente" class="strip-arrow" onclick="document.getElementById('branding-oblique').scrollBy({left:220,behavior:'smooth'})" type="button">▶</button>
+<button aria-label="Siguiente" class="strip-arrow" onclick="portfolioMoveBranding('branding-oblique',1)" type="button">▶</button>
 </div>
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank">Instagram</a> <a class="visit-pill" href="https://theobliquestudio.com/" rel="noopener" target="_blank">Web</a></div>
 </section>
 <section class="branding-client" data-client="rentero-diaz">
 <h3 class="corp-section-label">RENTERO DÍAZ</h3><p class="branding-client-desc" data-copy-en="Social media management for a new extra virgin olive oil brand from Jaén, showcasing its origins, culture and traditions through visual content." data-copy-es="Gestión de redes sociales para una nueva marca de AOVE de Jaén, comunicando su origen, cultura y tradiciones a través de contenido visual.">Gestión de redes sociales para una nueva marca de AOVE de Jaén, comunicando su origen, cultura y tradiciones a través de contenido visual.</p>
 <div class="img-strip-wrap">
-<button aria-label="Anterior" class="strip-arrow" onclick="document.getElementById('branding-rentero-diaz').scrollBy({left:-220,behavior:'smooth'})" type="button">◀</button>
+<button aria-label="Anterior" class="strip-arrow" onclick="portfolioMoveBranding('branding-rentero-diaz',-1)" type="button">◀</button>
 <div class="img-strip" data-gallery="rentero-diaz" id="branding-rentero-diaz"><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 1" decoding="async" loading="lazy" src="images/branding/rentero-diaz/01.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 2" decoding="async" loading="lazy" src="images/branding/rentero-diaz/02.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 3" decoding="async" loading="lazy" src="images/branding/rentero-diaz/03.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 4" decoding="async" loading="lazy" src="images/branding/rentero-diaz/04.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 5" decoding="async" loading="lazy" src="images/branding/rentero-diaz/05.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 6" decoding="async" loading="lazy" src="images/branding/rentero-diaz/06.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 7" decoding="async" loading="lazy" src="images/branding/rentero-diaz/07.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 8" decoding="async" loading="lazy" src="images/branding/rentero-diaz/08.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 9" decoding="async" loading="lazy" src="images/branding/rentero-diaz/09.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 10" decoding="async" loading="lazy" src="images/branding/rentero-diaz/10.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 11" decoding="async" loading="lazy" src="images/branding/rentero-diaz/11.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 12" decoding="async" loading="lazy" src="images/branding/rentero-diaz/12.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 13" decoding="async" loading="lazy" src="images/branding/rentero-diaz/13.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 14" decoding="async" loading="lazy" src="images/branding/rentero-diaz/14.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 15" decoding="async" loading="lazy" src="images/branding/rentero-diaz/15.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 16" decoding="async" loading="lazy" src="images/branding/rentero-diaz/16.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 17" decoding="async" loading="lazy" src="images/branding/rentero-diaz/17.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 18" decoding="async" loading="lazy" src="images/branding/rentero-diaz/18.jpg"/></a></div></div>
-<button aria-label="Siguiente" class="strip-arrow" onclick="document.getElementById('branding-rentero-diaz').scrollBy({left:220,behavior:'smooth'})" type="button">▶</button>
+<button aria-label="Siguiente" class="strip-arrow" onclick="portfolioMoveBranding('branding-rentero-diaz',1)" type="button">▶</button>
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank">Instagram</a> <a class="visit-pill" href="https://aovetresolivos.com/" rel="noopener" target="_blank">Web</a></div>
 </section>
 <section class="branding-client" data-client="terra-homes">
 <h3 class="corp-section-label">TERRA HOMES</h3><p class="branding-client-desc" data-copy-en="Quality content and digital marketing for an established real estate brand, focused on visibility and lead generation." data-copy-es="Contenido de calidad y marketing digital para una inmobiliaria consolidada, con foco en visibilidad de marca y captación de clientes potenciales.">Contenido de calidad y marketing digital para una inmobiliaria consolidada, con foco en visibilidad de marca y captación de clientes potenciales.</p>
 <div class="img-strip-wrap">
-<button aria-label="Anterior" class="strip-arrow" onclick="document.getElementById('branding-terra-homes').scrollBy({left:-220,behavior:'smooth'})" type="button">◀</button>
+<button aria-label="Anterior" class="strip-arrow" onclick="portfolioMoveBranding('branding-terra-homes',-1)" type="button">◀</button>
 <div class="img-strip" data-gallery="terra-homes" id="branding-terra-homes"><a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/01.jpg" alt="terra-homes · trabajo 1" loading="lazy" decoding="async"></a>
 <a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/02.jpg" alt="terra-homes · trabajo 2" loading="lazy" decoding="async"></a>
 <a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/03.jpg" alt="terra-homes · trabajo 3" loading="lazy" decoding="async"></a>
 <a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/04.jpg" alt="terra-homes · trabajo 4" loading="lazy" decoding="async"></a>
 <a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/05.jpg" alt="terra-homes · trabajo 5" loading="lazy" decoding="async"></a>
 <a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/06.jpg" alt="terra-homes · trabajo 6" loading="lazy" decoding="async"></a></div>
-<button aria-label="Siguiente" class="strip-arrow" onclick="document.getElementById('branding-terra-homes').scrollBy({left:220,behavior:'smooth'})" type="button">▶</button>
+<button aria-label="Siguiente" class="strip-arrow" onclick="portfolioMoveBranding('branding-terra-homes',1)" type="button">▶</button>
 </div>
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/terrahomes_madrid/" rel="noopener" target="_blank">Instagram</a> <a class="visit-pill" href="https://terrahomes.es/" rel="noopener" target="_blank">Web</a></div>
 </section>
 <section class="branding-client" data-client="wistimber">
 <h3 class="corp-section-label">WISTIMBER</h3><p class="branding-client-desc" data-copy-en="We handle digital marketing and strategy exclusively for Wistimber, a Spanish rock band, bringing its music closer to listeners and building community. (Content designed by @mariaruizhernaez)" data-copy-es="Nos encargamos exclusivamente del marketing digital y la estrategia de Wistimber, grupo de rock español, para acercar su música al público y crear comunidad. (Contenido diseñado por @mariaruizhernaez)">Nos encargamos exclusivamente del marketing digital y la estrategia de Wistimber, grupo de rock español, para acercar su música al público y crear comunidad. (Contenido diseñado por <a href="https://www.instagram.com/mariaruizhernaez/" rel="noopener" target="_blank">@mariaruizhernaez</a>)</p>
 <div class="wistimber-media">
-<div class="wistimber-static-gallery">
-<a aria-label="Wistimber · fotografía" class="img-strip-item" href="https://www.instagram.com/wistimber_/" rel="noopener" target="_blank"><img alt="Wistimber · fotografía del grupo" loading="lazy" src="images/branding/wistimber/01.jpg"/></a>
-<a aria-label="Wistimber · diseño musical" class="img-strip-item" href="https://www.instagram.com/wistimber_/" rel="noopener" target="_blank"><img alt="Wistimber · diseño promocional" loading="lazy" src="images/branding/wistimber/02.jpg"/></a>
-</div>
-<div class="wistimber-player">
-<button aria-expanded="false" class="wistimber-play-btn" onclick="toggleWistimberPlayer(this)" type="button">▶ PLAY</button>
-<div class="wistimber-spotify" hidden=""><iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" frameborder="0" height="152" loading="lazy" src="https://open.spotify.com/embed/track/56asKmgh3Zi8LKpKaiEOdf?utm_source=generator" style="border-radius:8px;" title="Escuchar Wistimber en Spotify" width="100%"></iframe></div>
-</div>
+  <div class="wistimber-static-gallery">
+    <a class="img-strip-item" href="https://www.instagram.com/wistimber_/" target="_blank" rel="noopener" aria-label="Wistimber · fotografía"><img src="images/branding/wistimber/01.jpg" alt="Wistimber · fotografía del grupo" loading="lazy"></a>
+    <a class="img-strip-item wistimber-poster" href="https://www.instagram.com/wistimber_/" target="_blank" rel="noopener" aria-label="Wistimber · diseño musical"><img src="images/branding/wistimber/02.jpg" alt="Wistimber · cartel de Odio" loading="lazy"></a>
+    <div class="wistimber-player" data-audio-player>
+      <audio class="wistimber-audio" preload="metadata">
+        <source src="assets/audio/wistimber-odio.mp3" type="audio/mpeg">
+      </audio>
+      <div class="wistimber-player-shell">
+        <div class="wistimber-player-top">
+          <div class="wistimber-clouds">
+            <div class="wistimber-cloud">🎤</div>
+            <div class="wistimber-cloud small">☁</div>
+          </div>
+          <div class="wistimber-lights"><span class="wistimber-light"></span><span class="wistimber-light pink"></span></div>
+        </div>
+        <div class="wistimber-player-body">
+          <div class="wistimber-progress" data-progress><div class="wistimber-progress-fill" data-progress-fill></div></div>
+          <div class="wistimber-time"><span data-current-time>0:00</span><span data-duration>0:00</span></div>
+          <div class="wistimber-controls">
+            <button type="button" class="wistimber-icon" data-volume-toggle aria-label="Silenciar o activar sonido">🔊</button>
+            <div class="wistimber-seek">
+              <button type="button" class="wistimber-side" data-backward aria-label="Retroceder 10 segundos">◀</button>
+              <button type="button" class="wistimber-side" data-backward-small aria-label="Retroceder 5 segundos">◁</button>
+              <button type="button" class="wistimber-main" data-play-toggle aria-label="Reproducir o pausar">▶</button>
+              <button type="button" class="wistimber-side" data-forward-small aria-label="Avanzar 5 segundos">▷</button>
+              <button type="button" class="wistimber-side" data-forward aria-label="Avanzar 10 segundos">▶</button>
+            </div>
+            <button type="button" class="wistimber-icon wistimber-heart" aria-label="Favorito">♥</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/wistimber_/" rel="noopener" target="_blank">Instagram</a></div>
 </section>
 <section class="branding-client" data-client="double-b">
 <h3 class="corp-section-label">DOUBLE B</h3><p class="branding-client-desc" data-copy-en="Creative and business portfolio by Blanca and Beatriz Palazuelo, bringing together design, branding, marketing and creative direction." data-copy-es="Portfolio creativo y empresarial de Blanca y Beatriz Palazuelo, donde confluyen diseño, branding, marketing y dirección creativa.">Portfolio creativo y empresarial de Blanca y Beatriz Palazuelo, donde confluyen diseño, branding, marketing y dirección creativa.</p>
-<div class="img-strip-wrap">
-<button aria-label="Anterior" class="strip-arrow" onclick="document.getElementById('branding-double-b').scrollBy({left:-220,behavior:'smooth'})" type="button">◀</button>
-<div class="img-strip" data-gallery="double-b" id="branding-double-b"><a aria-label="Abrir Double B Instagram" class="img-strip-item" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank"><img alt="Double B Instagram — vista 1" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-fallback');" referrerpolicy="no-referrer" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.instagram.com%2Fbpalazuelocreative%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url&amp;viewport.width=1400&amp;viewport.height=2200" style="object-position:18% 30%;"/><span class="ig-fallback-label">Abrir feed en Instagram</span></a><a aria-label="Abrir Double B Instagram" class="img-strip-item" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank"><img alt="Double B Instagram — vista 2" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-fallback');" referrerpolicy="no-referrer" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.instagram.com%2Fbpalazuelocreative%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url&amp;viewport.width=1400&amp;viewport.height=2200" style="object-position:50% 30%;"/><span class="ig-fallback-label">Abrir feed en Instagram</span></a><a aria-label="Abrir Double B Instagram" class="img-strip-item" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank"><img alt="Double B Instagram — vista 3" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-fallback');" referrerpolicy="no-referrer" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.instagram.com%2Fbpalazuelocreative%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url&amp;viewport.width=1400&amp;viewport.height=2200" style="object-position:82% 30%;"/><span class="ig-fallback-label">Abrir feed en Instagram</span></a><a aria-label="Abrir Double B Instagram" class="img-strip-item" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank"><img alt="Double B Instagram — vista 4" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-fallback');" referrerpolicy="no-referrer" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.instagram.com%2Fbpalazuelocreative%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url&amp;viewport.width=1400&amp;viewport.height=2200" style="object-position:18% 60%;"/><span class="ig-fallback-label">Abrir feed en Instagram</span></a><a aria-label="Abrir Double B Instagram" class="img-strip-item" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank"><img alt="Double B Instagram — vista 5" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-fallback');" referrerpolicy="no-referrer" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.instagram.com%2Fbpalazuelocreative%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url&amp;viewport.width=1400&amp;viewport.height=2200" style="object-position:50% 60%;"/><span class="ig-fallback-label">Abrir feed en Instagram</span></a><a aria-label="Abrir Double B Instagram" class="img-strip-item" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank"><img alt="Double B Instagram — vista 6" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-fallback');" referrerpolicy="no-referrer" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.instagram.com%2Fbpalazuelocreative%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url&amp;viewport.width=1400&amp;viewport.height=2200" style="object-position:82% 60%;"/><span class="ig-fallback-label">Abrir feed en Instagram</span></a><a aria-label="Abrir Double B Instagram" class="img-strip-item" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank"><img alt="Double B Instagram — vista 7" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-fallback');" referrerpolicy="no-referrer" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.instagram.com%2Fbpalazuelocreative%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url&amp;viewport.width=1400&amp;viewport.height=2200" style="object-position:18% 84%;"/><span class="ig-fallback-label">Abrir feed en Instagram</span></a><a aria-label="Abrir Double B Instagram" class="img-strip-item" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank"><img alt="Double B Instagram — vista 8" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-fallback');" referrerpolicy="no-referrer" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.instagram.com%2Fbpalazuelocreative%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url&amp;viewport.width=1400&amp;viewport.height=2200" style="object-position:50% 84%;"/><span class="ig-fallback-label">Abrir feed en Instagram</span></a></div>
-<button aria-label="Siguiente" class="strip-arrow" onclick="document.getElementById('branding-double-b').scrollBy({left:220,behavior:'smooth'})" type="button">▶</button>
+<div class="double-b-static-gallery">
+  <a class="img-strip-item double-b-image" href="https://www.instagram.com/bpalazuelocreative/" target="_blank" rel="noopener" aria-label="Double B · ver en Instagram">
+    <img src="images/branding/double-b/double.png" alt="Double B · portfolio de Blanca y Beatriz Palazuelo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('missing-double-b');">
+    <span class="double-b-photo-pending">DOUBLE B</span>
+  </a>
 </div>
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank">Instagram</a> <a class="visit-pill" href="https://bpalazuelocreative.com/" rel="noopener" target="_blank">Web</a></div>
 </section>
@@ -3150,13 +3225,70 @@ function scrollCorporateGallery(id, direction) {
 }
 </script>
 <script>
-function toggleWistimberPlayer(btn) {
-  var player=btn.nextElementSibling;
-  if (!player) return;
-  var show=player.hidden;
-  player.hidden=!show;
-  btn.setAttribute('aria-expanded', String(show));
-  btn.textContent=show?'■ CLOSE':'▶ PLAY';
+(function(){
+  function formatTime(sec){
+    if(!isFinite(sec)) return '0:00';
+    var m=Math.floor(sec/60); var s=Math.floor(sec%60);
+    return m + ':' + String(s).padStart(2,'0');
+  }
+  document.querySelectorAll('[data-audio-player]').forEach(function(player){
+    var audio = player.querySelector('.wistimber-audio');
+    var playBtn = player.querySelector('[data-play-toggle]');
+    var backBtn = player.querySelector('[data-backward]');
+    var backSmall = player.querySelector('[data-backward-small]');
+    var fwdBtn = player.querySelector('[data-forward]');
+    var fwdSmall = player.querySelector('[data-forward-small]');
+    var volumeBtn = player.querySelector('[data-volume-toggle]');
+    var progress = player.querySelector('[data-progress]');
+    var fill = player.querySelector('[data-progress-fill]');
+    var current = player.querySelector('[data-current-time]');
+    var duration = player.querySelector('[data-duration]');
+    if(!audio || !playBtn) return;
+    function sync(){
+      var pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+      fill.style.width = pct + '%';
+      current.textContent = formatTime(audio.currentTime);
+      duration.textContent = formatTime(audio.duration);
+      playBtn.textContent = audio.paused ? '▶' : '❚❚';
+    }
+    playBtn.addEventListener('click', function(){
+      document.querySelectorAll('.wistimber-audio').forEach(function(other){ if(other!==audio){ other.pause(); } });
+      if(audio.paused){ audio.play(); } else { audio.pause(); }
+    });
+    [backBtn, backSmall, fwdSmall, fwdBtn].forEach(function(btn){ if(!btn) return; btn.addEventListener('click', function(){
+      var delta = 0;
+      if(btn===backBtn) delta = -10;
+      if(btn===backSmall) delta = -5;
+      if(btn===fwdSmall) delta = 5;
+      if(btn===fwdBtn) delta = 10;
+      audio.currentTime = Math.max(0, Math.min((audio.duration||0), audio.currentTime + delta));
+      sync();
+    });});
+    if(volumeBtn){ volumeBtn.addEventListener('click', function(){ audio.muted = !audio.muted; volumeBtn.textContent = audio.muted ? '🔇' : '🔊'; }); }
+    if(progress){ progress.addEventListener('click', function(e){
+      var rect = progress.getBoundingClientRect();
+      var pct = (e.clientX - rect.left) / rect.width;
+      if(audio.duration) audio.currentTime = Math.max(0, Math.min(audio.duration, pct * audio.duration));
+      sync();
+    }); }
+    audio.addEventListener('timeupdate', sync);
+    audio.addEventListener('loadedmetadata', sync);
+    audio.addEventListener('play', sync);
+    audio.addEventListener('pause', sync);
+    sync();
+  });
+})();
+</script>
+<script>
+function portfolioMoveBranding(id,direction) {
+  var el=document.getElementById(id);
+  if(!el) return;
+  var card=el.querySelector('.img-strip-item');
+  if(!card) return;
+  var style=window.getComputedStyle(el);
+  var gap=parseFloat(style.columnGap||style.gap)||10;
+  var amount=(card.getBoundingClientRect().width+gap)*direction;
+  el.scrollBy({left:amount,behavior:'smooth'});
 }
 </script>
 </body></html>

@@ -7,3 +7,5 @@ PORTFOLIO BEATRIZ - ENTREGA
 - La reproducción de Spotify puede requerir pulsar Play dentro del reproductor.
 - Double B sigue cargando su contenido externo anterior porque no se recibieron sus archivos.
 - Las restantes imágenes que el HTML original vincula mediante ./images/ deberán permanecer en el servidor como antes.
+
+ACTUALIZACION: Los carruseles de Branding muestran 4 imágenes completas por fila en escritorio y 2 en móvil. El reproductor Wistimber aparece a la derecha del cartel de Odio. Double B tiene una sola imagen, sin flechas: para mostrar la foto que enviaste, guárdala como images/branding/double-b/01.jpg.
