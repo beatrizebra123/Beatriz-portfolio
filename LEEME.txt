@@ -1,0 +1,9 @@
+PORTFOLIO BEATRIZ - ENTREGA
+
+- Abre index.html para revisar el diseño.
+- Sube index.html junto a las carpetas images/branding y fonts/, conservando las rutas.
+- Las fotos incluidas para Oblique, Terra Homes y Rentero Díaz proceden de los ZIP recibidos.
+- Wistimber incluye dos imágenes estáticas y un reproductor oficial de Spotify al pulsar PLAY.
+- La reproducción de Spotify puede requerir pulsar Play dentro del reproductor.
+- Double B sigue cargando su contenido externo anterior porque no se recibieron sus archivos.
+- Las restantes imágenes que el HTML original vincula mediante ./images/ deberán permanecer en el servidor como antes.
