@@ -1882,7 +1882,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/terrahomes_madrid/" rel="noopener" target="_blank">Instagram</a> <a class="visit-pill" href="https://terrahomes.es/" rel="noopener" target="_blank">Web</a></div>
 </section>
 <section class="branding-client" data-client="wistimber">
-<h3 class="corp-section-label">WISTIMBER</h3><p class="branding-client-desc" data-copy-en="We handle digital marketing and strategy exclusively for Wistimber, a Spanish rock band, bringing its music closer to listeners and building community. (Content designed by @mariaruizhernaez) — Branding: &lt;a href=&quot;https://mariaruiz.work/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;mariaruiz.work&lt;/a&gt;" data-copy-es="Nos encargamos exclusivamente del marketing digital y la estrategia de Wistimber, grupo de rock español, para acercar su música al público y crear comunidad. (Contenido diseñado por @mariaruizhernaez) — Branding: &lt;a href=&quot;https://mariaruiz.work/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;mariaruiz.work&lt;/a&gt;">Nos encargamos exclusivamente del marketing digital y la estrategia de Wistimber, grupo de rock español, para acercar su música al público y crear comunidad. (Contenido diseñado por <a href="https://www.instagram.com/mariaruizhernaez/" rel="noopener" target="_blank">@mariaruizhernaez</a>) — Branding: <a href="https://mariaruiz.work/" target="_blank" rel="noopener noreferrer">mariaruiz.work</a></p>
+<h3 class="corp-section-label">WISTIMBER</h3><p class="branding-client-desc" data-copy-en="We handle digital marketing and strategy exclusively for Wistimber, a Spanish rock band, bringing its music closer to listeners and building community. (Content designed by &lt;a href=&quot;https://www.instagram.com/mariaruizhernaez/&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;@mariaruizhernaez&lt;/a&gt;) — Branding: &lt;a href=&quot;https://mariaruiz.work/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;mariaruiz.work&lt;/a&gt;" data-copy-es="Nos encargamos exclusivamente del marketing digital y la estrategia de Wistimber, grupo de rock español, para acercar su música al público y crear comunidad. (Contenido diseñado por &lt;a href=&quot;https://www.instagram.com/mariaruizhernaez/&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;@mariaruizhernaez&lt;/a&gt;) — Branding: &lt;a href=&quot;https://mariaruiz.work/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;mariaruiz.work&lt;/a&gt;">Nos encargamos exclusivamente del marketing digital y la estrategia de Wistimber, grupo de rock español, para acercar su música al público y crear comunidad. (Contenido diseñado por <a href="https://www.instagram.com/mariaruizhernaez/" rel="noopener" target="_blank">@mariaruizhernaez</a>) — Branding: <a href="https://mariaruiz.work/" target="_blank" rel="noopener noreferrer">mariaruiz.work</a></p>
 <div class="wistimber-media">
 <div class="wistimber-static-gallery">
 <a aria-label="Wistimber · fotografía" class="img-strip-item" href="https://www.instagram.com/wistimber_/" rel="noopener" target="_blank"><img alt="Wistimber · fotografía del grupo" loading="lazy" src="images/branding/wistimber/01.jpg"/></a>
@@ -2369,10 +2369,6 @@ document.addEventListener('keydown', function(e){
       var wips=b.querySelectorAll('[style*="Press Start 2P"]'); if(wips[0]) wips[0].textContent=t.b_wip;
       var wip2=b.querySelector('[style*="rgba(28,26,20,.5)"]'); if(wip2) wip2.textContent=t.b_wip2;
       var st=document.querySelector('#bd-win-branding .status-pill'); if(st) st.textContent=t.b_status;
-      // Keep brand credit links in BOTH language versions.
-      b.querySelectorAll('.branding-client-desc[data-copy-es][data-copy-en]').forEach(function(el){
-        el.innerHTML = lang === 'en' ? el.dataset.copyEn : el.dataset.copyEs;
-      });
     }
     // Website
     var w=document.getElementById('wc-website');
@@ -3267,7 +3263,7 @@ function handleMinigameBackdrop(e){
   function refreshClientDescriptions(){
     var en=typeof currentLang!=='undefined' && currentLang==='en';
     document.querySelectorAll('#wc-branding .branding-client-desc').forEach(function(p){
-      p.textContent=en?p.dataset.copyEn:p.dataset.copyEs;
+      p.innerHTML=en?p.dataset.copyEn:p.dataset.copyEs;
     });
   }
   var oldSetLang=window.setLang;
