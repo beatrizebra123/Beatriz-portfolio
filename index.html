@@ -1066,7 +1066,69 @@ h1, h2, h3, h4, h5, h6,
 #wc-branding .double-b-photo-pending {display:none;font-family:'Press Start 2P',monospace;font-size:.48rem;color:#562915;text-align:center;padding:1rem;line-height:1.8;}
 #wc-branding .double-b-image.missing-double-b .double-b-photo-pending {display:flex;align-items:center;justify-content:center;height:100%;}
 </style>
-</head>
+<style id="wistimber-aligned-player-rentero-arrow-fix">
+/* Asegurar que ambos botones de Rentero sigan alineados con el carrusel. */
+#wc-branding .branding-client[data-client="rentero-diaz"] > .img-strip-wrap {
+  display:flex !important; flex-wrap:nowrap !important; align-items:center !important;
+  width:100%; gap:8px !important;
+}
+#wc-branding .branding-client[data-client="rentero-diaz"] > .img-strip-wrap > .img-strip {
+  flex:1 1 0 !important; min-width:0 !important;
+}
+#wc-branding .branding-client[data-client="rentero-diaz"] > .img-strip-wrap > .strip-arrow {
+  flex:0 0 34px !important;
+}
+/* Reproductor Wistimber: misma altura que el cartel (160 px), horizontal y sin cabecera decorativa. */
+#wc-branding .wistimber-static-gallery {align-items:center !important;gap:10px !important;}
+#wc-branding .wistimber-static-gallery > .wistimber-player {
+  flex:0 1 380px !important;
+  width:380px !important;
+  max-width:min(100%,380px) !important;
+  height:160px !important;
+  margin:0 0 0 12px !important;
+  align-self:center !important;
+}
+#wc-branding .wistimber-player-shell {
+  height:160px !important; width:100% !important;
+  display:flex !important; align-items:stretch !important;
+  padding:11px 12px !important;
+  border-radius:14px !important;
+  box-sizing:border-box !important;
+}
+#wc-branding .wistimber-player-shell::before {background:linear-gradient(180deg,#b2bbf4 0 19px,#f6eeff 19px 100%) !important;}
+#wc-branding .wistimber-player-top {display:none !important;}
+#wc-branding .wistimber-player-body {
+  flex:1; min-width:0; min-height:0;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:12px 14px 8px !important;
+  border-radius:6px !important;
+}
+#wc-branding .wistimber-progress {height:14px !important; flex:0 0 14px;}
+#wc-branding .wistimber-time {margin-top:6px !important;}
+#wc-branding .wistimber-controls {margin-top:8px !important; gap:6px !important;}
+#wc-branding .wistimber-seek {gap:7px !important;}
+#wc-branding .wistimber-side {width:19px !important;height:24px !important;font-size:.68rem !important;}
+#wc-branding .wistimber-main {width:40px !important;height:40px !important;flex:0 0 40px !important;font-size:.7rem !important;}
+#wc-branding .wistimber-icon {width:26px !important;height:26px !important;font-size:.88rem !important;}
+@media(max-width:750px){
+  #wc-branding .wistimber-static-gallery > .wistimber-player {
+    flex:1 1 340px !important; width:100% !important;
+    max-width:380px !important; margin:10px 0 0 !important;
+  }
+}
+@media(max-width:430px){
+  #wc-branding .wistimber-seek {gap:4px !important;}
+  #wc-branding .wistimber-player-body {padding:10px 9px 7px !important;}
+}
+</style>
+<style id="illustration-final-gallery">
+/* Cuadrícula actual: cinco piezas por fila en escritorio; conserva todo el contenido visible. */
+#wc-illustration .illustration-grid { display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:1.5rem 0 2.5rem;align-items:stretch; }
+#wc-illustration .illustration-grid img { width:100%;height:100%;aspect-ratio:3/4;object-fit:contain;object-position:center;background:#fff;display:block;border:1.5px solid rgba(28,26,20,.08);border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s; }
+#wc-illustration .illustration-grid img:hover {transform:translateY(-4px) scale(1.03);box-shadow:0 10px 28px rgba(0,0,0,.13);}
+@media(max-width:700px){#wc-illustration .illustration-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}}
+@media(max-width:420px){#wc-illustration .illustration-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}}
+</style></head>
 <body>
 <div id="cursor"></div>
 <!-- HERO: 100vh, normal flow -->
@@ -1256,7 +1318,7 @@ h1, h2, h3, h4, h5, h6,
 <rect fill="white" height="1.5" opacity=".55" width="82" x="3" y="12"></rect>
 <rect fill="white" height="56" opacity=".35" width="1.5" x="3" y="12"></rect>
 </svg>
-<span class="folder-label" id="circle-wedding-label">Ilustraciones<br/>y Carteles</span>
+<span class="folder-label" id="circle-wedding-label">Ilustraciones</span>
 </a>
 </div></div>
 <!-- ES/EN desktop — below folders, above taskbar -->
@@ -1742,7 +1804,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="win-btn close-btn" onclick="closeWindowById('win-branding')">✕</div>
 </div>
 <div class="win-menubar">
-<span>Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-illustration')">Ilustraciones y Carteles</span><span onclick="switchWindow('win-contact')">Contacto</span>
+<span>Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-illustration')">Ilustraciones</span><span onclick="switchWindow('win-contact')">Contacto</span>
 </div>
 <div class="win-content" id="wc-branding">
 <p class="section-eyebrow">Diseño gráfico y Branding</p>
@@ -1752,24 +1814,24 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <h3 class="corp-section-label">OBLIQUE</h3><p class="branding-client-desc" data-copy-en="Pilates and wellness with a sensual, elegant approach, celebrating movement, the body and feminine aesthetics. Ongoing digital marketing." data-copy-es="Pilates y wellness desde una mirada sensual y elegante, con una identidad visual centrada en el cuerpo, el movimiento y la estética femenina. Gestión activa de marketing digital.">Pilates y wellness desde una mirada sensual y elegante, con una identidad visual centrada en el cuerpo, el movimiento y la estética femenina. Gestión activa de marketing digital.</p>
 <div class="img-strip-wrap">
 <button aria-label="Anterior" class="strip-arrow" onclick="portfolioMoveBranding('branding-oblique',-1)" type="button">◀</button>
-<div class="img-strip" data-gallery="oblique" id="branding-oblique"><a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/01.jpg" alt="oblique · trabajo 1" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/02.jpg" alt="oblique · trabajo 2" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/03.jpg" alt="oblique · trabajo 3" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/04.jpg" alt="oblique · trabajo 4" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/05.jpg" alt="oblique · trabajo 5" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/06.jpg" alt="oblique · trabajo 6" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/07.jpg" alt="oblique · trabajo 7" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/08.jpg" alt="oblique · trabajo 8" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/09.jpg" alt="oblique · trabajo 9" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/10.jpg" alt="oblique · trabajo 10" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/11.jpg" alt="oblique · trabajo 11" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/12.jpg" alt="oblique · trabajo 12" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/13.jpg" alt="oblique · trabajo 13" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/14.jpg" alt="oblique · trabajo 14" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/15.jpg" alt="oblique · trabajo 15" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/16.jpg" alt="oblique · trabajo 16" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/17.jpg" alt="oblique · trabajo 17" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" target="_blank" rel="noopener" aria-label="Ver oblique en Instagram"><img src="images/branding/oblique/18.jpg" alt="oblique · trabajo 18" loading="lazy" decoding="async"></a></div>
+<div class="img-strip" data-gallery="oblique" id="branding-oblique"><a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 1" decoding="async" loading="lazy" src="images/branding/oblique/01.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 2" decoding="async" loading="lazy" src="images/branding/oblique/02.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 3" decoding="async" loading="lazy" src="images/branding/oblique/03.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 4" decoding="async" loading="lazy" src="images/branding/oblique/04.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 5" decoding="async" loading="lazy" src="images/branding/oblique/05.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 6" decoding="async" loading="lazy" src="images/branding/oblique/06.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 7" decoding="async" loading="lazy" src="images/branding/oblique/07.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 8" decoding="async" loading="lazy" src="images/branding/oblique/08.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 9" decoding="async" loading="lazy" src="images/branding/oblique/09.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 10" decoding="async" loading="lazy" src="images/branding/oblique/10.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 11" decoding="async" loading="lazy" src="images/branding/oblique/11.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 12" decoding="async" loading="lazy" src="images/branding/oblique/12.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 13" decoding="async" loading="lazy" src="images/branding/oblique/13.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 14" decoding="async" loading="lazy" src="images/branding/oblique/14.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 15" decoding="async" loading="lazy" src="images/branding/oblique/15.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 16" decoding="async" loading="lazy" src="images/branding/oblique/16.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 17" decoding="async" loading="lazy" src="images/branding/oblique/17.jpg"/></a>
+<a aria-label="Ver oblique en Instagram" class="img-strip-item" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank"><img alt="oblique · trabajo 18" decoding="async" loading="lazy" src="images/branding/oblique/18.jpg"/></a></div>
 <button aria-label="Siguiente" class="strip-arrow" onclick="portfolioMoveBranding('branding-oblique',1)" type="button">▶</button>
 </div>
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/theoblique.studio/" rel="noopener" target="_blank">Instagram</a> <a class="visit-pill" href="https://theobliquestudio.com/" rel="noopener" target="_blank">Web</a></div>
@@ -1778,20 +1840,21 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <h3 class="corp-section-label">RENTERO DÍAZ</h3><p class="branding-client-desc" data-copy-en="Social media management for a new extra virgin olive oil brand from Jaén, showcasing its origins, culture and traditions through visual content." data-copy-es="Gestión de redes sociales para una nueva marca de AOVE de Jaén, comunicando su origen, cultura y tradiciones a través de contenido visual.">Gestión de redes sociales para una nueva marca de AOVE de Jaén, comunicando su origen, cultura y tradiciones a través de contenido visual.</p>
 <div class="img-strip-wrap">
 <button aria-label="Anterior" class="strip-arrow" onclick="portfolioMoveBranding('branding-rentero-diaz',-1)" type="button">◀</button>
-<div class="img-strip" data-gallery="rentero-diaz" id="branding-rentero-diaz"><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 1" decoding="async" loading="lazy" src="images/branding/rentero-diaz/01.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 2" decoding="async" loading="lazy" src="images/branding/rentero-diaz/02.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 3" decoding="async" loading="lazy" src="images/branding/rentero-diaz/03.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 4" decoding="async" loading="lazy" src="images/branding/rentero-diaz/04.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 5" decoding="async" loading="lazy" src="images/branding/rentero-diaz/05.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 6" decoding="async" loading="lazy" src="images/branding/rentero-diaz/06.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 7" decoding="async" loading="lazy" src="images/branding/rentero-diaz/07.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 8" decoding="async" loading="lazy" src="images/branding/rentero-diaz/08.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 9" decoding="async" loading="lazy" src="images/branding/rentero-diaz/09.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 10" decoding="async" loading="lazy" src="images/branding/rentero-diaz/10.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 11" decoding="async" loading="lazy" src="images/branding/rentero-diaz/11.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 12" decoding="async" loading="lazy" src="images/branding/rentero-diaz/12.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 13" decoding="async" loading="lazy" src="images/branding/rentero-diaz/13.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 14" decoding="async" loading="lazy" src="images/branding/rentero-diaz/14.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 15" decoding="async" loading="lazy" src="images/branding/rentero-diaz/15.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 16" decoding="async" loading="lazy" src="images/branding/rentero-diaz/16.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 17" decoding="async" loading="lazy" src="images/branding/rentero-diaz/17.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 18" decoding="async" loading="lazy" src="images/branding/rentero-diaz/18.jpg"/></a></div></div>
+<div class="img-strip" data-gallery="rentero-diaz" id="branding-rentero-diaz"><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 1" decoding="async" loading="lazy" src="images/branding/rentero-diaz/01.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 2" decoding="async" loading="lazy" src="images/branding/rentero-diaz/02.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 3" decoding="async" loading="lazy" src="images/branding/rentero-diaz/03.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 4" decoding="async" loading="lazy" src="images/branding/rentero-diaz/04.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 5" decoding="async" loading="lazy" src="images/branding/rentero-diaz/05.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 6" decoding="async" loading="lazy" src="images/branding/rentero-diaz/06.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 7" decoding="async" loading="lazy" src="images/branding/rentero-diaz/07.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 8" decoding="async" loading="lazy" src="images/branding/rentero-diaz/08.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 9" decoding="async" loading="lazy" src="images/branding/rentero-diaz/09.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 10" decoding="async" loading="lazy" src="images/branding/rentero-diaz/10.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 11" decoding="async" loading="lazy" src="images/branding/rentero-diaz/11.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 12" decoding="async" loading="lazy" src="images/branding/rentero-diaz/12.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 13" decoding="async" loading="lazy" src="images/branding/rentero-diaz/13.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 14" decoding="async" loading="lazy" src="images/branding/rentero-diaz/14.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 15" decoding="async" loading="lazy" src="images/branding/rentero-diaz/15.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 16" decoding="async" loading="lazy" src="images/branding/rentero-diaz/16.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 17" decoding="async" loading="lazy" src="images/branding/rentero-diaz/17.jpg"/></a><a class="img-strip-item" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank"><img alt="Rentero Díaz · pieza para redes 18" decoding="async" loading="lazy" src="images/branding/rentero-diaz/18.jpg"/></a></div>
 <button aria-label="Siguiente" class="strip-arrow" onclick="portfolioMoveBranding('branding-rentero-diaz',1)" type="button">▶</button>
+</div>
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/renterodiaz_aove/" rel="noopener" target="_blank">Instagram</a> <a class="visit-pill" href="https://aovetresolivos.com/" rel="noopener" target="_blank">Web</a></div>
 </section>
 <section class="branding-client" data-client="terra-homes">
 <h3 class="corp-section-label">TERRA HOMES</h3><p class="branding-client-desc" data-copy-en="Quality content and digital marketing for an established real estate brand, focused on visibility and lead generation." data-copy-es="Contenido de calidad y marketing digital para una inmobiliaria consolidada, con foco en visibilidad de marca y captación de clientes potenciales.">Contenido de calidad y marketing digital para una inmobiliaria consolidada, con foco en visibilidad de marca y captación de clientes potenciales.</p>
 <div class="img-strip-wrap">
 <button aria-label="Anterior" class="strip-arrow" onclick="portfolioMoveBranding('branding-terra-homes',-1)" type="button">◀</button>
-<div class="img-strip" data-gallery="terra-homes" id="branding-terra-homes"><a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/01.jpg" alt="terra-homes · trabajo 1" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/02.jpg" alt="terra-homes · trabajo 2" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/03.jpg" alt="terra-homes · trabajo 3" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/04.jpg" alt="terra-homes · trabajo 4" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/05.jpg" alt="terra-homes · trabajo 5" loading="lazy" decoding="async"></a>
-<a class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" target="_blank" rel="noopener" aria-label="Ver terra-homes en Instagram"><img src="images/branding/terra-homes/06.jpg" alt="terra-homes · trabajo 6" loading="lazy" decoding="async"></a></div>
+<div class="img-strip" data-gallery="terra-homes" id="branding-terra-homes"><a aria-label="Ver terra-homes en Instagram" class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" rel="noopener" target="_blank"><img alt="terra-homes · trabajo 1" decoding="async" loading="lazy" src="images/branding/terra-homes/01.jpg"/></a>
+<a aria-label="Ver terra-homes en Instagram" class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" rel="noopener" target="_blank"><img alt="terra-homes · trabajo 2" decoding="async" loading="lazy" src="images/branding/terra-homes/02.jpg"/></a>
+<a aria-label="Ver terra-homes en Instagram" class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" rel="noopener" target="_blank"><img alt="terra-homes · trabajo 3" decoding="async" loading="lazy" src="images/branding/terra-homes/03.jpg"/></a>
+<a aria-label="Ver terra-homes en Instagram" class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" rel="noopener" target="_blank"><img alt="terra-homes · trabajo 4" decoding="async" loading="lazy" src="images/branding/terra-homes/04.jpg"/></a>
+<a aria-label="Ver terra-homes en Instagram" class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" rel="noopener" target="_blank"><img alt="terra-homes · trabajo 5" decoding="async" loading="lazy" src="images/branding/terra-homes/05.jpg"/></a>
+<a aria-label="Ver terra-homes en Instagram" class="img-strip-item" href="https://www.instagram.com/terrahomes_madrid/" rel="noopener" target="_blank"><img alt="terra-homes · trabajo 6" decoding="async" loading="lazy" src="images/branding/terra-homes/06.jpg"/></a></div>
 <button aria-label="Siguiente" class="strip-arrow" onclick="portfolioMoveBranding('branding-terra-homes',1)" type="button">▶</button>
 </div>
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/terrahomes_madrid/" rel="noopener" target="_blank">Instagram</a> <a class="visit-pill" href="https://terrahomes.es/" rel="noopener" target="_blank">Web</a></div>
@@ -1799,49 +1862,42 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <section class="branding-client" data-client="wistimber">
 <h3 class="corp-section-label">WISTIMBER</h3><p class="branding-client-desc" data-copy-en="We handle digital marketing and strategy exclusively for Wistimber, a Spanish rock band, bringing its music closer to listeners and building community. (Content designed by @mariaruizhernaez)" data-copy-es="Nos encargamos exclusivamente del marketing digital y la estrategia de Wistimber, grupo de rock español, para acercar su música al público y crear comunidad. (Contenido diseñado por @mariaruizhernaez)">Nos encargamos exclusivamente del marketing digital y la estrategia de Wistimber, grupo de rock español, para acercar su música al público y crear comunidad. (Contenido diseñado por <a href="https://www.instagram.com/mariaruizhernaez/" rel="noopener" target="_blank">@mariaruizhernaez</a>)</p>
 <div class="wistimber-media">
-  <div class="wistimber-static-gallery">
-    <a class="img-strip-item" href="https://www.instagram.com/wistimber_/" target="_blank" rel="noopener" aria-label="Wistimber · fotografía"><img src="images/branding/wistimber/01.jpg" alt="Wistimber · fotografía del grupo" loading="lazy"></a>
-    <a class="img-strip-item wistimber-poster" href="https://www.instagram.com/wistimber_/" target="_blank" rel="noopener" aria-label="Wistimber · diseño musical"><img src="images/branding/wistimber/02.jpg" alt="Wistimber · cartel de Odio" loading="lazy"></a>
-    <div class="wistimber-player" data-audio-player>
-      <audio class="wistimber-audio" preload="metadata">
-        <source src="assets/audio/wistimber-odio.mp3" type="audio/mpeg">
-      </audio>
-      <div class="wistimber-player-shell">
-        <div class="wistimber-player-top">
-          <div class="wistimber-clouds">
-            <div class="wistimber-cloud">🎤</div>
-            <div class="wistimber-cloud small">☁</div>
-          </div>
-          <div class="wistimber-lights"><span class="wistimber-light"></span><span class="wistimber-light pink"></span></div>
-        </div>
-        <div class="wistimber-player-body">
-          <div class="wistimber-progress" data-progress><div class="wistimber-progress-fill" data-progress-fill></div></div>
-          <div class="wistimber-time"><span data-current-time>0:00</span><span data-duration>0:00</span></div>
-          <div class="wistimber-controls">
-            <button type="button" class="wistimber-icon" data-volume-toggle aria-label="Silenciar o activar sonido">🔊</button>
-            <div class="wistimber-seek">
-              <button type="button" class="wistimber-side" data-backward aria-label="Retroceder 10 segundos">◀</button>
-              <button type="button" class="wistimber-side" data-backward-small aria-label="Retroceder 5 segundos">◁</button>
-              <button type="button" class="wistimber-main" data-play-toggle aria-label="Reproducir o pausar">▶</button>
-              <button type="button" class="wistimber-side" data-forward-small aria-label="Avanzar 5 segundos">▷</button>
-              <button type="button" class="wistimber-side" data-forward aria-label="Avanzar 10 segundos">▶</button>
-            </div>
-            <button type="button" class="wistimber-icon wistimber-heart" aria-label="Favorito">♥</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="wistimber-static-gallery">
+<a aria-label="Wistimber · fotografía" class="img-strip-item" href="https://www.instagram.com/wistimber_/" rel="noopener" target="_blank"><img alt="Wistimber · fotografía del grupo" loading="lazy" src="images/branding/wistimber/01.jpg"/></a>
+<a aria-label="Wistimber · diseño musical" class="img-strip-item wistimber-poster" href="https://www.instagram.com/wistimber_/" rel="noopener" target="_blank"><img alt="Wistimber · cartel de Odio" loading="lazy" src="images/branding/wistimber/02.jpg"/></a>
+<div class="wistimber-player" data-audio-player="">
+<audio class="wistimber-audio" preload="metadata">
+<source src="assets/audio/wistimber-odio.mp3" type="audio/mpeg"/>
+</audio>
+<div class="wistimber-player-shell">
+<div class="wistimber-player-body">
+<div class="wistimber-progress" data-progress=""><div class="wistimber-progress-fill" data-progress-fill=""></div></div>
+<div class="wistimber-time"><span data-current-time="">0:00</span><span data-duration="">0:00</span></div>
+<div class="wistimber-controls">
+<button aria-label="Silenciar o activar sonido" class="wistimber-icon" data-volume-toggle="" type="button">🔊</button>
+<div class="wistimber-seek">
+<button aria-label="Retroceder 10 segundos" class="wistimber-side" data-backward="" type="button">◀</button>
+<button aria-label="Retroceder 5 segundos" class="wistimber-side" data-backward-small="" type="button">◁</button>
+<button aria-label="Reproducir o pausar" class="wistimber-main" data-play-toggle="" type="button">▶</button>
+<button aria-label="Avanzar 5 segundos" class="wistimber-side" data-forward-small="" type="button">▷</button>
+<button aria-label="Avanzar 10 segundos" class="wistimber-side" data-forward="" type="button">▶</button>
+</div>
+<button aria-label="Favorito" class="wistimber-icon wistimber-heart" type="button">♥</button>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/wistimber_/" rel="noopener" target="_blank">Instagram</a></div>
 </section>
 <section class="branding-client" data-client="double-b">
 <h3 class="corp-section-label">DOUBLE B</h3><p class="branding-client-desc" data-copy-en="Creative and business portfolio by Blanca and Beatriz Palazuelo, bringing together design, branding, marketing and creative direction." data-copy-es="Portfolio creativo y empresarial de Blanca y Beatriz Palazuelo, donde confluyen diseño, branding, marketing y dirección creativa.">Portfolio creativo y empresarial de Blanca y Beatriz Palazuelo, donde confluyen diseño, branding, marketing y dirección creativa.</p>
 <div class="double-b-static-gallery">
-  <a class="img-strip-item double-b-image" href="https://www.instagram.com/bpalazuelocreative/" target="_blank" rel="noopener" aria-label="Double B · ver en Instagram">
-    <img src="images/branding/double-b/double.png" alt="Double B · portfolio de Blanca y Beatriz Palazuelo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('missing-double-b');">
-    <span class="double-b-photo-pending">DOUBLE B</span>
-  </a>
+<a aria-label="Double B · ver en Instagram" class="img-strip-item double-b-image" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank">
+<img alt="Double B · portfolio de Blanca y Beatriz Palazuelo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('missing-double-b');" src="images/branding/double-b/double.png"/>
+<span class="double-b-photo-pending">DOUBLE B</span>
+</a>
 </div>
 <div class="branding-links"><a class="visit-pill" href="https://www.instagram.com/bpalazuelocreative/" rel="noopener" target="_blank">Instagram</a> <a class="visit-pill" href="https://bpalazuelocreative.com/" rel="noopener" target="_blank">Web</a></div>
 </section>
@@ -1855,7 +1911,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="win-btn close-btn" onclick="closeWindowById('win-website')">✕</div>
 </div>
 <div class="win-menubar">
-<span onclick="switchWindow('win-branding')">Diseño gráfico y Branding</span><span>Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-illustration')">Ilustraciones y Carteles</span><span onclick="switchWindow('win-contact')">Contacto</span>
+<span onclick="switchWindow('win-branding')">Diseño gráfico y Branding</span><span>Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span onclick="switchWindow('win-illustration')">Ilustraciones</span><span onclick="switchWindow('win-contact')">Contacto</span>
 </div>
 <div class="win-content" id="wc-website">
 <p class="section-eyebrow">Diseño Web</p>
@@ -1869,8 +1925,8 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="browser-dots"><span></span><span></span><span></span></div>
 <div class="browser-url"><span>kamararental.com</span><span class="url-arrow">↗</span></div>
 </div>
-<img alt="Kamara Rental" class="browser-screen" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'&lt;span&gt;kamararental.com&lt;/span&gt;'}))" src="https://api.microlink.io/?url=https%3A%2F%2Fkamararental.com&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url"/>
-</a>
+<img alt="Kamara Rental" class="browser-screen" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'&lt;span&gt;kamararental.com&lt;/span&gt;'}))" src="https://api.microlink.io/?url=https%3A%2F%2Fkamararental.com&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url">
+</img></a>
 </div>
 <div class="site-info">
 <h3>Kamara Rental · renting de vestidos.</h3>
@@ -1885,8 +1941,8 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="browser-dots"><span></span><span></span><span></span></div>
 <div class="browser-url"><span>dacostaloboart.com</span><span class="url-arrow">↗</span></div>
 </div>
-<img alt="Da Costa Lobo Art" class="browser-screen" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'&lt;span&gt;dacostaloboart.com&lt;/span&gt;'}))" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.dacostaloboart.com%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url&amp;waitFor=4000"/>
-</a>
+<img alt="Da Costa Lobo Art" class="browser-screen" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'&lt;span&gt;dacostaloboart.com&lt;/span&gt;'}))" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.dacostaloboart.com%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url&amp;waitFor=4000">
+</img></a>
 </div>
 <div class="site-info">
 <h3>Da Costa Lobo Art · portfolio de artista.</h3>
@@ -1898,13 +1954,12 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="site-card">
 <a class="site-link" href="https://www.serenapromociones.com/" rel="noopener" target="_blank">
 <div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url"><span>serenapromociones.com</span><span class="url-arrow">↗</span></div></div>
-<img alt="Serena Promociones" class="browser-screen" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'&lt;span&gt;serenapromociones.com&lt;/span&gt;'}))" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.serenapromociones.com%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url"/>
-</a>
+<img alt="Serena Promociones" class="browser-screen" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'&lt;span&gt;serenapromociones.com&lt;/span&gt;'}))" src="https://api.microlink.io/?url=https%3A%2F%2Fwww.serenapromociones.com%2F&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url">
+</img></a>
 </div>
 <div class="site-info"><h3>Serena Promociones</h3><a class="visit-pill" href="https://www.serenapromociones.com/" rel="noopener" target="_blank">Visitar web</a></div>
 </div>
 <!-- Bodas subsection -->
-
 <div class="site-row">
 <div class="site-card">
 <a class="site-link" href="https://alba-ignacio.lovable.app/" rel="noopener" target="_blank">
@@ -1912,8 +1967,8 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="browser-dots"><span></span><span></span><span></span></div>
 <div class="browser-url"><span>alba-ignacio.lovable.app</span><span class="url-arrow">↗</span></div>
 </div>
-<img alt="Web boda Alba e Ignacio" class="browser-screen" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'&lt;span&gt;alba-ignacio.lovable.app&lt;/span&gt;'}))" src="https://api.microlink.io/?url=https%3A%2F%2Falba-ignacio.lovable.app&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url"/>
-</a>
+<img alt="Web boda Alba e Ignacio" class="browser-screen" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'browser-screen-placeholder',innerHTML:'&lt;span&gt;alba-ignacio.lovable.app&lt;/span&gt;'}))" src="https://api.microlink.io/?url=https%3A%2F%2Falba-ignacio.lovable.app&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url">
+</img></a>
 </div>
 <div class="site-info">
 <h3>Alba &amp; Ignacio · Web de boda.</h3>
@@ -1932,7 +1987,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="win-btn close-btn" onclick="closeWindowById('win-corporate')">✕</div>
 </div>
 <div class="win-menubar">
-<span onclick="switchWindow('win-branding')">Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span>Experiencia Corporativa</span><span onclick="switchWindow('win-illustration')">Ilustraciones y Carteles</span><span onclick="switchWindow('win-contact')">Contacto</span>
+<span onclick="switchWindow('win-branding')">Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span>Experiencia Corporativa</span><span onclick="switchWindow('win-illustration')">Ilustraciones</span><span onclick="switchWindow('win-contact')">Contacto</span>
 </div>
 <div class="win-content" id="wc-corporate">
 <p class="section-eyebrow">Experiencia Corporativa</p>
@@ -1990,33 +2045,13 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <div class="win-backdrop" id="bd-win-illustration" onclick="handleBackdropClick(event,'win-illustration')">
 <div class="retro-window" id="win-illustration">
 <div class="win-titlebar">
-<div class="win-title-text">Ilustraciones_y_Carteles.exe</div>
+<div class="win-title-text">Ilustraciones.exe</div>
 <div class="win-btn close-btn" onclick="closeWindowById('win-illustration')">✕</div>
 </div>
 <div class="win-menubar">
-<span onclick="switchWindow('win-branding')">Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span>Ilustraciones y Carteles</span><span onclick="switchWindow('win-contact')">Contacto</span>
+<span onclick="switchWindow('win-branding')">Diseño gráfico y Branding</span><span onclick="switchWindow('win-website')">Diseño Web</span><span onclick="switchWindow('win-corporate')">Experiencia Corporativa</span><span>Ilustraciones</span><span onclick="switchWindow('win-contact')">Contacto</span>
 </div>
-<div class="win-content" id="wc-illustration">
-<p class="section-eyebrow">Ilustraciones y Carteles</p>
-<h2 class="section-title">Ilustraciones y carteles <em>a medida.</em></h2>
-<p class="section-desc">Carteles e ilustraciones a medida para cualquier ocasión: bodas, bachelorette parties, cumpleaños, eventos de empresa, festivales y cualquier proyecto que necesite una pieza única.</p>
-<!-- Subsección Bodas -->
-<p class="corp-section-label" style="margin-top:0">Bodas</p>
-<div class="wedding-print-section">
-<h3 class="wedding-print-title">Meseros &amp; Carteles · Boda Alba &amp; Ignacio</h3>
-<p class="wedding-print-desc">Carteles completos para las estaciones de aperitivo y menú de boda. Diseño watercolor con ilustraciones a medida.</p>
-<div class="illustration-grid">
-<img alt="Ilustración y cartel 1" loading="lazy" onclick="openPortfolioImage(this.src)" src="./images/carteles-11.png" style="cursor:zoom-in"/>
-<img alt="Ilustración y cartel 2" loading="lazy" onclick="openPortfolioImage(this.src)" src="./images/carteles-13.png" style="cursor:zoom-in"/>
-<img alt="Ilustración y cartel 3" loading="lazy" onclick="openPortfolioImage(this.src)" src="./images/carteles-14.png" style="cursor:zoom-in"/>
-<img alt="Ilustración y cartel 4" loading="lazy" onclick="openPortfolioImage(this.src)" src="./images/carteles-16.png" style="cursor:zoom-in"/>
-<img alt="Ilustración y cartel 5" loading="lazy" onclick="openPortfolioImage(this.src)" src="./images/carteles-17.png" style="cursor:zoom-in"/>
-<img alt="Ilustración y cartel 6" loading="lazy" onclick="openPortfolioImage(this.src)" src="./images/carteles-19.png" style="cursor:zoom-in"/>
-<img alt="Ilustración y cartel 7" loading="lazy" onclick="openPortfolioImage(this.src)" src="./images/carteles_Lista_aperitivos.png" style="cursor:zoom-in"/>
-<img alt="Ilustración y cartel 8" loading="lazy" onclick="openPortfolioImage(this.src)" src="./images/Menu_pedida_alba__1_.png" style="cursor:zoom-in"/>
-</div>
-</div>
-</div>
+<div class="win-content" id="wc-illustration"><p class="section-eyebrow">Ilustraciones</p><div aria-label="Galería de ilustraciones" class="illustration-grid"><img alt="Ilustración 1" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_01.webp" style="cursor:zoom-in"/><img alt="Ilustración 2" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_02.webp" style="cursor:zoom-in"/><img alt="Ilustración 3" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_03.webp" style="cursor:zoom-in"/><img alt="Ilustración 4" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_04.webp" style="cursor:zoom-in"/><img alt="Ilustración 5" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_05.webp" style="cursor:zoom-in"/><img alt="Ilustración 6" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_06.webp" style="cursor:zoom-in"/><img alt="Ilustración 7" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_07.webp" style="cursor:zoom-in"/><img alt="Ilustración 8" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_08.webp" style="cursor:zoom-in"/><img alt="Ilustración 9" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_09.webp" style="cursor:zoom-in"/><img alt="Ilustración 10" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_10.webp" style="cursor:zoom-in"/><img alt="Ilustración 11" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_11.webp" style="cursor:zoom-in"/><img alt="Ilustración 12" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_12.webp" style="cursor:zoom-in"/><img alt="Ilustración 13" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_13.webp" style="cursor:zoom-in"/><img alt="Ilustración 14" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_14.webp" style="cursor:zoom-in"/><img alt="Ilustración 15" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_15.webp" style="cursor:zoom-in"/><img alt="Ilustración 16" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_16.webp" style="cursor:zoom-in"/><img alt="Ilustración 17" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_17.webp" style="cursor:zoom-in"/><img alt="Ilustración 18" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_18.webp" style="cursor:zoom-in"/><img alt="Ilustración 19" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_19.webp" style="cursor:zoom-in"/><img alt="Ilustración 20" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_20.webp" style="cursor:zoom-in"/><img alt="Ilustración 21" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_21.webp" style="cursor:zoom-in"/><img alt="Ilustración 22" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_22.webp" style="cursor:zoom-in"/><img alt="Ilustración 23" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_23.webp" style="cursor:zoom-in"/><img alt="Ilustración 24" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_24.webp" style="cursor:zoom-in"/><img alt="Ilustración 25" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_25.webp" style="cursor:zoom-in"/><img alt="Ilustración 26" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_26.webp" style="cursor:zoom-in"/><img alt="Ilustración 27" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_27.webp" style="cursor:zoom-in"/><img alt="Ilustración 28" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_28.webp" style="cursor:zoom-in"/><img alt="Ilustración 29" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_29.webp" style="cursor:zoom-in"/><img alt="Ilustración 30" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_30.webp" style="cursor:zoom-in"/><img alt="Ilustración 31" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_31.webp" style="cursor:zoom-in"/><img alt="Ilustración 32" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_32.webp" style="cursor:zoom-in"/><img alt="Ilustración 33" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_33.webp" style="cursor:zoom-in"/><img alt="Ilustración 34" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_34.webp" style="cursor:zoom-in"/><img alt="Ilustración 35" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_35.webp" style="cursor:zoom-in"/><img alt="Ilustración 36" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_36.webp" style="cursor:zoom-in"/><img alt="Ilustración 37" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_37.webp" style="cursor:zoom-in"/><img alt="Ilustración 38" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_38.webp" style="cursor:zoom-in"/><img alt="Ilustración 39" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_39.webp" style="cursor:zoom-in"/><img alt="Ilustración 40" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_40.webp" style="cursor:zoom-in"/><img alt="Ilustración 41" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_41.webp" style="cursor:zoom-in"/><img alt="Ilustración 42" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_42.webp" style="cursor:zoom-in"/><img alt="Ilustración 43" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_43.webp" style="cursor:zoom-in"/><img alt="Ilustración 44" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_44.webp" style="cursor:zoom-in"/><img alt="Ilustración 45" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_45.webp" style="cursor:zoom-in"/><img alt="Ilustración 46" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_46.webp" style="cursor:zoom-in"/><img alt="Ilustración 47" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_47.webp" style="cursor:zoom-in"/><img alt="Ilustración 48" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_48.webp" style="cursor:zoom-in"/><img alt="Ilustración 49" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_49.webp" style="cursor:zoom-in"/><img alt="Ilustración 50" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_50.webp" style="cursor:zoom-in"/><img alt="Ilustración 51" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_51.webp" style="cursor:zoom-in"/><img alt="Ilustración 52" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_52.webp" style="cursor:zoom-in"/><img alt="Ilustración 53" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_53.webp" style="cursor:zoom-in"/><img alt="Ilustración 54" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_54.webp" style="cursor:zoom-in"/><img alt="Ilustración 55" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_55.webp" style="cursor:zoom-in"/><img alt="Ilustración 56" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_56.webp" style="cursor:zoom-in"/><img alt="Ilustración 57" decoding="async" loading="lazy" onclick="openPortfolioImage(this.src)" src="images/illustrations/ilustracion_57.webp" style="cursor:zoom-in"/></div></div>
 </div>
 </div>
 <div class="win-backdrop" id="bd-win-contact" onclick="handleBackdropClick(event,'win-contact')">
@@ -2030,7 +2065,7 @@ body.win-open { overflow: hidden !important; width: 100%; }
 <span onclick="switchWindow('win-branding')">Branding &amp; Design</span>
 <span onclick="switchWindow('win-website')">Web Design</span>
 <span onclick="switchWindow('win-corporate')">Corporate</span>
-<span onclick="switchWindow('win-illustration')">Ilustraciones y Carteles</span>
+<span onclick="switchWindow('win-illustration')">Ilustraciones</span>
 <span style="background:rgba(86,41,21,.1);font-weight:700">Contacto</span>
 </div>
 <div class="win-content" id="wc-contact">
@@ -2257,21 +2292,21 @@ document.addEventListener('keydown', function(e){
   var currentLang = 'es';
   var translations = {
     es: {
-      circles: ['Diseño gráfico<br>y Branding','Diseño<br>Web','Experiencia<br>Corporativa','Ilustraciones<br>y Carteles'],
-      menuLabels: ['Diseño gráfico y Branding','Diseño Web','Experiencia Corporativa','Ilustraciones y Carteles','Contacto'],
+      circles: ['Diseño gráfico<br>y Branding','Diseño<br>Web','Experiencia<br>Corporativa','Ilustraciones'],
+      menuLabels: ['Diseño gráfico y Branding','Diseño Web','Experiencia Corporativa','Ilustraciones','Contacto'],
       b_eyebrow:'Diseño gráfico y Branding', b_title:'Marcas construidas desde cero.', b_desc:'Serie de proposals completos: logo, identidad visual, mockups y sistema de diseño para marcas ficticias y reales.', b_collab:'En colaboración con Blanca Palazuelo, Motion &amp; Branding', b_wip:'', b_wip2:'', b_status:'1 proyecto',
       w_eyebrow:'Diseño Web', w_title:'Creamos la web a tu medida.', w_desc:'Diseño y desarrollo web, identidad visual coherente, UX intuitiva y estética cuidada. En colaboración con', w_kamara_title:'Kamara Rental · renting de vestidos.', w_kamara_desc:'Web de alquiler de vestidos para eventos, desarrollada junto a Blanca Palazuelo:<ul style="margin:.6rem 0 .6rem 1.1rem;font-size:.82rem;line-height:1.8;color:rgba(28,26,20,.62);"><li>Diseño de componentes visuales consistentes (tipografía, layout, espaciados, grid)</li><li>Integración de CTAs estratégicos en los puntos de mayor intención de compra</li><li>Optimización de la experiencia mobile-first</li><li>Selección de periodos de alquiler dinámicos y gestión de disponibilidad por fechas</li><li>Control de stock por producto y configuración de precios según duración del alquiler</li><li>Gestión automatizada de reservas</li></ul>', w_visit:'Visitar web', w_soon:'', w_status:'2 proyectos',
       c_eyebrow:'Experiencia Corporativa', c_title:'Experiencia en marketing.', c_desc:'Marketing digital y diseño con experiencia en campañas globales, CRM, HTML para campañas vía Salesforce, control de KPIs, estudios de mercado y estrategia para marcas internacionales.', c_cv:'Descargar CV', c_cvtag:'', c_stat1:'Years', c_stat2:'Campañas', c_stat3:'Herramientas<br>diseño &amp; mkt', c_stat4:'Internacional', c_exp_label:'Experiencias trabajadas', c_exp_btn:'Ver todas las experiencias en las que he colaborado', c_crm_label:'Ejemplos de CRM', c_crm_desc:'Campañas de email marketing diseñadas para experiencias Fever en todo el mundo.', c_crm_btn:'Ver campañas de email',
-      wed_eyebrow:'Ilustraciones y Carteles', wed_title:'Ilustraciones y carteles a medida.', wed_desc:'Carteles e ilustraciones para bodas, bachelorette parties, cumpleaños, eventos y más.', wed_project_title:'Alba &amp; Ignacio · Web de boda.', wed_project_desc:'Web de boda centrada en la estética acuarela, diseñada para reflejar el espíritu del lugar donde se celebrará el gran día.', wed_visit:'Visitar web', wed_print_title:'Meseros &amp; Carteles · Boda Alba &amp; Ignacio', wed_print_desc:'Carteles completos para las estaciones de aperitivo y menú de boda. Diseño watercolor con ilustraciones a medida.', wed_print_btn:'Ver meseros y carteles',
+      wed_eyebrow:'Ilustraciones', wed_title:'Ilustraciones y carteles a medida.', wed_desc:'Carteles e ilustraciones para bodas, bachelorette parties, cumpleaños, eventos y más.', wed_project_title:'Alba &amp; Ignacio · Web de boda.', wed_project_desc:'Web de boda centrada en la estética acuarela, diseñada para reflejar el espíritu del lugar donde se celebrará el gran día.', wed_visit:'Visitar web', wed_print_title:'Meseros &amp; Carteles · Boda Alba &amp; Ignacio', wed_print_desc:'Carteles completos para las estaciones de aperitivo y menú de boda. Diseño watercolor con ilustraciones a medida.', wed_print_btn:'Ver meseros y carteles',
       con_eyebrow:'Hablemos', con_title:'Tienes un<br>proyecto.', con_desc:'Siempre abierta a colaboraciones, proyectos freelance y nuevos retos creativos. ¡Escríbeme!', con_nombre:'TU NOMBRE', con_nombre_ph:'Ej: Ana García', con_email_lbl:'TU EMAIL', con_email_ph:'hola@email.com', con_msg:'MENSAJE', con_msg_ph:'Cuéntame tu proyecto...', con_send:'ENVIAR', con_success:'✦ ¡Mensaje enviado! Te escribo pronto.', swipe:'desliza ▶'
     },
     en: {
-      circles: ['Branding<br>+ Design','Web<br>Design','Corporate<br>Experience','Illustrations<br>+ Prints'],
-      menuLabels: ['Branding + Design','Web Design','Corporate Experience','Illustrations + Prints','Contact'],
+      circles: ['Branding<br>+ Design','Web<br>Design','Corporate<br>Experience','Illustrations'],
+      menuLabels: ['Branding + Design','Web Design','Corporate Experience','Illustrations','Contact'],
       b_eyebrow:'Branding &amp; Design', b_title:'Brands built from scratch.', b_desc:'Full brand proposals: logo, visual identity, mockups and design system for both fictional and real brands.', b_collab:'In collaboration with Blanca Palazuelo, Motion &amp; Branding', b_wip:'', b_wip2:'', b_status:'1 project',
       w_eyebrow:'Web Design', w_title:'Webs built for you.', w_desc:'Web design and development, consistent visual identity, intuitive UX and thoughtful aesthetics. In collab with', w_kamara_title:'Kamara Rental · dress rental.', w_kamara_desc:'Dress rental website for events, built together with Blanca Palazuelo:<ul style="margin:.6rem 0 .6rem 1.1rem;font-size:.82rem;line-height:1.8;color:rgba(28,26,20,.62);"><li>Consistent visual component design (typography, layout, spacing, grid)</li><li>Strategic CTAs placed at highest purchase-intent moments</li><li>Mobile-first experience optimisation</li><li>Dynamic rental period selection and date-based availability management</li><li>Per-product stock control and duration-based pricing</li><li>Automated booking management</li></ul>', w_visit:'Visit website', w_soon:'', w_status:'2 projects',
       c_eyebrow:'Corporate Experience', c_title:'Experience in marketing.', c_desc:'Digital marketing and design with experience in global campaigns, CRM, HTML for Salesforce campaigns, KPI tracking, market research and strategy for international brands.', c_cv:'Download CV', c_cvtag:'', c_stat1:'Years', c_stat2:'Campaigns', c_stat3:'Design &amp;<br>mkt tools', c_stat4:'International', c_exp_label:'Worked experiences', c_exp_btn:'See all experiences I have collaborated on', c_crm_label:'CRM examples', c_crm_desc:'Email marketing campaigns designed for Fever experiences around the world.', c_crm_btn:'See email campaigns',
-      wed_eyebrow:'Illustrations + Prints', wed_title:'Custom illustrations and prints.', wed_desc:'Posters, illustrations and prints for weddings, bachelorette parties, birthdays, events and more.', wed_project_title:'Alba &amp; Ignacio — <em>Wedding website.</em>', wed_project_desc:"Wedding website built around a watercolour aesthetic, designed to capture the spirit of the place where the big day will take place.", wed_visit:'Visit website', wed_print_title:"Table cards &amp; Prints · Alba &amp; Ignacio's Wedding", wed_print_desc:'Full prints for the aperitif stations and wedding menu. Watercolour design with custom illustrations.', wed_print_btn:'View table cards and prints',
+      wed_eyebrow:'Illustrations', wed_title:'Custom illustrations and prints.', wed_desc:'Posters, illustrations and prints for weddings, bachelorette parties, birthdays, events and more.', wed_project_title:'Alba &amp; Ignacio — <em>Wedding website.</em>', wed_project_desc:"Wedding website built around a watercolour aesthetic, designed to capture the spirit of the place where the big day will take place.", wed_visit:'Visit website', wed_print_title:"Table cards &amp; Prints · Alba &amp; Ignacio's Wedding", wed_print_desc:'Full prints for the aperitif stations and wedding menu. Watercolour design with custom illustrations.', wed_print_btn:'View table cards and prints',
       con_eyebrow:"Let's talk", con_title:'You have a<br>project.', con_desc:'Always open to collaborations, freelance projects and new creative challenges. Write to me!', con_nombre:'YOUR NAME', con_nombre_ph:'e.g. Anna Smith', con_email_lbl:'YOUR EMAIL', con_email_ph:'hello@email.com', con_msg:'MESSAGE', con_msg_ph:'Tell me about your project...', con_send:'SEND', con_success:"✦ Message sent! I'll get back to you soon.", swipe:'swipe ▶'
     }
   };
@@ -2345,8 +2380,8 @@ document.addEventListener('keydown', function(e){
     var wed=document.getElementById('wc-illustration');
     if(wed){
       wed.querySelector('.section-eyebrow').innerHTML=t.wed_eyebrow;
-      wed.querySelector('.section-title').innerHTML=t.wed_title;
-      wed.querySelector('.section-desc').textContent=t.wed_desc;
+      var illustrationsTitle=wed.querySelector('.section-title');if(illustrationsTitle) illustrationsTitle.innerHTML=t.wed_title;
+      var illustrationsDesc=wed.querySelector('.section-desc');if(illustrationsDesc) illustrationsDesc.textContent=t.wed_desc;
       var wh3=wed.querySelector('.site-info h3'); if(wh3) wh3.innerHTML=t.wed_project_title;
       var wp=wed.querySelector('.site-info p'); if(wp) wp.textContent=t.wed_project_desc;
       var wvp=wed.querySelector('.visit-pill'); if(wvp) wvp.textContent=t.wed_visit;
